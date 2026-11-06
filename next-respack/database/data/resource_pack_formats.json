@@ -1,0 +1,6649 @@
+{
+  "dataset_version": "bdddfb4e174cf2de",
+  "source_url": "https://minecraft.wiki/w/Pack_format",
+  "fetched_at": "2026-11-06T05:12:00Z",
+  "parser_version": "1.0.0",
+  "edition": "java_resource_pack",
+  "records": [
+    {
+      "version_name": "1.7",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7"
+    },
+    {
+      "version_name": "1.7.1",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.1"
+    },
+    {
+      "version_name": "1.7.10",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.10"
+    },
+    {
+      "version_name": "1.7.10-pre1",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.10-pre1"
+    },
+    {
+      "version_name": "1.7.10-pre2",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.10-pre2"
+    },
+    {
+      "version_name": "1.7.10-pre3",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.10-pre3"
+    },
+    {
+      "version_name": "1.7.10-pre4",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.10-pre4"
+    },
+    {
+      "version_name": "1.7.2",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.2"
+    },
+    {
+      "version_name": "1.7.3",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.3"
+    },
+    {
+      "version_name": "1.7.4",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.4"
+    },
+    {
+      "version_name": "1.7.5",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.5"
+    },
+    {
+      "version_name": "1.7.6",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.6"
+    },
+    {
+      "version_name": "1.7.6-pre1",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.6-pre1"
+    },
+    {
+      "version_name": "1.7.6-pre2",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.6-pre2"
+    },
+    {
+      "version_name": "1.7.7",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.7"
+    },
+    {
+      "version_name": "1.7.8",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.8"
+    },
+    {
+      "version_name": "1.7.9",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.7.9"
+    },
+    {
+      "version_name": "1.8",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8"
+    },
+    {
+      "version_name": "1.8-pre1",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8-pre1"
+    },
+    {
+      "version_name": "1.8-pre2",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8-pre2"
+    },
+    {
+      "version_name": "1.8-pre3",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8-pre3"
+    },
+    {
+      "version_name": "1.8.1",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1"
+    },
+    {
+      "version_name": "1.8.1-pre1",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1-pre1"
+    },
+    {
+      "version_name": "1.8.1-pre2",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1-pre2"
+    },
+    {
+      "version_name": "1.8.1-pre3",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1-pre3"
+    },
+    {
+      "version_name": "1.8.1-pre4",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1-pre4"
+    },
+    {
+      "version_name": "1.8.1-pre5",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.1-pre5"
+    },
+    {
+      "version_name": "1.8.2",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2"
+    },
+    {
+      "version_name": "1.8.2-pre1",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre1"
+    },
+    {
+      "version_name": "1.8.2-pre2",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre2"
+    },
+    {
+      "version_name": "1.8.2-pre3",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre3"
+    },
+    {
+      "version_name": "1.8.2-pre4",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre4"
+    },
+    {
+      "version_name": "1.8.2-pre5",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre5"
+    },
+    {
+      "version_name": "1.8.2-pre6",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre6"
+    },
+    {
+      "version_name": "1.8.2-pre7",
+      "version_type": "prerelease",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.2-pre7"
+    },
+    {
+      "version_name": "1.8.3",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.3"
+    },
+    {
+      "version_name": "1.8.4",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.4"
+    },
+    {
+      "version_name": "1.8.5",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.5"
+    },
+    {
+      "version_name": "1.8.6",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.6"
+    },
+    {
+      "version_name": "1.8.7",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.7"
+    },
+    {
+      "version_name": "1.8.8",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.8"
+    },
+    {
+      "version_name": "1.8.9",
+      "version_type": "release",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 1.8.9"
+    },
+    {
+      "version_name": "13w41a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w41a"
+    },
+    {
+      "version_name": "13w41b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w41b"
+    },
+    {
+      "version_name": "13w42a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w42a"
+    },
+    {
+      "version_name": "13w42b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w42b"
+    },
+    {
+      "version_name": "13w43a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w43a"
+    },
+    {
+      "version_name": "13w47a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w47a"
+    },
+    {
+      "version_name": "13w47b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w47b"
+    },
+    {
+      "version_name": "13w47c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w47c"
+    },
+    {
+      "version_name": "13w47d",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w47d"
+    },
+    {
+      "version_name": "13w47e",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w47e"
+    },
+    {
+      "version_name": "13w48a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w48a"
+    },
+    {
+      "version_name": "13w48b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w48b"
+    },
+    {
+      "version_name": "13w49a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 13w49a"
+    },
+    {
+      "version_name": "14w02a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w02a"
+    },
+    {
+      "version_name": "14w02b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w02b"
+    },
+    {
+      "version_name": "14w02c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w02c"
+    },
+    {
+      "version_name": "14w03a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w03a"
+    },
+    {
+      "version_name": "14w03b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w03b"
+    },
+    {
+      "version_name": "14w04a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w04a"
+    },
+    {
+      "version_name": "14w04b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w04b"
+    },
+    {
+      "version_name": "14w05a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w05a"
+    },
+    {
+      "version_name": "14w05b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w05b"
+    },
+    {
+      "version_name": "14w06a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w06a"
+    },
+    {
+      "version_name": "14w06b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w06b"
+    },
+    {
+      "version_name": "14w07a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w07a"
+    },
+    {
+      "version_name": "14w08a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w08a"
+    },
+    {
+      "version_name": "14w10a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w10a"
+    },
+    {
+      "version_name": "14w10b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w10b"
+    },
+    {
+      "version_name": "14w10c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w10c"
+    },
+    {
+      "version_name": "14w11a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w11a"
+    },
+    {
+      "version_name": "14w11b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w11b"
+    },
+    {
+      "version_name": "14w17a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w17a"
+    },
+    {
+      "version_name": "14w18a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w18a"
+    },
+    {
+      "version_name": "14w18b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w18b"
+    },
+    {
+      "version_name": "14w19a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w19a"
+    },
+    {
+      "version_name": "14w20a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w20a"
+    },
+    {
+      "version_name": "14w20b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w20b"
+    },
+    {
+      "version_name": "14w21a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w21a"
+    },
+    {
+      "version_name": "14w21b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w21b"
+    },
+    {
+      "version_name": "14w25a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w25a"
+    },
+    {
+      "version_name": "14w25b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w25b"
+    },
+    {
+      "version_name": "14w26a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w26a"
+    },
+    {
+      "version_name": "14w26b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w26b"
+    },
+    {
+      "version_name": "14w26c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w26c"
+    },
+    {
+      "version_name": "14w27a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w27a"
+    },
+    {
+      "version_name": "14w27b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w27b"
+    },
+    {
+      "version_name": "14w28a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w28a"
+    },
+    {
+      "version_name": "14w28b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w28b"
+    },
+    {
+      "version_name": "14w29a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w29a"
+    },
+    {
+      "version_name": "14w29b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w29b"
+    },
+    {
+      "version_name": "14w30a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w30a"
+    },
+    {
+      "version_name": "14w30b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w30b"
+    },
+    {
+      "version_name": "14w30c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w30c"
+    },
+    {
+      "version_name": "14w31a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w31a"
+    },
+    {
+      "version_name": "14w32a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w32a"
+    },
+    {
+      "version_name": "14w32b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w32b"
+    },
+    {
+      "version_name": "14w32c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w32c"
+    },
+    {
+      "version_name": "14w32d",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w32d"
+    },
+    {
+      "version_name": "14w33a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w33a"
+    },
+    {
+      "version_name": "14w33b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w33b"
+    },
+    {
+      "version_name": "14w33c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w33c"
+    },
+    {
+      "version_name": "14w34a",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w34a"
+    },
+    {
+      "version_name": "14w34b",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w34b"
+    },
+    {
+      "version_name": "14w34c",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w34c"
+    },
+    {
+      "version_name": "14w34d",
+      "version_type": "snapshot",
+      "format_major": 1,
+      "format_minor": null,
+      "format_value": "1",
+      "raw_title": "Java Edition 14w34d"
+    },
+    {
+      "version_name": "1.10",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.10"
+    },
+    {
+      "version_name": "1.10-pre1",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.10-pre1"
+    },
+    {
+      "version_name": "1.10-pre2",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.10-pre2"
+    },
+    {
+      "version_name": "1.10.1",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.10.1"
+    },
+    {
+      "version_name": "1.10.2",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.10.2"
+    },
+    {
+      "version_name": "1.9",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9"
+    },
+    {
+      "version_name": "1.9-pre1",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9-pre1"
+    },
+    {
+      "version_name": "1.9-pre2",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9-pre2"
+    },
+    {
+      "version_name": "1.9-pre3",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9-pre3"
+    },
+    {
+      "version_name": "1.9-pre4",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9-pre4"
+    },
+    {
+      "version_name": "1.9.1",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.1"
+    },
+    {
+      "version_name": "1.9.1-pre1",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.1-pre1"
+    },
+    {
+      "version_name": "1.9.1-pre2",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.1-pre2"
+    },
+    {
+      "version_name": "1.9.1-pre3",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.1-pre3"
+    },
+    {
+      "version_name": "1.9.2",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.2"
+    },
+    {
+      "version_name": "1.9.3",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.3"
+    },
+    {
+      "version_name": "1.9.3-pre1",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.3-pre1"
+    },
+    {
+      "version_name": "1.9.3-pre2",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.3-pre2"
+    },
+    {
+      "version_name": "1.9.3-pre3",
+      "version_type": "prerelease",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.3-pre3"
+    },
+    {
+      "version_name": "1.9.4",
+      "version_type": "release",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 1.9.4"
+    },
+    {
+      "version_name": "15w31a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w31a"
+    },
+    {
+      "version_name": "15w31b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w31b"
+    },
+    {
+      "version_name": "15w31c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w31c"
+    },
+    {
+      "version_name": "15w32a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w32a"
+    },
+    {
+      "version_name": "15w32b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w32b"
+    },
+    {
+      "version_name": "15w32c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w32c"
+    },
+    {
+      "version_name": "15w33a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w33a"
+    },
+    {
+      "version_name": "15w33b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w33b"
+    },
+    {
+      "version_name": "15w33c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w33c"
+    },
+    {
+      "version_name": "15w34a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w34a"
+    },
+    {
+      "version_name": "15w34b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w34b"
+    },
+    {
+      "version_name": "15w34c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w34c"
+    },
+    {
+      "version_name": "15w34d",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w34d"
+    },
+    {
+      "version_name": "15w35a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w35a"
+    },
+    {
+      "version_name": "15w35b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w35b"
+    },
+    {
+      "version_name": "15w35c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w35c"
+    },
+    {
+      "version_name": "15w35d",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w35d"
+    },
+    {
+      "version_name": "15w35e",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w35e"
+    },
+    {
+      "version_name": "15w36a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w36a"
+    },
+    {
+      "version_name": "15w36b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w36b"
+    },
+    {
+      "version_name": "15w36c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w36c"
+    },
+    {
+      "version_name": "15w36d",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w36d"
+    },
+    {
+      "version_name": "15w37a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w37a"
+    },
+    {
+      "version_name": "15w38a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w38a"
+    },
+    {
+      "version_name": "15w38b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w38b"
+    },
+    {
+      "version_name": "15w39a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w39a"
+    },
+    {
+      "version_name": "15w39b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w39b"
+    },
+    {
+      "version_name": "15w39c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w39c"
+    },
+    {
+      "version_name": "15w40a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w40a"
+    },
+    {
+      "version_name": "15w40b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w40b"
+    },
+    {
+      "version_name": "15w41a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w41a"
+    },
+    {
+      "version_name": "15w41b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w41b"
+    },
+    {
+      "version_name": "15w42a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w42a"
+    },
+    {
+      "version_name": "15w43a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w43a"
+    },
+    {
+      "version_name": "15w43b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w43b"
+    },
+    {
+      "version_name": "15w43c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w43c"
+    },
+    {
+      "version_name": "15w44a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w44a"
+    },
+    {
+      "version_name": "15w44b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w44b"
+    },
+    {
+      "version_name": "15w45a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w45a"
+    },
+    {
+      "version_name": "15w46a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w46a"
+    },
+    {
+      "version_name": "15w47a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w47a"
+    },
+    {
+      "version_name": "15w47b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w47b"
+    },
+    {
+      "version_name": "15w47c",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w47c"
+    },
+    {
+      "version_name": "15w49a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w49a"
+    },
+    {
+      "version_name": "15w49b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w49b"
+    },
+    {
+      "version_name": "15w50a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w50a"
+    },
+    {
+      "version_name": "15w51a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w51a"
+    },
+    {
+      "version_name": "15w51b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 15w51b"
+    },
+    {
+      "version_name": "16w02a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w02a"
+    },
+    {
+      "version_name": "16w03a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w03a"
+    },
+    {
+      "version_name": "16w04a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w04a"
+    },
+    {
+      "version_name": "16w05a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w05a"
+    },
+    {
+      "version_name": "16w05b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w05b"
+    },
+    {
+      "version_name": "16w06a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w06a"
+    },
+    {
+      "version_name": "16w07a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w07a"
+    },
+    {
+      "version_name": "16w07b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w07b"
+    },
+    {
+      "version_name": "16w14a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w14a"
+    },
+    {
+      "version_name": "16w15a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w15a"
+    },
+    {
+      "version_name": "16w15b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w15b"
+    },
+    {
+      "version_name": "16w20a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w20a"
+    },
+    {
+      "version_name": "16w21a",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w21a"
+    },
+    {
+      "version_name": "16w21b",
+      "version_type": "snapshot",
+      "format_major": 2,
+      "format_minor": null,
+      "format_value": "2",
+      "raw_title": "Java Edition 16w21b"
+    },
+    {
+      "version_name": "1.11",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.11"
+    },
+    {
+      "version_name": "1.11-pre1",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.11-pre1"
+    },
+    {
+      "version_name": "1.11.1",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.11.1"
+    },
+    {
+      "version_name": "1.11.2",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.11.2"
+    },
+    {
+      "version_name": "1.12",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12"
+    },
+    {
+      "version_name": "1.12-pre1",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre1"
+    },
+    {
+      "version_name": "1.12-pre2",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre2"
+    },
+    {
+      "version_name": "1.12-pre3",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre3"
+    },
+    {
+      "version_name": "1.12-pre4",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre4"
+    },
+    {
+      "version_name": "1.12-pre5",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre5"
+    },
+    {
+      "version_name": "1.12-pre6",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre6"
+    },
+    {
+      "version_name": "1.12-pre7",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12-pre7"
+    },
+    {
+      "version_name": "1.12.1",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12.1"
+    },
+    {
+      "version_name": "1.12.1-pre1",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12.1-pre1"
+    },
+    {
+      "version_name": "1.12.2",
+      "version_type": "release",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12.2"
+    },
+    {
+      "version_name": "1.12.2-pre1",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12.2-pre1"
+    },
+    {
+      "version_name": "1.12.2-pre2",
+      "version_type": "prerelease",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 1.12.2-pre2"
+    },
+    {
+      "version_name": "16w32a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w32a"
+    },
+    {
+      "version_name": "16w32b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w32b"
+    },
+    {
+      "version_name": "16w33a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w33a"
+    },
+    {
+      "version_name": "16w35a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w35a"
+    },
+    {
+      "version_name": "16w36a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w36a"
+    },
+    {
+      "version_name": "16w38a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w38a"
+    },
+    {
+      "version_name": "16w39a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w39a"
+    },
+    {
+      "version_name": "16w39b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w39b"
+    },
+    {
+      "version_name": "16w39c",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w39c"
+    },
+    {
+      "version_name": "16w40a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w40a"
+    },
+    {
+      "version_name": "16w41a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w41a"
+    },
+    {
+      "version_name": "16w42a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w42a"
+    },
+    {
+      "version_name": "16w43a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w43a"
+    },
+    {
+      "version_name": "16w44a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w44a"
+    },
+    {
+      "version_name": "16w50a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 16w50a"
+    },
+    {
+      "version_name": "17w06a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w06a"
+    },
+    {
+      "version_name": "17w13a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w13a"
+    },
+    {
+      "version_name": "17w13b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w13b"
+    },
+    {
+      "version_name": "17w14a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w14a"
+    },
+    {
+      "version_name": "17w15a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w15a"
+    },
+    {
+      "version_name": "17w16a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w16a"
+    },
+    {
+      "version_name": "17w16b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w16b"
+    },
+    {
+      "version_name": "17w17a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w17a"
+    },
+    {
+      "version_name": "17w17b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w17b"
+    },
+    {
+      "version_name": "17w18a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w18a"
+    },
+    {
+      "version_name": "17w18b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w18b"
+    },
+    {
+      "version_name": "17w31a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w31a"
+    },
+    {
+      "version_name": "17w43a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w43a"
+    },
+    {
+      "version_name": "17w43b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w43b"
+    },
+    {
+      "version_name": "17w45a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w45a"
+    },
+    {
+      "version_name": "17w45b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w45b"
+    },
+    {
+      "version_name": "17w46a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w46a"
+    },
+    {
+      "version_name": "17w47a",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w47a"
+    },
+    {
+      "version_name": "17w47b",
+      "version_type": "snapshot",
+      "format_major": 3,
+      "format_minor": null,
+      "format_value": "3",
+      "raw_title": "Java Edition 17w47b"
+    },
+    {
+      "version_name": "1.13",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13"
+    },
+    {
+      "version_name": "1.13-pre1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre1"
+    },
+    {
+      "version_name": "1.13-pre10",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre10"
+    },
+    {
+      "version_name": "1.13-pre2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre2"
+    },
+    {
+      "version_name": "1.13-pre3",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre3"
+    },
+    {
+      "version_name": "1.13-pre4",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre4"
+    },
+    {
+      "version_name": "1.13-pre5",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre5"
+    },
+    {
+      "version_name": "1.13-pre6",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre6"
+    },
+    {
+      "version_name": "1.13-pre7",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre7"
+    },
+    {
+      "version_name": "1.13-pre8",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre8"
+    },
+    {
+      "version_name": "1.13-pre9",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13-pre9"
+    },
+    {
+      "version_name": "1.13.1",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.1"
+    },
+    {
+      "version_name": "1.13.1-pre1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.1-pre1"
+    },
+    {
+      "version_name": "1.13.1-pre2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.1-pre2"
+    },
+    {
+      "version_name": "1.13.2",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.2"
+    },
+    {
+      "version_name": "1.13.2-pre1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.2-pre1"
+    },
+    {
+      "version_name": "1.13.2-pre2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.13.2-pre2"
+    },
+    {
+      "version_name": "1.14",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14"
+    },
+    {
+      "version_name": "1.14 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14 Pre-Release 1"
+    },
+    {
+      "version_name": "1.14 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14 Pre-Release 2"
+    },
+    {
+      "version_name": "1.14 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14 Pre-Release 3"
+    },
+    {
+      "version_name": "1.14 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14 Pre-Release 4"
+    },
+    {
+      "version_name": "1.14 Pre-Release 5",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14 Pre-Release 5"
+    },
+    {
+      "version_name": "1.14.1",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.1"
+    },
+    {
+      "version_name": "1.14.1 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.1 Pre-Release 1"
+    },
+    {
+      "version_name": "1.14.1 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.1 Pre-Release 2"
+    },
+    {
+      "version_name": "1.14.2",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.2"
+    },
+    {
+      "version_name": "1.14.2 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.2 Pre-Release 1"
+    },
+    {
+      "version_name": "1.14.2 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.2 Pre-Release 2"
+    },
+    {
+      "version_name": "1.14.2 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.2 Pre-Release 3"
+    },
+    {
+      "version_name": "1.14.2 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.2 Pre-Release 4"
+    },
+    {
+      "version_name": "1.14.3",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3"
+    },
+    {
+      "version_name": "1.14.3 - Combat Test",
+      "version_type": "experimental",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3 - Combat Test"
+    },
+    {
+      "version_name": "1.14.3 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3 Pre-Release 1"
+    },
+    {
+      "version_name": "1.14.3 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3 Pre-Release 2"
+    },
+    {
+      "version_name": "1.14.3 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3 Pre-Release 3"
+    },
+    {
+      "version_name": "1.14.3 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.3 Pre-Release 4"
+    },
+    {
+      "version_name": "1.14.4",
+      "version_type": "release",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 1"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 2"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 3"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 4"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 5",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 5"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 6",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 6"
+    },
+    {
+      "version_name": "1.14.4 Pre-Release 7",
+      "version_type": "prerelease",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 1.14.4 Pre-Release 7"
+    },
+    {
+      "version_name": "17w48a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 17w48a"
+    },
+    {
+      "version_name": "17w49a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 17w49a"
+    },
+    {
+      "version_name": "17w49b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 17w49b"
+    },
+    {
+      "version_name": "17w50a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 17w50a"
+    },
+    {
+      "version_name": "18w01a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w01a"
+    },
+    {
+      "version_name": "18w02a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w02a"
+    },
+    {
+      "version_name": "18w03a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w03a"
+    },
+    {
+      "version_name": "18w03b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w03b"
+    },
+    {
+      "version_name": "18w05a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w05a"
+    },
+    {
+      "version_name": "18w06a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w06a"
+    },
+    {
+      "version_name": "18w07a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w07a"
+    },
+    {
+      "version_name": "18w07b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w07b"
+    },
+    {
+      "version_name": "18w07c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w07c"
+    },
+    {
+      "version_name": "18w08a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w08a"
+    },
+    {
+      "version_name": "18w08b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w08b"
+    },
+    {
+      "version_name": "18w09a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w09a"
+    },
+    {
+      "version_name": "18w10a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w10a"
+    },
+    {
+      "version_name": "18w10b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w10b"
+    },
+    {
+      "version_name": "18w10c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w10c"
+    },
+    {
+      "version_name": "18w10d",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w10d"
+    },
+    {
+      "version_name": "18w11a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w11a"
+    },
+    {
+      "version_name": "18w14a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w14a"
+    },
+    {
+      "version_name": "18w14b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w14b"
+    },
+    {
+      "version_name": "18w15a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w15a"
+    },
+    {
+      "version_name": "18w16a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w16a"
+    },
+    {
+      "version_name": "18w19a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w19a"
+    },
+    {
+      "version_name": "18w19b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w19b"
+    },
+    {
+      "version_name": "18w20a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w20a"
+    },
+    {
+      "version_name": "18w20b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w20b"
+    },
+    {
+      "version_name": "18w20c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w20c"
+    },
+    {
+      "version_name": "18w21a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w21a"
+    },
+    {
+      "version_name": "18w21b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w21b"
+    },
+    {
+      "version_name": "18w22a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w22a"
+    },
+    {
+      "version_name": "18w22b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w22b"
+    },
+    {
+      "version_name": "18w22c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w22c"
+    },
+    {
+      "version_name": "18w30a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w30a"
+    },
+    {
+      "version_name": "18w30b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w30b"
+    },
+    {
+      "version_name": "18w31a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w31a"
+    },
+    {
+      "version_name": "18w32a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w32a"
+    },
+    {
+      "version_name": "18w33a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w33a"
+    },
+    {
+      "version_name": "18w43a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w43a"
+    },
+    {
+      "version_name": "18w43b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w43b"
+    },
+    {
+      "version_name": "18w43c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w43c"
+    },
+    {
+      "version_name": "18w44a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w44a"
+    },
+    {
+      "version_name": "18w45a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w45a"
+    },
+    {
+      "version_name": "18w46a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w46a"
+    },
+    {
+      "version_name": "18w47a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w47a"
+    },
+    {
+      "version_name": "18w47b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w47b"
+    },
+    {
+      "version_name": "18w48a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w48a"
+    },
+    {
+      "version_name": "18w48b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w48b"
+    },
+    {
+      "version_name": "18w49a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w49a"
+    },
+    {
+      "version_name": "18w50a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 18w50a"
+    },
+    {
+      "version_name": "19w02a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w02a"
+    },
+    {
+      "version_name": "19w03a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w03a"
+    },
+    {
+      "version_name": "19w03b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w03b"
+    },
+    {
+      "version_name": "19w03c",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w03c"
+    },
+    {
+      "version_name": "19w04a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w04a"
+    },
+    {
+      "version_name": "19w04b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w04b"
+    },
+    {
+      "version_name": "19w05a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w05a"
+    },
+    {
+      "version_name": "19w06a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w06a"
+    },
+    {
+      "version_name": "19w07a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w07a"
+    },
+    {
+      "version_name": "19w08a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w08a"
+    },
+    {
+      "version_name": "19w08b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w08b"
+    },
+    {
+      "version_name": "19w09a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w09a"
+    },
+    {
+      "version_name": "19w11a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w11a"
+    },
+    {
+      "version_name": "19w11b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w11b"
+    },
+    {
+      "version_name": "19w12a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w12a"
+    },
+    {
+      "version_name": "19w12b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w12b"
+    },
+    {
+      "version_name": "19w13a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w13a"
+    },
+    {
+      "version_name": "19w13b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w13b"
+    },
+    {
+      "version_name": "19w14a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w14a"
+    },
+    {
+      "version_name": "19w14b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w14b"
+    },
+    {
+      "version_name": "19w34a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w34a"
+    },
+    {
+      "version_name": "19w35a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w35a"
+    },
+    {
+      "version_name": "19w36a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w36a"
+    },
+    {
+      "version_name": "19w37a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w37a"
+    },
+    {
+      "version_name": "19w38a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w38a"
+    },
+    {
+      "version_name": "19w38b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w38b"
+    },
+    {
+      "version_name": "19w39a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w39a"
+    },
+    {
+      "version_name": "19w40a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w40a"
+    },
+    {
+      "version_name": "19w41a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w41a"
+    },
+    {
+      "version_name": "19w42a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w42a"
+    },
+    {
+      "version_name": "19w44a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w44a"
+    },
+    {
+      "version_name": "19w45a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w45a"
+    },
+    {
+      "version_name": "19w45b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w45b"
+    },
+    {
+      "version_name": "19w46a",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w46a"
+    },
+    {
+      "version_name": "19w46b",
+      "version_type": "snapshot",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition 19w46b"
+    },
+    {
+      "version_name": "Combat Test 2",
+      "version_type": "experimental",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition Combat Test 2"
+    },
+    {
+      "version_name": "Combat Test 3",
+      "version_type": "experimental",
+      "format_major": 4,
+      "format_minor": null,
+      "format_value": "4",
+      "raw_title": "Java Edition Combat Test 3"
+    },
+    {
+      "version_name": "1.15",
+      "version_type": "release",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15"
+    },
+    {
+      "version_name": "1.15 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-Release 2"
+    },
+    {
+      "version_name": "1.15 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 1"
+    },
+    {
+      "version_name": "1.15 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 3"
+    },
+    {
+      "version_name": "1.15 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 4"
+    },
+    {
+      "version_name": "1.15 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 5"
+    },
+    {
+      "version_name": "1.15 Pre-release 6",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 6"
+    },
+    {
+      "version_name": "1.15 Pre-release 7",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15 Pre-release 7"
+    },
+    {
+      "version_name": "1.15.1",
+      "version_type": "release",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15.1"
+    },
+    {
+      "version_name": "1.15.1 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15.1 Pre-release 1"
+    },
+    {
+      "version_name": "1.15.2",
+      "version_type": "release",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15.2"
+    },
+    {
+      "version_name": "1.15.2 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15.2 Pre-Release 1"
+    },
+    {
+      "version_name": "1.15.2 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.15.2 Pre-release 2"
+    },
+    {
+      "version_name": "1.16",
+      "version_type": "release",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16"
+    },
+    {
+      "version_name": "1.16 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 1"
+    },
+    {
+      "version_name": "1.16 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 2"
+    },
+    {
+      "version_name": "1.16 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 3"
+    },
+    {
+      "version_name": "1.16 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 4"
+    },
+    {
+      "version_name": "1.16 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 5"
+    },
+    {
+      "version_name": "1.16 Pre-release 6",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 6"
+    },
+    {
+      "version_name": "1.16 Pre-release 7",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 7"
+    },
+    {
+      "version_name": "1.16 Pre-release 8",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Pre-release 8"
+    },
+    {
+      "version_name": "1.16 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16 Release Candidate 1"
+    },
+    {
+      "version_name": "1.16.1",
+      "version_type": "release",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16.1"
+    },
+    {
+      "version_name": "1.16.2 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16.2 Pre-release 1"
+    },
+    {
+      "version_name": "1.16.2 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16.2 Pre-release 2"
+    },
+    {
+      "version_name": "1.16.2 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 1.16.2 Pre-release 3"
+    },
+    {
+      "version_name": "20w07a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w07a"
+    },
+    {
+      "version_name": "20w08a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w08a"
+    },
+    {
+      "version_name": "20w09a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w09a"
+    },
+    {
+      "version_name": "20w10a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w10a"
+    },
+    {
+      "version_name": "20w11a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w11a"
+    },
+    {
+      "version_name": "20w12a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w12a"
+    },
+    {
+      "version_name": "20w13a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w13a"
+    },
+    {
+      "version_name": "20w13b",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w13b"
+    },
+    {
+      "version_name": "20w14a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w14a"
+    },
+    {
+      "version_name": "20w15a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w15a"
+    },
+    {
+      "version_name": "20w16a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w16a"
+    },
+    {
+      "version_name": "20w17a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w17a"
+    },
+    {
+      "version_name": "20w18a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w18a"
+    },
+    {
+      "version_name": "20w19a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w19a"
+    },
+    {
+      "version_name": "20w20a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w20a"
+    },
+    {
+      "version_name": "20w20b",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w20b"
+    },
+    {
+      "version_name": "20w21a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w21a"
+    },
+    {
+      "version_name": "20w22a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w22a"
+    },
+    {
+      "version_name": "20w27a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w27a"
+    },
+    {
+      "version_name": "20w28a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w28a"
+    },
+    {
+      "version_name": "20w29a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w29a"
+    },
+    {
+      "version_name": "20w30a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition 20w30a"
+    },
+    {
+      "version_name": "Combat Test 4",
+      "version_type": "experimental",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition Combat Test 4"
+    },
+    {
+      "version_name": "Combat Test 5",
+      "version_type": "experimental",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition Combat Test 5"
+    },
+    {
+      "version_name": "Combat Test 6",
+      "version_type": "experimental",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition Combat Test 6"
+    },
+    {
+      "version_name": "Snapshot 20w06a",
+      "version_type": "snapshot",
+      "format_major": 5,
+      "format_minor": null,
+      "format_value": "5",
+      "raw_title": "Java Edition Snapshot 20w06a"
+    },
+    {
+      "version_name": "1.16.2",
+      "version_type": "release",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.2"
+    },
+    {
+      "version_name": "1.16.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.2 Release Candidate 1"
+    },
+    {
+      "version_name": "1.16.2 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.2 Release Candidate 2"
+    },
+    {
+      "version_name": "1.16.3",
+      "version_type": "release",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.3"
+    },
+    {
+      "version_name": "1.16.3 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.3 Release Candidate 1"
+    },
+    {
+      "version_name": "1.16.4",
+      "version_type": "release",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.4"
+    },
+    {
+      "version_name": "1.16.4 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.4 Pre-release 1"
+    },
+    {
+      "version_name": "1.16.4 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.4 Pre-release 2"
+    },
+    {
+      "version_name": "1.16.4 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.4 Release Candidate 1"
+    },
+    {
+      "version_name": "1.16.5",
+      "version_type": "release",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.5"
+    },
+    {
+      "version_name": "1.16.5 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition 1.16.5 Release Candidate 1"
+    },
+    {
+      "version_name": "Combat Test 7",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 7"
+    },
+    {
+      "version_name": "Combat Test 7b",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 7b"
+    },
+    {
+      "version_name": "Combat Test 7c",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 7c"
+    },
+    {
+      "version_name": "Combat Test 8",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 8"
+    },
+    {
+      "version_name": "Combat Test 8b",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 8b"
+    },
+    {
+      "version_name": "Combat Test 8c",
+      "version_type": "experimental",
+      "format_major": 6,
+      "format_minor": null,
+      "format_value": "6",
+      "raw_title": "Java Edition Combat Test 8c"
+    },
+    {
+      "version_name": "1.17",
+      "version_type": "release",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17"
+    },
+    {
+      "version_name": "1.17 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Pre-release 1"
+    },
+    {
+      "version_name": "1.17 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Pre-release 2"
+    },
+    {
+      "version_name": "1.17 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Pre-release 3"
+    },
+    {
+      "version_name": "1.17 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Pre-release 4"
+    },
+    {
+      "version_name": "1.17 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Pre-release 5"
+    },
+    {
+      "version_name": "1.17 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Release Candidate 1"
+    },
+    {
+      "version_name": "1.17 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17 Release Candidate 2"
+    },
+    {
+      "version_name": "1.17.1",
+      "version_type": "release",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1"
+    },
+    {
+      "version_name": "1.17.1 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1 Pre-release 1"
+    },
+    {
+      "version_name": "1.17.1 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1 Pre-release 2"
+    },
+    {
+      "version_name": "1.17.1 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1 Pre-release 3"
+    },
+    {
+      "version_name": "1.17.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1 Release Candidate 1"
+    },
+    {
+      "version_name": "1.17.1 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.17.1 Release Candidate 2"
+    },
+    {
+      "version_name": "1.18 Experimental Snapshot 1",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 Experimental Snapshot 1"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 2",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 2"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 3",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 3"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 4",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 4"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 5",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 5"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 6",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 6"
+    },
+    {
+      "version_name": "1.18 experimental snapshot 7",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 1.18 experimental snapshot 7"
+    },
+    {
+      "version_name": "20w45a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 20w45a"
+    },
+    {
+      "version_name": "20w46a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 20w46a"
+    },
+    {
+      "version_name": "20w48a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 20w48a"
+    },
+    {
+      "version_name": "20w49a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 20w49a"
+    },
+    {
+      "version_name": "20w51a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 20w51a"
+    },
+    {
+      "version_name": "21w03a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w03a"
+    },
+    {
+      "version_name": "21w05a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w05a"
+    },
+    {
+      "version_name": "21w05b",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w05b"
+    },
+    {
+      "version_name": "21w06a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w06a"
+    },
+    {
+      "version_name": "21w07a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w07a"
+    },
+    {
+      "version_name": "21w08a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w08a"
+    },
+    {
+      "version_name": "21w08b",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w08b"
+    },
+    {
+      "version_name": "21w10a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w10a"
+    },
+    {
+      "version_name": "21w11a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w11a"
+    },
+    {
+      "version_name": "21w13a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w13a"
+    },
+    {
+      "version_name": "21w14a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w14a"
+    },
+    {
+      "version_name": "21w15a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w15a"
+    },
+    {
+      "version_name": "21w16a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w16a"
+    },
+    {
+      "version_name": "21w17a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w17a"
+    },
+    {
+      "version_name": "21w18a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w18a"
+    },
+    {
+      "version_name": "21w19a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w19a"
+    },
+    {
+      "version_name": "21w20a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w20a"
+    },
+    {
+      "version_name": "21w37a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w37a"
+    },
+    {
+      "version_name": "21w38a",
+      "version_type": "snapshot",
+      "format_major": 7,
+      "format_minor": null,
+      "format_value": "7",
+      "raw_title": "Java Edition 21w38a"
+    },
+    {
+      "version_name": "1.18",
+      "version_type": "release",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18"
+    },
+    {
+      "version_name": "1.18 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 1"
+    },
+    {
+      "version_name": "1.18 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 2"
+    },
+    {
+      "version_name": "1.18 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 3"
+    },
+    {
+      "version_name": "1.18 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 4"
+    },
+    {
+      "version_name": "1.18 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 5"
+    },
+    {
+      "version_name": "1.18 Pre-release 6",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 6"
+    },
+    {
+      "version_name": "1.18 Pre-release 7",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 7"
+    },
+    {
+      "version_name": "1.18 Pre-release 8",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Pre-release 8"
+    },
+    {
+      "version_name": "1.18 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Release Candidate 1"
+    },
+    {
+      "version_name": "1.18 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Release Candidate 2"
+    },
+    {
+      "version_name": "1.18 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Release Candidate 3"
+    },
+    {
+      "version_name": "1.18 Release Candidate 4",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18 Release Candidate 4"
+    },
+    {
+      "version_name": "1.18.1",
+      "version_type": "release",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.1"
+    },
+    {
+      "version_name": "1.18.1 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.1 Pre-release 1"
+    },
+    {
+      "version_name": "1.18.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.1 Release Candidate 1"
+    },
+    {
+      "version_name": "1.18.1 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.1 Release Candidate 2"
+    },
+    {
+      "version_name": "1.18.1 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.1 Release Candidate 3"
+    },
+    {
+      "version_name": "1.18.2",
+      "version_type": "release",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.2"
+    },
+    {
+      "version_name": "1.18.2 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.2 Pre-release 1"
+    },
+    {
+      "version_name": "1.18.2 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.2 Pre-release 2"
+    },
+    {
+      "version_name": "1.18.2 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.2 Pre-release 3"
+    },
+    {
+      "version_name": "1.18.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 1.18.2 Release Candidate 1"
+    },
+    {
+      "version_name": "21w39a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w39a"
+    },
+    {
+      "version_name": "21w40a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w40a"
+    },
+    {
+      "version_name": "21w41a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w41a"
+    },
+    {
+      "version_name": "21w42a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w42a"
+    },
+    {
+      "version_name": "21w43a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w43a"
+    },
+    {
+      "version_name": "21w44a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 21w44a"
+    },
+    {
+      "version_name": "22w03a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 22w03a"
+    },
+    {
+      "version_name": "22w05a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 22w05a"
+    },
+    {
+      "version_name": "22w06a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 22w06a"
+    },
+    {
+      "version_name": "22w07a",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition 22w07a"
+    },
+    {
+      "version_name": "Deep Dark Experimental Snapshot 1",
+      "version_type": "snapshot",
+      "format_major": 8,
+      "format_minor": null,
+      "format_value": "8",
+      "raw_title": "Java Edition Deep Dark Experimental Snapshot 1"
+    },
+    {
+      "version_name": "1.19",
+      "version_type": "release",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19"
+    },
+    {
+      "version_name": "1.19 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Pre-release 1"
+    },
+    {
+      "version_name": "1.19 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Pre-release 2"
+    },
+    {
+      "version_name": "1.19 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Pre-release 3"
+    },
+    {
+      "version_name": "1.19 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Pre-release 4"
+    },
+    {
+      "version_name": "1.19 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Pre-release 5"
+    },
+    {
+      "version_name": "1.19 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Release Candidate 1"
+    },
+    {
+      "version_name": "1.19 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19 Release Candidate 2"
+    },
+    {
+      "version_name": "1.19.1",
+      "version_type": "release",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 1"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 2"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 3"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 4"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 5"
+    },
+    {
+      "version_name": "1.19.1 Pre-release 6",
+      "version_type": "prerelease",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Pre-release 6"
+    },
+    {
+      "version_name": "1.19.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Release Candidate 1"
+    },
+    {
+      "version_name": "1.19.1 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Release Candidate 2"
+    },
+    {
+      "version_name": "1.19.1 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.1 Release Candidate 3"
+    },
+    {
+      "version_name": "1.19.2",
+      "version_type": "release",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.2"
+    },
+    {
+      "version_name": "1.19.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.2 Release Candidate 1"
+    },
+    {
+      "version_name": "1.19.2 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 1.19.2 Release Candidate 2"
+    },
+    {
+      "version_name": "22w11a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w11a"
+    },
+    {
+      "version_name": "22w12a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w12a"
+    },
+    {
+      "version_name": "22w13a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w13a"
+    },
+    {
+      "version_name": "22w14a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w14a"
+    },
+    {
+      "version_name": "22w15a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w15a"
+    },
+    {
+      "version_name": "22w16a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w16a"
+    },
+    {
+      "version_name": "22w16b",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w16b"
+    },
+    {
+      "version_name": "22w17a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w17a"
+    },
+    {
+      "version_name": "22w18a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w18a"
+    },
+    {
+      "version_name": "22w19a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w19a"
+    },
+    {
+      "version_name": "22w24a",
+      "version_type": "snapshot",
+      "format_major": 9,
+      "format_minor": null,
+      "format_value": "9",
+      "raw_title": "Java Edition 22w24a"
+    },
+    {
+      "version_name": "22w42a",
+      "version_type": "snapshot",
+      "format_major": 11,
+      "format_minor": null,
+      "format_value": "11",
+      "raw_title": "Java Edition 22w42a"
+    },
+    {
+      "version_name": "22w43a",
+      "version_type": "snapshot",
+      "format_major": 11,
+      "format_minor": null,
+      "format_value": "11",
+      "raw_title": "Java Edition 22w43a"
+    },
+    {
+      "version_name": "22w44a",
+      "version_type": "snapshot",
+      "format_major": 11,
+      "format_minor": null,
+      "format_value": "11",
+      "raw_title": "Java Edition 22w44a"
+    },
+    {
+      "version_name": "1.19.3",
+      "version_type": "release",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3"
+    },
+    {
+      "version_name": "1.19.3 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Pre-release 1"
+    },
+    {
+      "version_name": "1.19.3 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Pre-release 2"
+    },
+    {
+      "version_name": "1.19.3 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Pre-release 3"
+    },
+    {
+      "version_name": "1.19.3 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Release Candidate 1"
+    },
+    {
+      "version_name": "1.19.3 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Release Candidate 2"
+    },
+    {
+      "version_name": "1.19.3 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 1.19.3 Release Candidate 3"
+    },
+    {
+      "version_name": "22w45a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 22w45a"
+    },
+    {
+      "version_name": "22w46a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 22w46a"
+    },
+    {
+      "version_name": "23w03a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 23w03a"
+    },
+    {
+      "version_name": "23w04a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 23w04a"
+    },
+    {
+      "version_name": "23w05a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 23w05a"
+    },
+    {
+      "version_name": "23w06a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 23w06a"
+    },
+    {
+      "version_name": "23w07a",
+      "version_type": "snapshot",
+      "format_major": 12,
+      "format_minor": null,
+      "format_value": "12",
+      "raw_title": "Java Edition 23w07a"
+    },
+    {
+      "version_name": "1.19.4",
+      "version_type": "release",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4"
+    },
+    {
+      "version_name": "1.19.4 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Pre-release 1"
+    },
+    {
+      "version_name": "1.19.4 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Pre-release 2"
+    },
+    {
+      "version_name": "1.19.4 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Pre-release 3"
+    },
+    {
+      "version_name": "1.19.4 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Pre-release 4"
+    },
+    {
+      "version_name": "1.19.4 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Release Candidate 1"
+    },
+    {
+      "version_name": "1.19.4 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Release Candidate 2"
+    },
+    {
+      "version_name": "1.19.4 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 1.19.4 Release Candidate 3"
+    },
+    {
+      "version_name": "23w12a",
+      "version_type": "snapshot",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 23w12a"
+    },
+    {
+      "version_name": "23w13a",
+      "version_type": "snapshot",
+      "format_major": 13,
+      "format_minor": null,
+      "format_value": "13",
+      "raw_title": "Java Edition 23w13a"
+    },
+    {
+      "version_name": "23w14a",
+      "version_type": "snapshot",
+      "format_major": 14,
+      "format_minor": null,
+      "format_value": "14",
+      "raw_title": "Java Edition 23w14a"
+    },
+    {
+      "version_name": "23w16a",
+      "version_type": "snapshot",
+      "format_major": 14,
+      "format_minor": null,
+      "format_value": "14",
+      "raw_title": "Java Edition 23w16a"
+    },
+    {
+      "version_name": "1.20",
+      "version_type": "release",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20"
+    },
+    {
+      "version_name": "1.20 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 1"
+    },
+    {
+      "version_name": "1.20 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 2"
+    },
+    {
+      "version_name": "1.20 Pre-release 3",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 3"
+    },
+    {
+      "version_name": "1.20 Pre-release 4",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 4"
+    },
+    {
+      "version_name": "1.20 Pre-release 5",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 5"
+    },
+    {
+      "version_name": "1.20 Pre-release 6",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 6"
+    },
+    {
+      "version_name": "1.20 Pre-release 7",
+      "version_type": "prerelease",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Pre-release 7"
+    },
+    {
+      "version_name": "1.20 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20 Release Candidate 1"
+    },
+    {
+      "version_name": "1.20.1",
+      "version_type": "release",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20.1"
+    },
+    {
+      "version_name": "1.20.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 1.20.1 Release Candidate 1"
+    },
+    {
+      "version_name": "23w17a",
+      "version_type": "snapshot",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 23w17a"
+    },
+    {
+      "version_name": "23w18a",
+      "version_type": "snapshot",
+      "format_major": 15,
+      "format_minor": null,
+      "format_value": "15",
+      "raw_title": "Java Edition 23w18a"
+    },
+    {
+      "version_name": "23w31a",
+      "version_type": "snapshot",
+      "format_major": 16,
+      "format_minor": null,
+      "format_value": "16",
+      "raw_title": "Java Edition 23w31a"
+    },
+    {
+      "version_name": "1.20.2 Pre-release 1",
+      "version_type": "prerelease",
+      "format_major": 17,
+      "format_minor": null,
+      "format_value": "17",
+      "raw_title": "Java Edition 1.20.2 Pre-release 1"
+    },
+    {
+      "version_name": "23w32a",
+      "version_type": "snapshot",
+      "format_major": 17,
+      "format_minor": null,
+      "format_value": "17",
+      "raw_title": "Java Edition 23w32a"
+    },
+    {
+      "version_name": "23w33a",
+      "version_type": "snapshot",
+      "format_major": 17,
+      "format_minor": null,
+      "format_value": "17",
+      "raw_title": "Java Edition 23w33a"
+    },
+    {
+      "version_name": "23w35a",
+      "version_type": "snapshot",
+      "format_major": 17,
+      "format_minor": null,
+      "format_value": "17",
+      "raw_title": "Java Edition 23w35a"
+    },
+    {
+      "version_name": "1.20.2",
+      "version_type": "release",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2"
+    },
+    {
+      "version_name": "1.20.2 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2 Pre-Release 3"
+    },
+    {
+      "version_name": "1.20.2 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2 Pre-Release 4"
+    },
+    {
+      "version_name": "1.20.2 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2 Pre-release 2"
+    },
+    {
+      "version_name": "1.20.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2 Release Candidate 1"
+    },
+    {
+      "version_name": "1.20.2 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 1.20.2 Release Candidate 2"
+    },
+    {
+      "version_name": "23w40a",
+      "version_type": "snapshot",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 23w40a"
+    },
+    {
+      "version_name": "23w41a",
+      "version_type": "snapshot",
+      "format_major": 18,
+      "format_minor": null,
+      "format_value": "18",
+      "raw_title": "Java Edition 23w41a"
+    },
+    {
+      "version_name": "23w42a",
+      "version_type": "snapshot",
+      "format_major": 19,
+      "format_minor": null,
+      "format_value": "19",
+      "raw_title": "Java Edition 23w42a"
+    },
+    {
+      "version_name": "23w43a",
+      "version_type": "snapshot",
+      "format_major": 20,
+      "format_minor": null,
+      "format_value": "20",
+      "raw_title": "Java Edition 23w43a"
+    },
+    {
+      "version_name": "23w43b",
+      "version_type": "snapshot",
+      "format_major": 20,
+      "format_minor": null,
+      "format_value": "20",
+      "raw_title": "Java Edition 23w43b"
+    },
+    {
+      "version_name": "23w44a",
+      "version_type": "snapshot",
+      "format_major": 20,
+      "format_minor": null,
+      "format_value": "20",
+      "raw_title": "Java Edition 23w44a"
+    },
+    {
+      "version_name": "23w45a",
+      "version_type": "snapshot",
+      "format_major": 21,
+      "format_minor": null,
+      "format_value": "21",
+      "raw_title": "Java Edition 23w45a"
+    },
+    {
+      "version_name": "23w46a",
+      "version_type": "snapshot",
+      "format_major": 21,
+      "format_minor": null,
+      "format_value": "21",
+      "raw_title": "Java Edition 23w46a"
+    },
+    {
+      "version_name": "1.20.3",
+      "version_type": "release",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3"
+    },
+    {
+      "version_name": "1.20.3 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3 Pre-Release 1"
+    },
+    {
+      "version_name": "1.20.3 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3 Pre-Release 2"
+    },
+    {
+      "version_name": "1.20.3 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3 Pre-Release 3"
+    },
+    {
+      "version_name": "1.20.3 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3 Pre-Release 4"
+    },
+    {
+      "version_name": "1.20.3 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.3 Release Candidate 1"
+    },
+    {
+      "version_name": "1.20.4",
+      "version_type": "release",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.4"
+    },
+    {
+      "version_name": "1.20.4 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 1.20.4 Release Candidate 1"
+    },
+    {
+      "version_name": "23w51a",
+      "version_type": "snapshot",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 23w51a"
+    },
+    {
+      "version_name": "23w51b",
+      "version_type": "snapshot",
+      "format_major": 22,
+      "format_minor": null,
+      "format_value": "22",
+      "raw_title": "Java Edition 23w51b"
+    },
+    {
+      "version_name": "24w03a",
+      "version_type": "snapshot",
+      "format_major": 24,
+      "format_minor": null,
+      "format_value": "24",
+      "raw_title": "Java Edition 24w03a"
+    },
+    {
+      "version_name": "24w03b",
+      "version_type": "snapshot",
+      "format_major": 24,
+      "format_minor": null,
+      "format_value": "24",
+      "raw_title": "Java Edition 24w03b"
+    },
+    {
+      "version_name": "24w04a",
+      "version_type": "snapshot",
+      "format_major": 24,
+      "format_minor": null,
+      "format_value": "24",
+      "raw_title": "Java Edition 24w04a"
+    },
+    {
+      "version_name": "24w05a",
+      "version_type": "snapshot",
+      "format_major": 25,
+      "format_minor": null,
+      "format_value": "25",
+      "raw_title": "Java Edition 24w05a"
+    },
+    {
+      "version_name": "24w05b",
+      "version_type": "snapshot",
+      "format_major": 25,
+      "format_minor": null,
+      "format_value": "25",
+      "raw_title": "Java Edition 24w05b"
+    },
+    {
+      "version_name": "24w06a",
+      "version_type": "snapshot",
+      "format_major": 26,
+      "format_minor": null,
+      "format_value": "26",
+      "raw_title": "Java Edition 24w06a"
+    },
+    {
+      "version_name": "24w07a",
+      "version_type": "snapshot",
+      "format_major": 26,
+      "format_minor": null,
+      "format_value": "26",
+      "raw_title": "Java Edition 24w07a"
+    },
+    {
+      "version_name": "24w09a",
+      "version_type": "snapshot",
+      "format_major": 28,
+      "format_minor": null,
+      "format_value": "28",
+      "raw_title": "Java Edition 24w09a"
+    },
+    {
+      "version_name": "24w10a",
+      "version_type": "snapshot",
+      "format_major": 28,
+      "format_minor": null,
+      "format_value": "28",
+      "raw_title": "Java Edition 24w10a"
+    },
+    {
+      "version_name": "24w11a",
+      "version_type": "snapshot",
+      "format_major": 29,
+      "format_minor": null,
+      "format_value": "29",
+      "raw_title": "Java Edition 24w11a"
+    },
+    {
+      "version_name": "24w12a",
+      "version_type": "snapshot",
+      "format_major": 30,
+      "format_minor": null,
+      "format_value": "30",
+      "raw_title": "Java Edition 24w12a"
+    },
+    {
+      "version_name": "1.20.5 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 31,
+      "format_minor": null,
+      "format_value": "31",
+      "raw_title": "Java Edition 1.20.5 Pre-Release 1"
+    },
+    {
+      "version_name": "1.20.5 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 31,
+      "format_minor": null,
+      "format_value": "31",
+      "raw_title": "Java Edition 1.20.5 Pre-Release 2"
+    },
+    {
+      "version_name": "1.20.5 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 31,
+      "format_minor": null,
+      "format_value": "31",
+      "raw_title": "Java Edition 1.20.5 Pre-Release 3"
+    },
+    {
+      "version_name": "24w13a",
+      "version_type": "snapshot",
+      "format_major": 31,
+      "format_minor": null,
+      "format_value": "31",
+      "raw_title": "Java Edition 24w13a"
+    },
+    {
+      "version_name": "24w14a",
+      "version_type": "snapshot",
+      "format_major": 31,
+      "format_minor": null,
+      "format_value": "31",
+      "raw_title": "Java Edition 24w14a"
+    },
+    {
+      "version_name": "1.20.5",
+      "version_type": "release",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.5"
+    },
+    {
+      "version_name": "1.20.5 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.5 Pre-Release 4"
+    },
+    {
+      "version_name": "1.20.5 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.5 Release Candidate 1"
+    },
+    {
+      "version_name": "1.20.5 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.5 Release Candidate 2"
+    },
+    {
+      "version_name": "1.20.5 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.5 Release Candidate 3"
+    },
+    {
+      "version_name": "1.20.6",
+      "version_type": "release",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.6"
+    },
+    {
+      "version_name": "1.20.6 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 32,
+      "format_minor": null,
+      "format_value": "32",
+      "raw_title": "Java Edition 1.20.6 Release Candidate 1"
+    },
+    {
+      "version_name": "24w18a",
+      "version_type": "snapshot",
+      "format_major": 33,
+      "format_minor": null,
+      "format_value": "33",
+      "raw_title": "Java Edition 24w18a"
+    },
+    {
+      "version_name": "24w19a",
+      "version_type": "snapshot",
+      "format_major": 33,
+      "format_minor": null,
+      "format_value": "33",
+      "raw_title": "Java Edition 24w19a"
+    },
+    {
+      "version_name": "24w19b",
+      "version_type": "snapshot",
+      "format_major": 33,
+      "format_minor": null,
+      "format_value": "33",
+      "raw_title": "Java Edition 24w19b"
+    },
+    {
+      "version_name": "24w20a",
+      "version_type": "snapshot",
+      "format_major": 33,
+      "format_minor": null,
+      "format_value": "33",
+      "raw_title": "Java Edition 24w20a"
+    },
+    {
+      "version_name": "1.21",
+      "version_type": "release",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21"
+    },
+    {
+      "version_name": "1.21 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21 Pre-Release 4"
+    },
+    {
+      "version_name": "1.21 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.1",
+      "version_type": "release",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21.1"
+    },
+    {
+      "version_name": "1.21.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 1.21.1 Release Candidate 1"
+    },
+    {
+      "version_name": "24w21a",
+      "version_type": "snapshot",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 24w21a"
+    },
+    {
+      "version_name": "24w21b",
+      "version_type": "snapshot",
+      "format_major": 34,
+      "format_minor": null,
+      "format_value": "34",
+      "raw_title": "Java Edition 24w21b"
+    },
+    {
+      "version_name": "24w33a",
+      "version_type": "snapshot",
+      "format_major": 35,
+      "format_minor": null,
+      "format_value": "35",
+      "raw_title": "Java Edition 24w33a"
+    },
+    {
+      "version_name": "24w34a",
+      "version_type": "snapshot",
+      "format_major": 36,
+      "format_minor": null,
+      "format_value": "36",
+      "raw_title": "Java Edition 24w34a"
+    },
+    {
+      "version_name": "24w35a",
+      "version_type": "snapshot",
+      "format_major": 36,
+      "format_minor": null,
+      "format_value": "36",
+      "raw_title": "Java Edition 24w35a"
+    },
+    {
+      "version_name": "24w36a",
+      "version_type": "snapshot",
+      "format_major": 37,
+      "format_minor": null,
+      "format_value": "37",
+      "raw_title": "Java Edition 24w36a"
+    },
+    {
+      "version_name": "24w37a",
+      "version_type": "snapshot",
+      "format_major": 38,
+      "format_minor": null,
+      "format_value": "38",
+      "raw_title": "Java Edition 24w37a"
+    },
+    {
+      "version_name": "24w38a",
+      "version_type": "snapshot",
+      "format_major": 39,
+      "format_minor": null,
+      "format_value": "39",
+      "raw_title": "Java Edition 24w38a"
+    },
+    {
+      "version_name": "24w39a",
+      "version_type": "snapshot",
+      "format_major": 39,
+      "format_minor": null,
+      "format_value": "39",
+      "raw_title": "Java Edition 24w39a"
+    },
+    {
+      "version_name": "24w40a",
+      "version_type": "snapshot",
+      "format_major": 40,
+      "format_minor": null,
+      "format_value": "40",
+      "raw_title": "Java Edition 24w40a"
+    },
+    {
+      "version_name": "1.21.2 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 41,
+      "format_minor": null,
+      "format_value": "41",
+      "raw_title": "Java Edition 1.21.2 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.2 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 41,
+      "format_minor": null,
+      "format_value": "41",
+      "raw_title": "Java Edition 1.21.2 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21.2",
+      "version_type": "release",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2"
+    },
+    {
+      "version_name": "1.21.2 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.2 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2 Pre-Release 4"
+    },
+    {
+      "version_name": "1.21.2 Pre-Release 5",
+      "version_type": "prerelease",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2 Pre-Release 5"
+    },
+    {
+      "version_name": "1.21.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.2 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.2 Release Candidate 2"
+    },
+    {
+      "version_name": "1.21.3",
+      "version_type": "release",
+      "format_major": 42,
+      "format_minor": null,
+      "format_value": "42",
+      "raw_title": "Java Edition 1.21.3"
+    },
+    {
+      "version_name": "24w44a",
+      "version_type": "snapshot",
+      "format_major": 43,
+      "format_minor": null,
+      "format_value": "43",
+      "raw_title": "Java Edition 24w44a"
+    },
+    {
+      "version_name": "24w45a",
+      "version_type": "snapshot",
+      "format_major": 44,
+      "format_minor": null,
+      "format_value": "44",
+      "raw_title": "Java Edition 24w45a"
+    },
+    {
+      "version_name": "24w46a",
+      "version_type": "snapshot",
+      "format_major": 45,
+      "format_minor": null,
+      "format_value": "45",
+      "raw_title": "Java Edition 24w46a"
+    },
+    {
+      "version_name": "1.21.4",
+      "version_type": "release",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4"
+    },
+    {
+      "version_name": "1.21.4 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.4 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21.4 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.4 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.4 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Release Candidate 2"
+    },
+    {
+      "version_name": "1.21.4 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 46,
+      "format_minor": null,
+      "format_value": "46",
+      "raw_title": "Java Edition 1.21.4 Release Candidate 3"
+    },
+    {
+      "version_name": "25w02a",
+      "version_type": "snapshot",
+      "format_major": 47,
+      "format_minor": null,
+      "format_value": "47",
+      "raw_title": "Java Edition 25w02a"
+    },
+    {
+      "version_name": "25w03a",
+      "version_type": "snapshot",
+      "format_major": 48,
+      "format_minor": null,
+      "format_value": "48",
+      "raw_title": "Java Edition 25w03a"
+    },
+    {
+      "version_name": "25w04a",
+      "version_type": "snapshot",
+      "format_major": 49,
+      "format_minor": null,
+      "format_value": "49",
+      "raw_title": "Java Edition 25w04a"
+    },
+    {
+      "version_name": "25w05a",
+      "version_type": "snapshot",
+      "format_major": 50,
+      "format_minor": null,
+      "format_value": "50",
+      "raw_title": "Java Edition 25w05a"
+    },
+    {
+      "version_name": "25w06a",
+      "version_type": "snapshot",
+      "format_major": 51,
+      "format_minor": null,
+      "format_value": "51",
+      "raw_title": "Java Edition 25w06a"
+    },
+    {
+      "version_name": "25w07a",
+      "version_type": "snapshot",
+      "format_major": 52,
+      "format_minor": null,
+      "format_value": "52",
+      "raw_title": "Java Edition 25w07a"
+    },
+    {
+      "version_name": "25w08a",
+      "version_type": "snapshot",
+      "format_major": 53,
+      "format_minor": null,
+      "format_value": "53",
+      "raw_title": "Java Edition 25w08a"
+    },
+    {
+      "version_name": "25w09a",
+      "version_type": "snapshot",
+      "format_major": 53,
+      "format_minor": null,
+      "format_value": "53",
+      "raw_title": "Java Edition 25w09a"
+    },
+    {
+      "version_name": "25w09b",
+      "version_type": "snapshot",
+      "format_major": 53,
+      "format_minor": null,
+      "format_value": "53",
+      "raw_title": "Java Edition 25w09b"
+    },
+    {
+      "version_name": "25w10a",
+      "version_type": "snapshot",
+      "format_major": 54,
+      "format_minor": null,
+      "format_value": "54",
+      "raw_title": "Java Edition 25w10a"
+    },
+    {
+      "version_name": "1.21.5",
+      "version_type": "release",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5"
+    },
+    {
+      "version_name": "1.21.5 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.5 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.5 Pre-release 2",
+      "version_type": "prerelease",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5 Pre-release 2"
+    },
+    {
+      "version_name": "1.21.5 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.5 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 55,
+      "format_minor": null,
+      "format_value": "55",
+      "raw_title": "Java Edition 1.21.5 Release Candidate 2"
+    },
+    {
+      "version_name": "25w15a",
+      "version_type": "snapshot",
+      "format_major": 56,
+      "format_minor": null,
+      "format_value": "56",
+      "raw_title": "Java Edition 25w15a"
+    },
+    {
+      "version_name": "25w16a",
+      "version_type": "snapshot",
+      "format_major": 57,
+      "format_minor": null,
+      "format_value": "57",
+      "raw_title": "Java Edition 25w16a"
+    },
+    {
+      "version_name": "25w17a",
+      "version_type": "snapshot",
+      "format_major": 58,
+      "format_minor": null,
+      "format_value": "58",
+      "raw_title": "Java Edition 25w17a"
+    },
+    {
+      "version_name": "25w18a",
+      "version_type": "snapshot",
+      "format_major": 59,
+      "format_minor": null,
+      "format_value": "59",
+      "raw_title": "Java Edition 25w18a"
+    },
+    {
+      "version_name": "25w19a",
+      "version_type": "snapshot",
+      "format_major": 60,
+      "format_minor": null,
+      "format_value": "60",
+      "raw_title": "Java Edition 25w19a"
+    },
+    {
+      "version_name": "25w20a",
+      "version_type": "snapshot",
+      "format_major": 61,
+      "format_minor": null,
+      "format_value": "61",
+      "raw_title": "Java Edition 25w20a"
+    },
+    {
+      "version_name": "25w21a",
+      "version_type": "snapshot",
+      "format_major": 62,
+      "format_minor": null,
+      "format_value": "62",
+      "raw_title": "Java Edition 25w21a"
+    },
+    {
+      "version_name": "1.21.6",
+      "version_type": "release",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6"
+    },
+    {
+      "version_name": "1.21.6 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.6 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21.6 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.6 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6 Pre-Release 4"
+    },
+    {
+      "version_name": "1.21.6 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.6 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.7 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 63,
+      "format_minor": null,
+      "format_value": "63",
+      "raw_title": "Java Edition 1.21.7 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.7",
+      "version_type": "release",
+      "format_major": 64,
+      "format_minor": null,
+      "format_value": "64",
+      "raw_title": "Java Edition 1.21.7"
+    },
+    {
+      "version_name": "1.21.7 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 64,
+      "format_minor": null,
+      "format_value": "64",
+      "raw_title": "Java Edition 1.21.7 Release Candidate 2"
+    },
+    {
+      "version_name": "1.21.8",
+      "version_type": "release",
+      "format_major": 64,
+      "format_minor": null,
+      "format_value": "64",
+      "raw_title": "Java Edition 1.21.8"
+    },
+    {
+      "version_name": "1.21.8 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 64,
+      "format_minor": null,
+      "format_value": "64",
+      "raw_title": "Java Edition 1.21.8 Release Candidate 1"
+    },
+    {
+      "version_name": "25w31a",
+      "version_type": "snapshot",
+      "format_major": 65,
+      "format_minor": 0,
+      "format_value": "65.0",
+      "raw_title": "Java Edition 25w31a"
+    },
+    {
+      "version_name": "25w32a",
+      "version_type": "snapshot",
+      "format_major": 65,
+      "format_minor": 1,
+      "format_value": "65.1",
+      "raw_title": "Java Edition 25w32a"
+    },
+    {
+      "version_name": "25w33a",
+      "version_type": "snapshot",
+      "format_major": 65,
+      "format_minor": 2,
+      "format_value": "65.2",
+      "raw_title": "Java Edition 25w33a"
+    },
+    {
+      "version_name": "25w34a",
+      "version_type": "snapshot",
+      "format_major": 66,
+      "format_minor": 0,
+      "format_value": "66.0",
+      "raw_title": "Java Edition 25w34a"
+    },
+    {
+      "version_name": "25w34b",
+      "version_type": "snapshot",
+      "format_major": 66,
+      "format_minor": 0,
+      "format_value": "66.0",
+      "raw_title": "Java Edition 25w34b"
+    },
+    {
+      "version_name": "25w35a",
+      "version_type": "snapshot",
+      "format_major": 67,
+      "format_minor": 0,
+      "format_value": "67.0",
+      "raw_title": "Java Edition 25w35a"
+    },
+    {
+      "version_name": "25w36a",
+      "version_type": "snapshot",
+      "format_major": 68,
+      "format_minor": 0,
+      "format_value": "68.0",
+      "raw_title": "Java Edition 25w36a"
+    },
+    {
+      "version_name": "25w36b",
+      "version_type": "snapshot",
+      "format_major": 68,
+      "format_minor": 0,
+      "format_value": "68.0",
+      "raw_title": "Java Edition 25w36b"
+    },
+    {
+      "version_name": "1.21.10",
+      "version_type": "release",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.10"
+    },
+    {
+      "version_name": "1.21.10 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.10 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.9",
+      "version_type": "release",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9"
+    },
+    {
+      "version_name": "1.21.9 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.9 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21.9 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.9 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9 Pre-Release 4"
+    },
+    {
+      "version_name": "1.21.9 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 1.21.9 Release Candidate 1"
+    },
+    {
+      "version_name": "25w37a",
+      "version_type": "snapshot",
+      "format_major": 69,
+      "format_minor": 0,
+      "format_value": "69.0",
+      "raw_title": "Java Edition 25w37a"
+    },
+    {
+      "version_name": "25w41a",
+      "version_type": "snapshot",
+      "format_major": 70,
+      "format_minor": 0,
+      "format_value": "70.0",
+      "raw_title": "Java Edition 25w41a"
+    },
+    {
+      "version_name": "25w42a",
+      "version_type": "snapshot",
+      "format_major": 70,
+      "format_minor": 1,
+      "format_value": "70.1",
+      "raw_title": "Java Edition 25w42a"
+    },
+    {
+      "version_name": "25w43a",
+      "version_type": "snapshot",
+      "format_major": 71,
+      "format_minor": 0,
+      "format_value": "71.0",
+      "raw_title": "Java Edition 25w43a"
+    },
+    {
+      "version_name": "25w44a",
+      "version_type": "snapshot",
+      "format_major": 72,
+      "format_minor": 0,
+      "format_value": "72.0",
+      "raw_title": "Java Edition 25w44a"
+    },
+    {
+      "version_name": "25w45a",
+      "version_type": "snapshot",
+      "format_major": 73,
+      "format_minor": 0,
+      "format_value": "73.0",
+      "raw_title": "Java Edition 25w45a"
+    },
+    {
+      "version_name": "25w45a Unobfuscated",
+      "version_type": "snapshot",
+      "format_major": 73,
+      "format_minor": 0,
+      "format_value": "73.0",
+      "raw_title": "Java Edition 25w45a Unobfuscated"
+    },
+    {
+      "version_name": "25w46a",
+      "version_type": "snapshot",
+      "format_major": 74,
+      "format_minor": 0,
+      "format_value": "74.0",
+      "raw_title": "Java Edition 25w46a"
+    },
+    {
+      "version_name": "25w46a Unobfuscated",
+      "version_type": "snapshot",
+      "format_major": 74,
+      "format_minor": 0,
+      "format_value": "74.0",
+      "raw_title": "Java Edition 25w46a Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11",
+      "version_type": "release",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 1"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 1 Unobfuscated",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 1 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 2"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 2 Unobfuscated",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 2 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 3"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 3 Unobfuscated",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 3 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 4"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 4 Unobfuscated",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 4 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 5",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 5"
+    },
+    {
+      "version_name": "1.21.11 Pre-Release 5 Unobfuscated",
+      "version_type": "prerelease",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Pre-Release 5 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 1"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 1 Unobfuscated",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 1 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 2"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 2 Unobfuscated",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 2 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 3"
+    },
+    {
+      "version_name": "1.21.11 Release Candidate 3 Unobfuscated",
+      "version_type": "release_candidate",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Release Candidate 3 Unobfuscated"
+    },
+    {
+      "version_name": "1.21.11 Unobfuscated",
+      "version_type": "release",
+      "format_major": 75,
+      "format_minor": 0,
+      "format_value": "75.0",
+      "raw_title": "Java Edition 1.21.11 Unobfuscated"
+    },
+    {
+      "version_name": "26.1 Snapshot 1",
+      "version_type": "snapshot",
+      "format_major": 76,
+      "format_minor": 0,
+      "format_value": "76.0",
+      "raw_title": "Java Edition 26.1 Snapshot 1"
+    },
+    {
+      "version_name": "26.1 Snapshot 2",
+      "version_type": "snapshot",
+      "format_major": 77,
+      "format_minor": 0,
+      "format_value": "77.0",
+      "raw_title": "Java Edition 26.1 Snapshot 2"
+    },
+    {
+      "version_name": "26.1 Snapshot 3",
+      "version_type": "snapshot",
+      "format_major": 78,
+      "format_minor": 0,
+      "format_value": "78.0",
+      "raw_title": "Java Edition 26.1 Snapshot 3"
+    },
+    {
+      "version_name": "26.1 Snapshot 4",
+      "version_type": "snapshot",
+      "format_major": 78,
+      "format_minor": 1,
+      "format_value": "78.1",
+      "raw_title": "Java Edition 26.1 Snapshot 4"
+    },
+    {
+      "version_name": "26.1 Snapshot 5",
+      "version_type": "snapshot",
+      "format_major": 79,
+      "format_minor": 0,
+      "format_value": "79.0",
+      "raw_title": "Java Edition 26.1 Snapshot 5"
+    },
+    {
+      "version_name": "26.1 Snapshot 6",
+      "version_type": "snapshot",
+      "format_major": 80,
+      "format_minor": 0,
+      "format_value": "80.0",
+      "raw_title": "Java Edition 26.1 Snapshot 6"
+    },
+    {
+      "version_name": "26.1 Snapshot 7",
+      "version_type": "snapshot",
+      "format_major": 81,
+      "format_minor": 0,
+      "format_value": "81.0",
+      "raw_title": "Java Edition 26.1 Snapshot 7"
+    },
+    {
+      "version_name": "26.1 Snapshot 8",
+      "version_type": "snapshot",
+      "format_major": 81,
+      "format_minor": 1,
+      "format_value": "81.1",
+      "raw_title": "Java Edition 26.1 Snapshot 8"
+    },
+    {
+      "version_name": "26.1 Snapshot 9",
+      "version_type": "snapshot",
+      "format_major": 81,
+      "format_minor": 1,
+      "format_value": "81.1",
+      "raw_title": "Java Edition 26.1 Snapshot 9"
+    },
+    {
+      "version_name": "26.1 Snapshot 10",
+      "version_type": "snapshot",
+      "format_major": 82,
+      "format_minor": 0,
+      "format_value": "82.0",
+      "raw_title": "Java Edition 26.1 Snapshot 10"
+    },
+    {
+      "version_name": "26.1 Snapshot 11",
+      "version_type": "snapshot",
+      "format_major": 83,
+      "format_minor": 0,
+      "format_value": "83.0",
+      "raw_title": "Java Edition 26.1 Snapshot 11"
+    },
+    {
+      "version_name": "26.1",
+      "version_type": "release",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1"
+    },
+    {
+      "version_name": "26.1 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Pre-Release 1"
+    },
+    {
+      "version_name": "26.1 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Pre-Release 2"
+    },
+    {
+      "version_name": "26.1 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Pre-Release 3"
+    },
+    {
+      "version_name": "26.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Release Candidate 1"
+    },
+    {
+      "version_name": "26.1 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Release Candidate 2"
+    },
+    {
+      "version_name": "26.1 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1 Release Candidate 3"
+    },
+    {
+      "version_name": "26.1.1",
+      "version_type": "release",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1.1"
+    },
+    {
+      "version_name": "26.1.1 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1.1 Release Candidate 1"
+    },
+    {
+      "version_name": "26.1.2",
+      "version_type": "release",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1.2"
+    },
+    {
+      "version_name": "26.1.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 84,
+      "format_minor": 0,
+      "format_value": "84.0",
+      "raw_title": "Java Edition 26.1.2 Release Candidate 1"
+    },
+    {
+      "version_name": "26.2 Snapshot 2",
+      "version_type": "snapshot",
+      "format_major": 85,
+      "format_minor": 0,
+      "format_value": "85.0",
+      "raw_title": "Java Edition 26.2 Snapshot 2"
+    },
+    {
+      "version_name": "26.2-snapshot-1",
+      "version_type": "snapshot",
+      "format_major": 85,
+      "format_minor": 0,
+      "format_value": "85.0",
+      "raw_title": "Java Edition 26.2-snapshot-1"
+    },
+    {
+      "version_name": "26.2 Snapshot 3",
+      "version_type": "snapshot",
+      "format_major": 86,
+      "format_minor": 0,
+      "format_value": "86.0",
+      "raw_title": "Java Edition 26.2 Snapshot 3"
+    },
+    {
+      "version_name": "26.2 Snapshot 4",
+      "version_type": "snapshot",
+      "format_major": 86,
+      "format_minor": 1,
+      "format_value": "86.1",
+      "raw_title": "Java Edition 26.2 Snapshot 4"
+    },
+    {
+      "version_name": "26.2 Snapshot 5",
+      "version_type": "snapshot",
+      "format_major": 86,
+      "format_minor": 2,
+      "format_value": "86.2",
+      "raw_title": "Java Edition 26.2 Snapshot 5"
+    },
+    {
+      "version_name": "26.2 Snapshot 6",
+      "version_type": "snapshot",
+      "format_major": 86,
+      "format_minor": 2,
+      "format_value": "86.2",
+      "raw_title": "Java Edition 26.2 Snapshot 6"
+    },
+    {
+      "version_name": "26.2 Snapshot 7",
+      "version_type": "snapshot",
+      "format_major": 87,
+      "format_minor": 0,
+      "format_value": "87.0",
+      "raw_title": "Java Edition 26.2 Snapshot 7"
+    },
+    {
+      "version_name": "26.2 Snapshot 8",
+      "version_type": "snapshot",
+      "format_major": 87,
+      "format_minor": 0,
+      "format_value": "87.0",
+      "raw_title": "Java Edition 26.2 Snapshot 8"
+    },
+    {
+      "version_name": "26.2",
+      "version_type": "release",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2"
+    },
+    {
+      "version_name": "26.2 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 1"
+    },
+    {
+      "version_name": "26.2 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 2"
+    },
+    {
+      "version_name": "26.2 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 3"
+    },
+    {
+      "version_name": "26.2 Pre-Release 4",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 4"
+    },
+    {
+      "version_name": "26.2 Pre-Release 5",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 5"
+    },
+    {
+      "version_name": "26.2 Pre-Release 6",
+      "version_type": "prerelease",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Pre-Release 6"
+    },
+    {
+      "version_name": "26.2 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Release Candidate 1"
+    },
+    {
+      "version_name": "26.2 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 88,
+      "format_minor": 0,
+      "format_value": "88.0",
+      "raw_title": "Java Edition 26.2 Release Candidate 2"
+    },
+    {
+      "version_name": "26.3 Snapshot 1",
+      "version_type": "snapshot",
+      "format_major": 89,
+      "format_minor": 0,
+      "format_value": "89.0",
+      "raw_title": "Java Edition 26.3 Snapshot 1"
+    },
+    {
+      "version_name": "26.3 Snapshot 2",
+      "version_type": "snapshot",
+      "format_major": 90,
+      "format_minor": 0,
+      "format_value": "90.0",
+      "raw_title": "Java Edition 26.3 Snapshot 2"
+    },
+    {
+      "version_name": "26.3 Snapshot 3",
+      "version_type": "snapshot",
+      "format_major": 91,
+      "format_minor": 0,
+      "format_value": "91.0",
+      "raw_title": "Java Edition 26.3 Snapshot 3"
+    },
+    {
+      "version_name": "26.3 Snapshot 4",
+      "version_type": "snapshot",
+      "format_major": 92,
+      "format_minor": 0,
+      "format_value": "92.0",
+      "raw_title": "Java Edition 26.3 Snapshot 4"
+    },
+    {
+      "version_name": "26.3 Snapshot 5",
+      "version_type": "snapshot",
+      "format_major": 93,
+      "format_minor": 0,
+      "format_value": "93.0",
+      "raw_title": "Java Edition 26.3 Snapshot 5"
+    },
+    {
+      "version_name": "26.3 Snapshot 6",
+      "version_type": "snapshot",
+      "format_major": 94,
+      "format_minor": 0,
+      "format_value": "94.0",
+      "raw_title": "Java Edition 26.3 Snapshot 6"
+    },
+    {
+      "version_name": "26.3 Snapshot 7",
+      "version_type": "snapshot",
+      "format_major": 95,
+      "format_minor": 0,
+      "format_value": "95.0",
+      "raw_title": "Java Edition 26.3 Snapshot 7"
+    },
+    {
+      "version_name": "26.3 Snapshot 8",
+      "version_type": "snapshot",
+      "format_major": 96,
+      "format_minor": 0,
+      "format_value": "96.0",
+      "raw_title": "Java Edition 26.3 Snapshot 8"
+    },
+    {
+      "version_name": "26.3 Snapshot 9",
+      "version_type": "snapshot",
+      "format_major": 96,
+      "format_minor": 0,
+      "format_value": "96.0",
+      "raw_title": "Java Edition 26.3 Snapshot 9"
+    },
+    {
+      "version_name": "26.3 Snapshot 10",
+      "version_type": "snapshot",
+      "format_major": 97,
+      "format_minor": 0,
+      "format_value": "97.0",
+      "raw_title": "Java Edition 26.3 Snapshot 10"
+    },
+    {
+      "version_name": "26.3",
+      "version_type": "release",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3"
+    },
+    {
+      "version_name": "26.3 Pre-Release 1",
+      "version_type": "prerelease",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Pre-Release 1"
+    },
+    {
+      "version_name": "26.3 Pre-Release 2",
+      "version_type": "prerelease",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Pre-Release 2"
+    },
+    {
+      "version_name": "26.3 Pre-Release 3",
+      "version_type": "prerelease",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Pre-Release 3"
+    },
+    {
+      "version_name": "26.3 Release Candidate 1",
+      "version_type": "release_candidate",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Release Candidate 1"
+    },
+    {
+      "version_name": "26.3 Release Candidate 2",
+      "version_type": "release_candidate",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Release Candidate 2"
+    },
+    {
+      "version_name": "26.3 Release Candidate 3",
+      "version_type": "release_candidate",
+      "format_major": 97,
+      "format_minor": 1,
+      "format_value": "97.1",
+      "raw_title": "Java Edition 26.3 Release Candidate 3"
+    },
+    {
+      "version_name": "26.4 Snapshot 1",
+      "version_type": "snapshot",
+      "format_major": 98,
+      "format_minor": 0,
+      "format_value": "98.0",
+      "raw_title": "Java Edition 26.4 Snapshot 1"
+    },
+    {
+      "version_name": "26.4 Snapshot 2",
+      "version_type": "snapshot",
+      "format_major": 99,
+      "format_minor": 0,
+      "format_value": "99.0",
+      "raw_title": "Java Edition 26.4 Snapshot 2"
+    },
+    {
+      "version_name": "26.4 Snapshot 3",
+      "version_type": "snapshot",
+      "format_major": 100,
+      "format_minor": 0,
+      "format_value": "100.0",
+      "raw_title": "Java Edition 26.4 Snapshot 3"
+    },
+    {
+      "version_name": "26.4 Snapshot 4",
+      "version_type": "snapshot",
+      "format_major": 100,
+      "format_minor": 1,
+      "format_value": "100.1",
+      "raw_title": "Java Edition 26.4 Snapshot 4"
+    },
+    {
+      "version_name": "26.4 Snapshot 5",
+      "version_type": "snapshot",
+      "format_major": 100,
+      "format_minor": 2,
+      "format_value": "100.2",
+      "raw_title": "Java Edition 26.4 Snapshot 5"
+    },
+    {
+      "version_name": "26.4 Snapshot 6",
+      "version_type": "snapshot",
+      "format_major": 101,
+      "format_minor": 0,
+      "format_value": "101.0",
+      "raw_title": "Java Edition 26.4 Snapshot 6"
+    },
+    {
+      "version_name": "26.4 Snapshot 7",
+      "version_type": "snapshot",
+      "format_major": 102,
+      "format_minor": 0,
+      "format_value": "102.0",
+      "raw_title": "Java Edition 26.4 Snapshot 7"
+    }
+  ]
+}

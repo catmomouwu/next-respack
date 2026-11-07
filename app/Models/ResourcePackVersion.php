@@ -59,4 +59,30 @@ class ResourcePackVersion extends Model
 
         return $this->format_unknown ? __('Unknown') : '—';
     }
+
+    /**
+     * Recommended Minecraft version for this pack: newest stable release
+     * preferred, falling back to the newest entry of any channel.
+     */
+    public function recommendedVersionName(): ?string
+    {
+        $versions = is_array($this->detected_versions) ? $this->detected_versions : [];
+        $fallback = null;
+
+        foreach ($versions as $item) {
+            $name = is_array($item) ? (string) ($item['version_name'] ?? '') : (string) $item;
+
+            if ($name === '') {
+                continue;
+            }
+
+            $fallback ??= $name;
+
+            if (is_array($item) && ($item['version_type'] ?? null) === 'release') {
+                return $name;
+            }
+        }
+
+        return $fallback;
+    }
 }

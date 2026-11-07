@@ -44,7 +44,7 @@ class DashboardController extends Controller
             $chart[] = ['day' => $day, 'total' => (int) ($daily[$day] ?? 0)];
         }
 
-        if (nr_setting_bool('pack_format_auto_sync', true) && $sync->isDue() && Cache::add('nr-auto-pack-format-sync', 1, 3600)) {
+        if (nr_setting_bool('pack_format_auto_sync', false) && $sync->isDue() && Cache::add('nr-auto-pack-format-sync', 1, 3600)) {
             dispatch(function () use ($sync) {
                 $sync->syncFromWiki('auto');
             })->afterResponse();

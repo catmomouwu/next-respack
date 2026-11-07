@@ -350,7 +350,7 @@ class Installer
             'registration_quota_mb' => [max(64, (int) ($site['registration_quota_mb'] ?? 1024)), 'uploads'],
             'download_mode' => ['php', 'downloads'],
             'download_ip_logging' => [true, 'downloads'],
-            'pack_format_auto_sync' => [false, 'minecraft'],
+            'pack_format_auto_sync' => [true, 'minecraft'],
             'maintenance_message' => ['', 'general'],
         ];
 

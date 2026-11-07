@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\MinecraftPackFormat;
 use App\Models\MinecraftPackFormatVersion;
 use App\Services\Minecraft\PackFormatLookup;
+use App\Services\Minecraft\PackFormatSyncService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -45,6 +47,17 @@ class PackFormatController extends Controller
         $totalVersions = MinecraftPackFormatVersion::query()->count();
         $lastSync = \App\Models\MinecraftPackFormatSyncLog::query()->where('status', 'success')->latest('id')->first();
         $types = ['release', 'snapshot', 'prerelease', 'release_candidate', 'experimental'];
+
+        // Lazy auto-sync fallback for hosts without a cron entry: when the
+        // dataset is due for refresh, sync in the background after responding.
+        if (nr_setting_bool('pack_format_auto_sync', true) && Cache::add('nr-auto-pack-format-sync', 1, 3600)) {
+            $sync = app(PackFormatSyncService::class);
+            if ($sync->isDue()) {
+                dispatch(function () use ($sync) {
+                    $sync->syncFromWiki('auto');
+                })->afterResponse();
+            }
+        }
 
         return view('pack-formats.index', compact('formats', 'q', 'type', 'format', 'totalVersions', 'lastSync', 'types'));
     }

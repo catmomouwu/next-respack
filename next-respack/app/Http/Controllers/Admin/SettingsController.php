@@ -28,7 +28,7 @@ class SettingsController extends Controller
             'download_mode' => nr_setting('download_mode', 'php'),
             'x_accel_prefix' => nr_setting('x_accel_prefix', '/_protected/respack'),
             'download_ip_logging' => nr_setting_bool('download_ip_logging', true),
-            'pack_format_auto_sync' => nr_setting_bool('pack_format_auto_sync', false),
+            'pack_format_auto_sync' => nr_setting_bool('pack_format_auto_sync', true),
             'mail_host' => nr_setting('mail_host', ''),
             'mail_port' => nr_setting_int('mail_port', 587),
             'mail_username' => nr_setting('mail_username', ''),

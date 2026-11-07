@@ -95,6 +95,8 @@ class RequirementsChecker
             __('A value of 60 seconds or more is recommended for large uploads.')
         );
 
+        $envWritable = app(EnvWriter::class)->isWritable();
+
         $paths = [
             'storage' => storage_path(),
             'storage_app' => storage_path('app'),
@@ -105,6 +107,13 @@ class RequirementsChecker
 
         foreach ($paths as $key => $path) {
             $writable = is_dir($path) ? is_writable($path) : is_writable(dirname($path));
+
+            // The project root only needs to be writable when .env itself is
+            // not writable yet; an existing writable .env is enough.
+            if ($key === 'root') {
+                $writable = $writable || $envWritable;
+            }
+
             $items[] = $this->item(
                 'writable_'.$key,
                 __('Write permission').': '.$this->relative($path),
@@ -115,7 +124,6 @@ class RequirementsChecker
             );
         }
 
-        $envWritable = app(EnvWriter::class)->isWritable();
         $items[] = $this->item(
             'env_writable',
             '.env '. __('writable'),

@@ -107,6 +107,12 @@
                 <span class="font-mono text-xs">v{{ config('nextrespack.version') }}</span>
             </div>
         </div>
+        <div class="mx-auto mt-4 w-full max-w-7xl border-t border-slate-100 px-4 pt-4 text-center text-xs text-slate-500 sm:px-6 lg:px-8 dark:border-slate-800 dark:text-slate-400">
+            <p>
+                {{ __('This is an open source project') }} · MIT ·
+                <a href="https://github.com/catmomouwu/next-respack" target="_blank" rel="noopener noreferrer" class="font-mono font-medium text-slate-600 underline-offset-4 hover:text-emerald-600 hover:underline dark:text-slate-300 dark:hover:text-emerald-400">github.com/catmomouwu/next-respack ↗</a>
+            </p>
+        </div>
     </footer>
 </body>
 </html>

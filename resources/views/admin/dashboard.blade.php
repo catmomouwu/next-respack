@@ -63,7 +63,7 @@
                     <div class="flex items-center justify-between gap-3 py-3">
                         <div class="min-w-0">
                             <p class="truncate text-sm font-medium text-slate-800 dark:text-slate-200">{{ $pack->name }}</p>
-                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{{ $pack->user?->displayName() }} · {{ nr_bytes((int) ($pack->currentVersion?->file_size ?? 0)) }}</p>
+                            <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{{ $pack->user?->displayName() ?? __('Guest') }} · {{ nr_bytes((int) ($pack->currentVersion?->file_size ?? 0)) }}</p>
                         </div>
                         <span class="nr-badge shrink-0 {{ $pack->status === 'active' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300' }}">{{ $pack->status }}</span>
                     </div>

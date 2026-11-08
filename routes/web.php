@@ -3,8 +3,10 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\CaptchaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\GuestUploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Install\InstallerController;
 use App\Http\Controllers\LocaleController;
@@ -45,6 +47,19 @@ Route::get('/minecraft/pack-formats', [PackFormatController::class, 'index'])->n
 Route::get('/api/pack-formats', [PackFormatController::class, 'api'])->name('pack-formats.api');
 Route::get('/locale/{locale}', LocaleController::class)->name('locale');
 Route::match(['get', 'head'], '/dl/{token}', DownloadController::class)->where('token', '[A-Za-z0-9_\-]+')->name('download');
+
+/*
+|--------------------------------------------------------------------------
+| Guest uploads (no account required, 200 MB and 7-day retention)
+|--------------------------------------------------------------------------
+*/
+Route::get('/captcha', CaptchaController::class)->middleware('throttle:captcha')->name('captcha');
+Route::get('/upload', [GuestUploadController::class, 'create'])->name('guest.upload');
+Route::post('/upload', [GuestUploadController::class, 'store'])->middleware('throttle:guest-uploads')->name('guest.upload.store');
+Route::get('/upload/{pack}', [GuestUploadController::class, 'show'])
+    ->middleware('signed')
+    ->where('pack', '[0-9a-fA-F\-]{36}')
+    ->name('guest.upload.show');
 
 /*
 |--------------------------------------------------------------------------

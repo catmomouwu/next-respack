@@ -37,6 +37,11 @@
                 <a href="{{ route('pack-formats.index') }}" class="rounded-lg px-3 py-2 text-sm font-medium transition {{ request()->routeIs('pack-formats.*') ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300' : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800' }}">
                     {{ __('Pack formats') }}
                 </a>
+                @guest
+                    <a href="{{ route('guest.upload') }}" class="rounded-lg px-3 py-2 text-sm font-medium transition {{ request()->routeIs('guest.upload*') ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300' : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800' }}">
+                        {{ __('Guest upload') }}
+                    </a>
+                @endguest
                 @auth
                     <a href="{{ route('dashboard') }}" class="rounded-lg px-3 py-2 text-sm font-medium transition {{ request()->routeIs('dashboard') ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-300' : 'text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800' }}">
                         {{ __('Dashboard') }}

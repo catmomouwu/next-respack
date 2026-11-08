@@ -40,7 +40,7 @@
                                 @if ($pack->user)
                                     <a href="{{ route('admin.users.show', $pack->user) }}" class="nr-link">{{ $pack->user->displayName() }}</a>
                                 @else
-                                    <span class="text-slate-400">{{ __('deleted') }}</span>
+                                    <span class="text-amber-600 dark:text-amber-400">{{ __('Guest') }}</span>
                                 @endif
                             </td>
                             <td class="nr-td font-mono text-xs">{{ $pack->displayFormat() }}</td>

@@ -1,11 +1,15 @@
 # Next Respack 可选定时任务
 # 产品默认不需要 Cron：会话/缓存使用文件，队列为 sync，
 # Pack Format 由管理员手动同步，或后台开启每日一次的低频自动同步。
+# 游客上传的过期文件会在访问上传页时自动清理，也可手动运行 guests:purge。
 #
 # 仅在启用自定义调度或队列后才需要以下任一条目。
 
-# 每分钟运行调度器（如果新增了 schedule）
+# 每分钟运行调度器（包含每小时清理游客上传的 guests:purge）
 # * * * * * cd /var/www/next-respack && php artisan schedule:run >> /dev/null 2>&1
+
+# 或者直接清理过期的游客上传
+# 0 * * * * cd /var/www/next-respack && php artisan guests:purge >> /dev/null 2>&1
 
 # 队列 Worker（QUEUE_CONNECTION=database 时）
 # * * * * * cd /var/www/next-respack && php artisan queue:work --stop-when-empty >> /dev/null 2>&1

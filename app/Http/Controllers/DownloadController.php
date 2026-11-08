@@ -23,6 +23,10 @@ class DownloadController extends Controller
             abort(403, __('This download link is disabled.'));
         }
 
+        if ($pack->isExpired()) {
+            abort(410, __('This guest upload has expired and was deleted.'));
+        }
+
         return $downloads->respond($request, $version);
     }
 }

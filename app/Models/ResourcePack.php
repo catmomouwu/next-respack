@@ -14,12 +14,15 @@ class ResourcePack extends Model
     public const STATUS_ACTIVE = 'active';
     public const STATUS_DISABLED = 'disabled';
 
-    protected $fillable = ['public_id', 'user_id', 'name', 'description', 'status', 'current_version_id'];
+    protected $fillable = [
+        'public_id', 'user_id', 'name', 'description', 'status', 'current_version_id', 'guest_expires_at',
+    ];
 
     protected function casts(): array
     {
         return [
             'user_id' => 'integer',
+            'guest_expires_at' => 'datetime',
         ];
     }
 
@@ -46,6 +49,16 @@ class ResourcePack extends Model
     public function isActive(): bool
     {
         return $this->status === self::STATUS_ACTIVE && $this->deleted_at === null;
+    }
+
+    public function isGuest(): bool
+    {
+        return $this->user_id === null;
+    }
+
+    public function isExpired(): bool
+    {
+        return $this->guest_expires_at !== null && $this->guest_expires_at->isPast();
     }
 
     public function totalDownloads(): int

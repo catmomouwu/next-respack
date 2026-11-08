@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'version' => '1.0.3',
+    'version' => '1.1.0',
     'product' => 'Next Respack',
 
     /*
@@ -42,6 +42,8 @@ return [
     */
     'max_upload_mb' => 512,
     'default_quota_mb' => 2048,
+    'guest_upload_mb' => 200,
+    'guest_retention_days' => 7,
     'max_zip_entries' => 10000,
     'max_uncompressed_bytes' => 2 * 1024 * 1024 * 1024,
     'max_compression_ratio' => 1000,

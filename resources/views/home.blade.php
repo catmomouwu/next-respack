@@ -21,13 +21,20 @@
                     <a href="{{ route('packs.create') }}" class="nr-btn-primary !px-6 !py-3">{{ __('Upload a resource pack') }}</a>
                     <a href="{{ route('dashboard') }}" class="nr-btn-secondary !px-6 !py-3">{{ __('Open dashboard') }}</a>
                 @else
+                    <a href="{{ route('guest.upload') }}" class="nr-btn-primary !px-6 !py-3">{{ __('Guest upload') }}</a>
                     @if (nr_setting_bool('allow_registration', true))
-                        <a href="{{ route('register') }}" class="nr-btn-primary !px-6 !py-3">{{ __('Get started') }}</a>
+                        <a href="{{ route('register') }}" class="nr-btn-secondary !px-6 !py-3">{{ __('Create account') }}</a>
                     @endif
-                    <a href="{{ route('login') }}" class="nr-btn-secondary !px-6 !py-3">{{ __('Sign in') }}</a>
+                    <a href="{{ route('login') }}" class="nr-btn-ghost">{{ __('Sign in') }}</a>
                 @endauth
                 <a href="{{ route('pack-formats.index') }}" class="nr-btn-ghost">{{ __('Browse pack formats') }} →</a>
             </div>
+
+            @guest
+                <p class="mt-3 max-w-xl text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                    {{ __('Guest uploads are limited to :size MB and deleted after :days days. Register to keep your packs permanently.', ['size' => (int) config('nextrespack.guest_upload_mb', 200), 'days' => (int) config('nextrespack.guest_retention_days', 7)]) }}
+                </p>
+            @endguest
 
             <div class="mt-9 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
                 @foreach ([
@@ -132,7 +139,7 @@ require-resource-pack=true</code></pre>
                         <div class="flex items-start justify-between gap-3">
                             <div class="min-w-0">
                                 <p class="truncate font-semibold text-slate-900 dark:text-slate-100">{{ $pack->name }}</p>
-                                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ $pack->user?->displayName() }} · {{ $pack->created_at?->diffForHumans() }}</p>
+                                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ $pack->user?->displayName() ?? __('Guest') }} · {{ $pack->created_at?->diffForHumans() }}</p>
                             </div>
                             <span class="nr-badge-slate shrink-0">{{ __('Format') }} {{ $pack->displayFormat() }}</span>
                         </div>

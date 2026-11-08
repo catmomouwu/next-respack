@@ -30,6 +30,11 @@ class UploadService
         return $this->persist($user, null, $file, $input);
     }
 
+    public function createGuestPack(UploadedFile $file, array $input = []): ResourcePack
+    {
+        return $this->persist(null, null, $file, $input, true);
+    }
+
     public function addVersion(User $user, ResourcePack $pack, UploadedFile $file, array $input = []): ResourcePackVersion
     {
         if ($pack->user_id !== $user->id) {
@@ -41,13 +46,16 @@ class UploadService
         return $result->currentVersion;
     }
 
-    private function persist(User $user, ?ResourcePack $pack, UploadedFile $file, array $input): ResourcePack
+    private function persist(?User $user, ?ResourcePack $pack, UploadedFile $file, array $input, bool $guest = false): ResourcePack
     {
         if (! $file->isValid()) {
             throw ValidationException::withMessages(['file' => __('The upload failed or was interrupted. Please try again.')]);
         }
 
-        $maxBytes = (int) nr_setting('max_upload_mb', (int) config('nextrespack.max_upload_mb', 512)) * 1024 * 1024;
+        $maxMb = $guest
+            ? max(1, (int) config('nextrespack.guest_upload_mb', 200))
+            : (int) nr_setting('max_upload_mb', (int) config('nextrespack.max_upload_mb', 512));
+        $maxBytes = $maxMb * 1024 * 1024;
         $size = (int) $file->getSize();
 
         if ($size > $maxBytes) {
@@ -66,7 +74,7 @@ class UploadService
             throw ValidationException::withMessages(['file' => __('The uploaded file does not look like a ZIP archive (detected MIME type: :mime).', ['mime' => $mime])]);
         }
 
-        if (! $this->quota->check($user, $size)) {
+        if ($user !== null && ! $this->quota->check($user, $size)) {
             $usage = $this->quota->usage($user);
             throw ValidationException::withMessages(['file' => __('Storage quota exceeded. Used :used of :limit.', ['used' => nr_bytes($usage['used']), 'limit' => nr_bytes($usage['limit'])])]);
         }
@@ -81,7 +89,7 @@ class UploadService
 
         $sha1Input = (string) hash_file('sha1', $file->getRealPath());
 
-        if (empty($input['allow_duplicate']) && $this->duplicateExists($user, $sha1Input, $pack?->id)) {
+        if ($user !== null && empty($input['allow_duplicate']) && $this->duplicateExists($user, $sha1Input, $pack?->id)) {
             throw ValidationException::withMessages([
                 'file' => __('This exact ZIP file has already been uploaded by your account.'),
             ]);
@@ -113,15 +121,19 @@ class UploadService
                 throw new \RuntimeException('Storage checksum verification failed.');
             }
 
-            $pack = DB::transaction(function () use ($user, $pack, $file, $input, $result, $size, $sha1Final, $storedFilename, $path, $adapter) {
-                $quota = UserQuota::query()->where('user_id', $user->id)->lockForUpdate()->firstOrCreate(
-                    ['user_id' => $user->id],
-                    ['used_bytes' => 0, 'pack_count' => 0]
-                );
+            $pack = DB::transaction(function () use ($user, $pack, $file, $input, $result, $size, $sha1Final, $storedFilename, $path, $adapter, $guest) {
+                $quota = null;
 
-                $limit = $user->storage_quota ?: (int) config('nextrespack.default_quota_mb', 2048) * 1024 * 1024;
-                if ($quota->used_bytes + $size > $limit) {
-                    throw ValidationException::withMessages(['file' => __('Storage quota exceeded.')]);
+                if ($user !== null) {
+                    $quota = UserQuota::query()->where('user_id', $user->id)->lockForUpdate()->firstOrCreate(
+                        ['user_id' => $user->id],
+                        ['used_bytes' => 0, 'pack_count' => 0]
+                    );
+
+                    $limit = $user->storage_quota ?: (int) config('nextrespack.default_quota_mb', 2048) * 1024 * 1024;
+                    if ($quota->used_bytes + $size > $limit) {
+                        throw ValidationException::withMessages(['file' => __('Storage quota exceeded.')]);
+                    }
                 }
 
                 $isNewPack = $pack === null;
@@ -139,10 +151,13 @@ class UploadService
 
                     $pack = ResourcePack::create([
                         'public_id' => (string) Str::uuid7(),
-                        'user_id' => $user->id,
+                        'user_id' => $user?->id,
                         'name' => $name,
                         'description' => $description,
                         'status' => ResourcePack::STATUS_ACTIVE,
+                        'guest_expires_at' => $guest
+                            ? now()->addDays(max(1, (int) config('nextrespack.guest_retention_days', 7)))
+                            : null,
                     ]);
                 }
 
@@ -179,11 +194,13 @@ class UploadService
                 $pack->current_version_id = $version->id;
                 $pack->save();
 
-                $quota->used_bytes += $size;
-                if ($isNewPack) {
-                    $quota->pack_count += 1;
+                if ($quota !== null) {
+                    $quota->used_bytes += $size;
+                    if ($isNewPack) {
+                        $quota->pack_count += 1;
+                    }
+                    $quota->save();
                 }
-                $quota->save();
 
                 return $pack->fresh(['currentVersion']);
             });
@@ -209,10 +226,12 @@ class UploadService
         DB::transaction(function () use ($version, $pack, $size) {
             $version->delete();
 
-            $quota = UserQuota::query()->where('user_id', $pack->user_id)->lockForUpdate()->first();
-            if ($quota) {
-                $quota->used_bytes = max(0, $quota->used_bytes - $size);
-                $quota->save();
+            if ($pack->user_id !== null) {
+                $quota = UserQuota::query()->where('user_id', $pack->user_id)->lockForUpdate()->first();
+                if ($quota) {
+                    $quota->used_bytes = max(0, $quota->used_bytes - $size);
+                    $quota->save();
+                }
             }
 
             if ($pack->current_version_id === $version->id) {
@@ -247,11 +266,13 @@ class UploadService
 
             $pack->delete();
 
-            $quota = UserQuota::query()->where('user_id', $pack->user_id)->lockForUpdate()->first();
-            if ($quota) {
-                $quota->used_bytes = max(0, $quota->used_bytes - $total);
-                $quota->pack_count = max(0, $quota->pack_count - 1);
-                $quota->save();
+            if ($pack->user_id !== null) {
+                $quota = UserQuota::query()->where('user_id', $pack->user_id)->lockForUpdate()->first();
+                if ($quota) {
+                    $quota->used_bytes = max(0, $quota->used_bytes - $total);
+                    $quota->pack_count = max(0, $quota->pack_count - 1);
+                    $quota->save();
+                }
             }
         });
 

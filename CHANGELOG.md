@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.2 — 2026-11-08
+
+### 新增
+
+- WebDAV 存储后端：安装向导与管理后台均可选择，支持 Nextcloud / ownCloud / Synology 等服务器，含连接测试、路径前缀与 TLS 校验；存储迁移支持迁移到 WebDAV。
+
+### 改进
+
+- 数据库最低要求降至 MySQL 5.7 / MariaDB 10.3（原为 MySQL 8.0 / MariaDB 10.6）。
+- 安装向导移除仅 MySQL 8 支持的 `utf8mb4_0900_ai_ci` 排序规则选项。
+
+### 修复
+
+- 修复 `minecraft_pack_format_versions` 索引名超过 MySQL 64 字符上限导致安装失败的问题。
+
 ## 1.0.1 — 2026-11-08
 
 ### 改进

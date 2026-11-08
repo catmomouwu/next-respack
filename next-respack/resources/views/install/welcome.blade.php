@@ -64,7 +64,7 @@
             <div class="nr-card-muted p-5">
                 <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{{ __('System requirements') }}</p>
                 <ul class="mt-2 space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-                    <li>PHP 8.3+ · MySQL 8.0+ / MariaDB 10.6+ / SQLite</li>
+                    <li>PHP 8.3+ · MySQL 5.7+ / MariaDB 10.6+ / SQLite</li>
                     <li>{{ __('PHP extensions') }}: ctype, curl, dom, fileinfo, hash, mbstring, openssl, pdo, pdo_mysql, tokenizer, xml, zip</li>
                     <li>HTTPS {{ __('strongly recommended') }}</li>
                     <li>{{ __('Writable') }}: storage/, bootstrap/cache/, .env</li>

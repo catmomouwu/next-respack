@@ -16,7 +16,7 @@
 
             <div class="grid gap-3 sm:grid-cols-3">
                 @foreach ([
-                    'mysql' => __('MySQL 8.0 (recommended)'),
+                    'mysql' => __('MySQL 5.7+ (recommended)'),
                     'mariadb' => __('MariaDB (compatibility mode)'),
                     'sqlite' => __('SQLite (light deployment)'),
                 ] as $value => $label)
@@ -58,7 +58,7 @@
                 <div>
                     <label class="nr-label" for="collation">{{ __('Collation') }}</label>
                     <select class="nr-input" id="collation" name="collation">
-                        @foreach (['utf8mb4_unicode_ci', 'utf8mb4_general_ci', 'utf8mb4_0900_ai_ci'] as $collation)
+                        @foreach (['utf8mb4_unicode_ci', 'utf8mb4_general_ci'] as $collation)
                             <option value="{{ $collation }}" @selected(old('collation', $data['collation'] ?? 'utf8mb4_unicode_ci') === $collation)>{{ $collation }}</option>
                         @endforeach
                     </select>

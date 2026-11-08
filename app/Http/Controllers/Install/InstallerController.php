@@ -345,7 +345,7 @@ class InstallerController extends Controller
             'username' => ['required', 'string', 'max:191'],
             'password' => ['nullable', 'string', 'max:191'],
             'charset' => ['nullable', 'in:utf8mb4'],
-            'collation' => ['nullable', 'in:utf8mb4_unicode_ci,utf8mb4_general_ci,utf8mb4_0900_ai_ci'],
+            'collation' => ['nullable', 'in:utf8mb4_unicode_ci,utf8mb4_general_ci'],
         ];
     }
 

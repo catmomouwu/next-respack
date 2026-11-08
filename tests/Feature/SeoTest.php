@@ -60,12 +60,24 @@ class SeoTest extends TestCase
         $this->get('/sitemap.xml')
             ->assertOk()
             ->assertHeader('Content-Type', 'application/xml; charset=UTF-8')
+            ->assertSee('<?xml version="1.0" encoding="UTF-8"?>', false)
+            ->assertSee('<urlset', false)
             ->assertSee(route('home'), false)
             ->assertSee(route('pack-formats.index'), false)
             ->assertSee(route('guest.upload'), false)
             ->assertSee(route('pack-formats.show', '15'), false)
             ->assertSee('<lastmod>', false)
             ->assertDontSee(route('login'), false);
+    }
+
+    public function test_sitemap_view_does_not_contain_a_php_processing_instruction(): void
+    {
+        // `<?xml` breaks shared hosts that enable short_open_tag, so the
+        // declaration is prepended by the controller instead.
+        $this->assertStringNotContainsString(
+            '<?xml',
+            file_get_contents(resource_path('views/sitemap.blade.php')),
+        );
     }
 
     public function test_robots_txt_points_to_the_sitemap_and_blocks_private_areas(): void

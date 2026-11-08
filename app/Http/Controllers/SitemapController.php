@@ -82,8 +82,9 @@ class SitemapController extends Controller
             // Ignore missing pack format tables during installation.
         }
 
-        return response()
-            ->view('sitemap', ['urls' => $urls])
-            ->header('Content-Type', 'application/xml; charset=UTF-8');
+        $xml = '<?xml version="1.0" encoding="UTF-8"?>'."\n"
+            .view('sitemap', ['urls' => $urls])->render();
+
+        return response($xml, 200, ['Content-Type' => 'application/xml; charset=UTF-8']);
     }
 }

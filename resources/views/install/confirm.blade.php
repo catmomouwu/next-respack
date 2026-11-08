@@ -33,9 +33,13 @@
         <div class="nr-card-muted p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{{ __('Storage') }}</p>
             <dl class="mt-3 space-y-2 text-sm">
-                <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Backend') }}</dt><dd class="font-medium">{{ $st['driver'] === 's3' ? 'S3' : __('Local') }}</dd></div>
+                <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Backend') }}</dt><dd class="font-medium">{{ ['s3' => 'S3', 'webdav' => 'WebDAV'][$st['driver']] ?? __('Local') }}</dd></div>
                 @if (($st['driver'] ?? 'local') === 'local')
                     <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Directory') }}</dt><dd class="break-all font-mono text-xs">{{ $st['local_path'] ?? '' }}</dd></div>
+                @elseif (($st['driver'] ?? 'local') === 'webdav')
+                    <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('WebDAV URL') }}</dt><dd class="break-all font-mono text-xs">{{ $st['url'] ?? '' }}</dd></div>
+                    <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Username') }}</dt><dd class="font-mono text-xs">{{ $st['username'] ?? '' }}</dd></div>
+                    <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Password') }}</dt><dd class="font-mono text-xs">••••••••</dd></div>
                 @else
                     <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Bucket') }}</dt><dd class="font-mono text-xs">{{ $st['bucket'] ?? '' }}</dd></div>
                     <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Region') }}</dt><dd class="font-mono text-xs">{{ $st['region'] ?? '' }}</dd></div>

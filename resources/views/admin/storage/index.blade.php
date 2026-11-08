@@ -6,7 +6,7 @@
     <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div class="nr-card p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{{ __('Active backend') }}</p>
-            <p class="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">{{ $driver === 's3' ? 'S3' : __('Local') }}</p>
+            <p class="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">{{ ['s3' => 'S3', 'webdav' => 'WebDAV'][$driver] ?? __('Local') }}</p>
         </div>
         <div class="nr-card p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{{ __('Files') }}</p>
@@ -29,7 +29,7 @@
 
             <form method="POST" action="{{ route('admin.storage.plan') }}" id="storage-plan-form" class="mt-4 space-y-3">
                 @csrf
-                <div class="grid gap-2 sm:grid-cols-2">
+                <div class="grid gap-2 sm:grid-cols-3">
                     <label class="flex items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700" :class="driver === 'local' ? 'border-emerald-500' : ''">
                         <input type="radio" name="target_driver" value="local" x-model="driver" class="text-emerald-600">
                         {{ __('Local path') }}
@@ -37,6 +37,10 @@
                     <label class="flex items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700" :class="driver === 's3' ? 'border-emerald-500' : ''">
                         <input type="radio" name="target_driver" value="s3" x-model="driver" class="text-emerald-600">
                         S3
+                    </label>
+                    <label class="flex items-center gap-2 rounded-xl border border-slate-200 p-3 text-sm dark:border-slate-700" :class="driver === 'webdav' ? 'border-emerald-500' : ''">
+                        <input type="radio" name="target_driver" value="webdav" x-model="driver" class="text-emerald-600">
+                        WebDAV
                     </label>
                 </div>
 
@@ -70,6 +74,35 @@
                     <div class="sm:col-span-2">
                         <label class="nr-label">{{ __('Path prefix') }}</label>
                         <input class="nr-input" name="s3_prefix" value="{{ $settings['s3_prefix'] }}">
+                    </div>
+                </div>
+
+                <div x-show="driver === 'webdav'" x-cloak class="grid gap-3 sm:grid-cols-2">
+                    <div class="sm:col-span-2">
+                        <label class="nr-label">{{ __('WebDAV URL') }}</label>
+                        <input class="nr-input" name="webdav_url" value="{{ $settings['webdav_url'] }}" placeholder="https://dav.example.com/remote.php/dav/files/user">
+                        <p class="nr-help">{{ __('The collection that stores the pack files. Subdirectories are created automatically.') }}</p>
+                    </div>
+                    <div>
+                        <label class="nr-label">{{ __('Username') }}</label>
+                        <input class="nr-input" name="webdav_username" value="{{ $settings['webdav_username'] }}" autocomplete="off">
+                    </div>
+                    <div>
+                        <label class="nr-label">{{ __('Password') }}</label>
+                        <input class="nr-input" name="webdav_password" type="password" value="" placeholder="{{ $settings['webdav_password_set'] ? __('Leave blank to keep the saved password') : '' }}" autocomplete="new-password">
+                    </div>
+                    <div>
+                        <label class="nr-label">{{ __('Path prefix') }}</label>
+                        <input class="nr-input" name="webdav_prefix" value="{{ $settings['webdav_prefix'] }}" placeholder="next-respack">
+                    </div>
+                    <div>
+                        <label class="nr-label">{{ __('TLS verification') }}</label>
+                        <input type="hidden" name="webdav_verify_ssl" value="0">
+                        <label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                            <input type="checkbox" name="webdav_verify_ssl" value="1" class="rounded text-emerald-600" @checked($settings['webdav_verify_ssl'])>
+                            {{ __('Verify the remote TLS certificate') }}
+                        </label>
+                        <p class="nr-help">{{ __('Disable only for a server with a self-signed certificate.') }}</p>
                     </div>
                 </div>
 
@@ -117,7 +150,7 @@
             <div class="mt-6 border-t border-slate-100 pt-4 dark:border-slate-800">
                 <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">{{ __('Current local path') }}</p>
                 <p class="mt-1 break-all font-mono text-xs text-slate-500 dark:text-slate-400">{{ $settings['local_path'] }}</p>
-                <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">{{ __('Local bytes: :local · S3 bytes: :s3', ['local' => nr_bytes($usage['local_bytes']), 's3' => nr_bytes($usage['s3_bytes'])]) }}</p>
+                <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">{{ __('Local bytes: :local · S3 bytes: :s3 · WebDAV bytes: :webdav', ['local' => nr_bytes($usage['local_bytes']), 's3' => nr_bytes($usage['s3_bytes']), 'webdav' => nr_bytes($usage['webdav_bytes'])]) }}</p>
             </div>
         </div>
     </div>

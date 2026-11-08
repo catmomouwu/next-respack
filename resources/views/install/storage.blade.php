@@ -14,7 +14,7 @@
         <form method="POST" action="{{ route('install.storage.save') }}" id="storage-form">
             @csrf
 
-            <div class="grid gap-3 sm:grid-cols-2">
+            <div class="grid gap-3 sm:grid-cols-3">
                 <label class="flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition"
                        :class="driver === 'local' ? 'border-emerald-500 bg-emerald-50/60 dark:bg-emerald-500/10' : 'border-slate-200 dark:border-slate-700'">
                     <input type="radio" name="driver" value="local" x-model="driver" class="mt-0.5 text-emerald-600" @checked($driver === 'local')>
@@ -29,6 +29,14 @@
                     <span>
                         <span class="block text-sm font-semibold text-slate-800 dark:text-slate-200">{{ __('S3-compatible object storage') }}</span>
                         <span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{{ __('Amazon S3, Cloudflare R2 or any compatible provider.') }}</span>
+                    </span>
+                </label>
+                <label class="flex cursor-pointer items-start gap-3 rounded-xl border p-4 transition"
+                       :class="driver === 'webdav' ? 'border-emerald-500 bg-emerald-50/60 dark:bg-emerald-500/10' : 'border-slate-200 dark:border-slate-700'">
+                    <input type="radio" name="driver" value="webdav" x-model="driver" class="mt-0.5 text-emerald-600" @checked($driver === 'webdav')>
+                    <span>
+                        <span class="block text-sm font-semibold text-slate-800 dark:text-slate-200">{{ __('WebDAV storage') }}</span>
+                        <span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{{ __('Nextcloud, ownCloud, Synology or any WebDAV server.') }}</span>
                     </span>
                 </label>
             </div>
@@ -71,6 +79,35 @@
                         {{ __('Use path-style URLs') }}
                     </label>
                     <p class="nr-help">{{ __('Enable for MinIO, Cloudflare R2 and most S3-compatible services.') }}</p>
+                </div>
+            </div>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2" x-show="driver === 'webdav'" x-cloak>
+                <div class="sm:col-span-2">
+                    <label class="nr-label" for="webdav_url">{{ __('WebDAV URL') }}</label>
+                    <input class="nr-input" id="webdav_url" name="webdav_url" value="{{ old('webdav_url', $data['webdav_url'] ?? '') }}" placeholder="https://dav.example.com/remote.php/dav/files/user">
+                    <p class="nr-help">{{ __('The collection that stores the pack files. Subdirectories are created automatically.') }}</p>
+                </div>
+                <div>
+                    <label class="nr-label" for="webdav_username">{{ __('Username') }}</label>
+                    <input class="nr-input" id="webdav_username" name="webdav_username" value="{{ old('webdav_username', $data['webdav_username'] ?? '') }}" autocomplete="off">
+                </div>
+                <div>
+                    <label class="nr-label" for="webdav_password">{{ __('Password') }}</label>
+                    <input class="nr-input" id="webdav_password" name="webdav_password" type="password" value="{{ old('webdav_password', $data['webdav_password'] ?? '') }}" autocomplete="new-password">
+                </div>
+                <div>
+                    <label class="nr-label" for="webdav_prefix">{{ __('Path prefix (optional)') }}</label>
+                    <input class="nr-input" id="webdav_prefix" name="webdav_prefix" value="{{ old('webdav_prefix', $data['webdav_prefix'] ?? '') }}" placeholder="next-respack">
+                </div>
+                <div>
+                    <label class="nr-label">{{ __('TLS verification') }}</label>
+                    <input type="hidden" name="webdav_verify_ssl" value="0">
+                    <label class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                        <input type="checkbox" name="webdav_verify_ssl" value="1" class="rounded text-emerald-600" @checked(old('webdav_verify_ssl', $data['webdav_verify_ssl'] ?? true))>
+                        {{ __('Verify the remote TLS certificate') }}
+                    </label>
+                    <p class="nr-help">{{ __('Disable only for a server with a self-signed certificate.') }}</p>
                 </div>
             </div>
 

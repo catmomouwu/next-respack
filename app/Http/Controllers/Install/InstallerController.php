@@ -132,6 +132,11 @@ class InstallerController extends Controller
             'secret_key' => '',
             'path_style' => true,
             'prefix' => '',
+            'webdav_url' => '',
+            'webdav_username' => '',
+            'webdav_password' => '',
+            'webdav_prefix' => '',
+            'webdav_verify_ssl' => true,
         ]);
 
         return view('install.storage', ['data' => $data]);
@@ -381,6 +386,17 @@ class InstallerController extends Controller
             ];
         }
 
+        if ($request->input('driver') === 'webdav') {
+            return [
+                'driver' => ['required', 'in:webdav'],
+                'webdav_url' => ['required', 'url', 'max:191'],
+                'webdav_username' => ['required', 'string', 'max:191'],
+                'webdav_password' => ['nullable', 'string', 'max:191'],
+                'webdav_prefix' => ['nullable', 'string', 'max:191'],
+                'webdav_verify_ssl' => ['nullable', 'boolean'],
+            ];
+        }
+
         return [
             'driver' => ['required', 'in:local'],
             'local_path' => ['required', 'string', 'max:255'],
@@ -391,9 +407,14 @@ class InstallerController extends Controller
     {
         $saved = (array) $request->session()->get(self::SESSION_KEY.'.storage', []);
         $secret = (string) $request->input('secret_key', '');
+        $webdavPassword = (string) $request->input('webdav_password', '');
 
         if ($secret === '' && ! empty($saved['secret_key'])) {
             $secret = (string) $saved['secret_key'];
+        }
+
+        if ($webdavPassword === '' && ! empty($saved['webdav_password'])) {
+            $webdavPassword = (string) $saved['webdav_password'];
         }
 
         return [
@@ -406,6 +427,11 @@ class InstallerController extends Controller
             'secret_key' => $secret,
             'path_style' => (bool) $request->input('path_style', true),
             'prefix' => (string) $request->input('prefix', ''),
+            'url' => (string) $request->input('webdav_url', ''),
+            'username' => (string) $request->input('webdav_username', ''),
+            'webdav_password' => $webdavPassword,
+            'webdav_prefix' => (string) $request->input('webdav_prefix', ''),
+            'verify_ssl' => (bool) $request->input('webdav_verify_ssl', true),
         ];
     }
 }

@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\ResourcePack\UploadService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 class StorageMigrationTest extends TestCase
@@ -93,5 +94,39 @@ class StorageMigrationTest extends TestCase
             'target_driver' => 'local',
             'local_path' => $this->targetPath,
         ])->assertForbidden();
+    }
+
+    public function test_webdav_storage_plan_is_created_and_the_password_is_encrypted(): void
+    {
+        Http::fake(fn ($request) => match ($request->method()) {
+            'GET' => Http::response('next-respack', 200),
+            'HEAD' => Http::response('', 200, ['Content-Length' => '12']),
+            'DELETE' => Http::response('', 204),
+            default => Http::response('', 201),
+        });
+
+        $this->actingAs($this->admin)->post('/admin/storage/plan', [
+            'target_driver' => 'webdav',
+            'webdav_url' => 'https://dav.example.com/files/user',
+            'webdav_username' => 'alice',
+            'webdav_password' => 'top-secret',
+            'webdav_prefix' => 'next-respack',
+            'webdav_verify_ssl' => '1',
+        ])->assertRedirect('/admin/storage')->assertSessionHasNoErrors();
+
+        $migration = StorageMigration::latest('id')->firstOrFail();
+
+        $this->assertSame('webdav', $migration->to_driver);
+        $this->assertSame('next-respack', $migration->stats['prefix']);
+        $this->assertNotSame('top-secret', $migration->stats['password']);
+        $this->assertSame('top-secret', app(\App\Services\Storage\StorageManager::class)->decryptSecret($migration->stats['password']));
+    }
+
+    public function test_webdav_storage_plan_requires_a_url(): void
+    {
+        $this->actingAs($this->admin)->post('/admin/storage/plan', [
+            'target_driver' => 'webdav',
+            'webdav_url' => '',
+        ])->assertSessionHasErrors('webdav_url');
     }
 }

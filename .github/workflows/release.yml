@@ -1,0 +1,80 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '要重新构建的已存在标签，例如 v1.0.1'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag || github.ref }}
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: ctype, curl, dom, fileinfo, filter, hash, json, mbstring, openssl, pcre, pdo, pdo_mysql, session, tokenizer, xml, zip, sqlite3
+          tools: composer:v2
+          coverage: none
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --no-progress --no-blocking
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build release packages
+        run: ./scripts/package-release.sh
+
+      - name: Verify tag matches config version
+        env:
+          TAG: ${{ github.event.inputs.tag || github.ref_name }}
+        run: |
+          VERSION="$(sed -n "s/.*'version' => '\([^']*\)'.*/\1/p" config/nextrespack.php | head -1)"
+          echo "tag=${TAG} config=${VERSION}"
+          if [ "v${VERSION}" != "${TAG}" ]; then
+            echo "::error::标签 ${TAG} 与 config/nextrespack.php 中的版本 ${VERSION} 不一致"
+            exit 1
+          fi
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.event.inputs.tag || github.ref_name }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            echo "Release ${TAG} 已存在，更新发行包"
+            gh release upload "$TAG" \
+              release/next-respack-shared-hosting.zip \
+              release/next-respack-vps.zip \
+              release/SHA256SUMS \
+              --clobber
+          else
+            gh release create "$TAG" \
+              --title "Next Respack ${TAG#v}" \
+              --generate-notes \
+              release/next-respack-shared-hosting.zip \
+              release/next-respack-vps.zip \
+              release/SHA256SUMS
+          fi

@@ -44,12 +44,12 @@ class DatabaseTester
                 $result['warnings'][] = __('A MariaDB server was detected. MariaDB support is provided in compatibility mode.');
             }
 
-            if ($driver === 'mysql' && ! $isMaria && version_compare($version, '8.0.0', '<')) {
-                $result['errors'][] = __('MySQL 8.0 or newer is required. Detected: :version', ['version' => $version]);
+            if ($driver === 'mysql' && ! $isMaria && version_compare($version, '5.7.0', '<')) {
+                $result['errors'][] = __('MySQL 5.7 or newer is required. Detected: :version', ['version' => $version]);
             }
 
-            if ($driver === 'mariadb' && version_compare($version, '10.6.0', '<')) {
-                $result['errors'][] = __('MariaDB 10.6 or newer is required. Detected: :version', ['version' => $version]);
+            if ($driver === 'mariadb' && version_compare($version, '10.3.0', '<')) {
+                $result['errors'][] = __('MariaDB 10.3 or newer is required. Detected: :version', ['version' => $version]);
             }
 
             try {

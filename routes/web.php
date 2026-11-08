@@ -12,6 +12,8 @@ use App\Http\Controllers\Install\InstallerController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\PackFormatController;
 use App\Http\Controllers\ResourcePackController;
+use App\Http\Controllers\RobotsController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,7 +45,12 @@ Route::prefix('install')->name('install.')->middleware(['install.not', 'throttle
 |--------------------------------------------------------------------------
 */
 Route::get('/', HomeController::class)->name('home');
+Route::get('/sitemap.xml', SitemapController::class)->name('sitemap');
+Route::get('/robots.txt', RobotsController::class)->name('robots');
 Route::get('/minecraft/pack-formats', [PackFormatController::class, 'index'])->name('pack-formats.index');
+Route::get('/minecraft/pack-formats/{format}', [PackFormatController::class, 'show'])
+    ->where('format', '[0-9]+(?:\.[0-9]+)?')
+    ->name('pack-formats.show');
 Route::get('/api/pack-formats', [PackFormatController::class, 'api'])->name('pack-formats.api');
 Route::get('/locale/{locale}', LocaleController::class)->name('locale');
 Route::match(['get', 'head'], '/dl/{token}', DownloadController::class)->where('token', '[A-Za-z0-9_\-]+')->name('download');

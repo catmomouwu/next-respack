@@ -4,8 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="{{ $description ?? nr_setting('site_description', __('Next Respack is a self-hosted Minecraft Java Edition resource pack hosting platform.')) }}">
-    <title>@yield('title', config('app.name')) — {{ config('app.name') }}</title>
+
+    @php
+        $seoTitle = trim($__env->yieldContent('title')) ?: config('app.name');
+        $seoDescription = trim($__env->yieldContent('description')) ?: nr_setting('site_description', __('Next Respack is a self-hosted Minecraft Java Edition resource pack hosting platform.'));
+        $seoCanonical = trim($__env->yieldContent('canonical')) ?: url()->current();
+        $seoIndexable = ! request()->routeIs(
+            'login', 'register', 'password.*', 'verification.*',
+            'dashboard', 'packs.*', 'account.*', 'admin.*', 'install.*',
+            'guest.upload.show', 'download', 'captcha', 'locale'
+        );
+        $seoRobots = trim($__env->yieldContent('robots')) ?: ($seoIndexable ? 'index,follow' : 'noindex,nofollow');
+        $seoType = trim($__env->yieldContent('og_type')) ?: 'website';
+        $seoLocale = app()->getLocale() === 'zh_CN' ? 'zh_CN' : 'en_US';
+        $seoJsonLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'WebSite',
+            'name' => config('app.name'),
+            'url' => url('/'),
+            'description' => $seoDescription,
+            'inLanguage' => app()->getLocale() === 'zh_CN' ? 'zh-CN' : 'en',
+            'potentialAction' => [
+                '@type' => 'SearchAction',
+                'target' => route('pack-formats.index').'?q={search_term_string}',
+                'query-input' => 'required name=search_term_string',
+            ],
+        ];
+    @endphp
+
+    <title>{{ $seoTitle }} — {{ config('app.name') }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="robots" content="{{ $seoRobots }}">
+    <link rel="canonical" href="{{ $seoCanonical }}">
+    <meta name="theme-color" content="#059669">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:locale" content="{{ $seoLocale }}">
+    <meta property="og:type" content="{{ $seoType }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:url" content="{{ $seoCanonical }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
+    <script type="application/ld+json">{!! json_encode($seoJsonLd, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) !!}</script>
+    @stack('head')
+
     <script>
         (function () {
             const stored = localStorage.getItem('nr-theme');

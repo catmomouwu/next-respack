@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.1 — 2026-11-09
+
+### 改进
+
+- SEO：新增 `/sitemap.xml`，收录首页、Pack Format 数据库、游客上传页以及每个资源包格式的独立页面，并输出 `lastmod`、`changefreq` 与 `priority`。
+- SEO：新增动态 `/robots.txt`，声明 Sitemap 地址并屏蔽后台、账户、安装、下载等非公开路径。
+- 新增资源包格式详情页（如 `/minecraft/pack-formats/69`），包含对应版本列表、`pack.mcmeta` 示例、上下格式导航与面包屑结构化数据，便于搜索长尾关键词。
+- 全站补充 canonical、Open Graph、Twitter Card、`WebSite` / `SearchAction` JSON-LD、`theme-color` 与页面级描述；后台、登录、下载等页面统一输出 `noindex,nofollow`。
+- 首页、Pack Format 列表与游客上传页改为更具搜索意图的标题与描述。
+
 ## 1.1.0 — 2026-11-08
 
 ### 新增

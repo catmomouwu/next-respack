@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', __('Home'))
+@section('title', __('Minecraft resource pack hosting & pack format database'))
+@section('description', __('Upload, validate and host Minecraft Java Edition resource packs, generate anonymous HTTPS download links, and look up the resource pack format for every Minecraft version.'))
+@section('canonical', route('home'))
 @section('content')
     <section class="grid items-center gap-10 py-6 lg:grid-cols-[1.25fr_1fr] lg:py-12">
         <div>

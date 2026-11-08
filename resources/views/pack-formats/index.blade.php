@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', __('Minecraft pack formats'))
+@section('title', __('Minecraft Java Edition pack format list'))
+@section('description', __('Search the complete Minecraft Java Edition resource pack format table. Find the pack format for any release, snapshot or pre-release version and copy it into pack.mcmeta.'))
+@section('canonical', route('pack-formats.index'))
 @section('content')
     <div>
         <span class="nr-badge-green">{{ __('Minecraft Java Edition · Resource Pack Format') }}</span>
@@ -60,7 +62,7 @@
                         @foreach ($formats as $formatRow)
                             <tr>
                                 <td class="nr-td align-top">
-                                    <p class="font-mono text-lg font-bold text-slate-900 dark:text-slate-100">{{ $formatRow->format_value }}</p>
+                                    <a href="{{ route('pack-formats.show', $formatRow->format_value) }}" class="font-mono text-lg font-bold text-slate-900 underline-offset-4 hover:text-emerald-600 hover:underline dark:text-slate-100 dark:hover:text-emerald-400">{{ $formatRow->format_value }}</a>
                                     <p class="mt-1 text-[11px] text-slate-400">{{ __('Major :major · Minor :minor', ['major' => (string) $formatRow->format_major, 'minor' => $formatRow->format_minor === null ? '—' : (string) $formatRow->format_minor]) }}</p>
                                 </td>
                                 <td class="nr-td">

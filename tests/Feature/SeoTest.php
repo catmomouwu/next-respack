@@ -53,7 +53,7 @@ class SeoTest extends TestCase
             ->assertSee('noindex,nofollow');
     }
 
-    public function test_sitemap_lists_public_pages_and_pack_formats(): void
+    public function test_sitemap_lists_only_index_pages(): void
     {
         $this->seedFormat();
 
@@ -65,7 +65,7 @@ class SeoTest extends TestCase
             ->assertSee(route('home'), false)
             ->assertSee(route('pack-formats.index'), false)
             ->assertSee(route('guest.upload'), false)
-            ->assertSee(route('pack-formats.show', '15'), false)
+            ->assertDontSee(route('pack-formats.show', '15'), false)
             ->assertSee('<lastmod>', false)
             ->assertDontSee(route('login'), false);
     }

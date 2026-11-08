@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('title', __('Guest upload'))
+@section('title', __('Upload a Minecraft resource pack without an account'))
+@section('description', __('Upload a Minecraft Java Edition resource pack ZIP without registering. Files up to :size MB are validated instantly and deleted after :days days.', ['size' => (int) config('nextrespack.guest_upload_mb', 200), 'days' => (int) config('nextrespack.guest_retention_days', 7)]))
+@section('canonical', route('guest.upload'))
 @section('content')
     @php
         $phpMaxMb = min(

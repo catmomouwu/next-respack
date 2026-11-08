@@ -141,7 +141,7 @@ return new class extends Migration
             $table->boolean('is_manual')->default(false);
             $table->timestamps();
             $table->unique(['edition', 'version_name']);
-            $table->index(['minecraft_pack_format_id', 'version_type']);
+            $table->index(['minecraft_pack_format_id', 'version_type'], 'mcpf_versions_format_type_index');
         });
 
         Schema::create('minecraft_pack_format_sync_logs', function (Blueprint $table) {

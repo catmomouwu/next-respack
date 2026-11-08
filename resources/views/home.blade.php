@@ -145,4 +145,21 @@ require-resource-pack=true</code></pre>
             </div>
         @endif
     </section>
+
+    <section class="mt-12">
+        <div class="nr-card flex flex-col items-start justify-between gap-4 p-6 sm:flex-row sm:items-center">
+            <div>
+                <p class="flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                    <span class="nr-badge-green">{{ __('Open source') }}</span>
+                    {{ __('This is an open source project') }}
+                </p>
+                <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                    {{ __('Next Respack is released under the MIT license. Star, fork or contribute on GitHub.') }}
+                </p>
+            </div>
+            <a href="https://github.com/catmomouwu/next-respack" target="_blank" rel="noopener noreferrer" class="nr-btn-secondary shrink-0 font-mono text-xs">
+                github.com/catmomouwu/next-respack ↗
+            </a>
+        </div>
+    </section>
 @endsection

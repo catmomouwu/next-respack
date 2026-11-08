@@ -93,4 +93,4 @@ max_execution_time = 300
 
 - 不使用 Nginx `X-Accel-Redirect`，下载模式保持 **PHP 流式**。
 - 不使用数据库会话 / 缓存，避免共享主机连接数限制。
-- 不需要 Cron；Pack Format 手动同步即可。
+- 不需要 Cron；游客上传的过期文件会在访问上传页时自动清理（每 15 分钟最多一次），也可手动执行 `php artisan guests:purge`；Pack Format 手动同步即可。

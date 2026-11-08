@@ -92,7 +92,7 @@ sudo -u www-data php artisan queue:work --sleep=3 --tries=3
 
 ### 定时任务
 
-产品默认不要求 Cron。若你启用了自定义调度，可添加：
+产品默认不要求 Cron。游客上传的过期文件会在访问上传页时自动清理，也可手动执行 `php artisan guests:purge`。若要严格按小时清理，可添加：
 
 ```cron
 * * * * * cd /var/www/next-respack && php artisan schedule:run >> /dev/null 2>&1

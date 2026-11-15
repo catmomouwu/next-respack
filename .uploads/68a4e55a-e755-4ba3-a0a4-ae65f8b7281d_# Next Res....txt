@@ -1,0 +1,1614 @@
+# Next Respack — 完整项目开发、安装与部署任务书
+
+你是一支完整的软件工程团队，由系统架构师、PHP 后端工程师、前端工程师、数据库工程师、安全工程师、测试工程师和 DevOps 工程师组成。
+
+请从零开始设计、开发并交付 **Next Respack**。
+
+本项目是一个专门面向 Minecraft Java Edition 服务器管理员的资源包上传、管理、校验、托管和下载平台，不是通用网盘。
+
+必须实际创建工程文件、实现业务逻辑、编写数据库迁移、实现前端、执行测试并提供完整部署发行包。
+
+不得只输出架构方案、静态页面或伪代码。
+
+---
+
+# 一、项目技术架构
+
+## 1.1 技术栈
+
+- PHP 8.3+
+- Laravel 13
+- MySQL 5.7+（首选）
+- MariaDB（通过兼容性测试后支持）
+- SQLite（可选轻量部署模式）
+- Blade
+- Tailwind CSS
+- Alpine.js
+- Vite
+- Laravel Filesystem
+- PHPUnit 或 Pest
+
+要求：
+
+1. 依赖版本必须兼容 PHP 8.3。
+2. 数据库最低兼容 MySQL 5.7。
+3. 不得使用仅在 MySQL 8.0 中存在的 SQL 特性作为核心功能前提。
+4. 不得依赖 MySQL 8.0 专属函数、索引特性或约束行为。
+5. 所有数据库迁移必须实际在 MySQL 5.7 和 MySQL 8.0 上测试。
+6. 使用 `composer.lock` 固定依赖。
+7. 生产发行包预先包含 Composer 依赖和前端构建产物。
+
+## 1.2 目标部署环境
+
+### A. 虚拟主机
+
+目标：
+
+- PHP 8.3
+- MySQL 5.7 或 8.0
+- Apache 或 Nginx
+- HTTPS
+- FTP/SFTP 上传
+- 不保证 SSH。
+- 不保证 Composer CLI。
+- 不保证 Node.js。
+- 不保证 Cron。
+- 不保证 Root 权限。
+- 不保证可以修改服务器全局配置。
+
+必须支持：
+
+- 通过浏览器安装。
+- 无 CLI 初始化。
+- 无需用户运行 Composer。
+- 无需用户运行 npm。
+- 无需用户手动执行数据库迁移。
+- 无常驻 Queue Worker 也能正常运行。
+- 无 Cron 时核心功能正常。
+- 可通过 FTP/SFTP 部署完整发行包。
+
+推荐目录：
+
+```text
+/home/account/
+├── next-respack/
+│   ├── app/
+│   ├── bootstrap/
+│   ├── config/
+│   ├── database/
+│   ├── resources/
+│   ├── routes/
+│   ├── storage/
+│   ├── vendor/
+│   └── .env
+└── public_html/
+    ├── index.php
+    ├── .htaccess
+    └── assets/
+```
+
+Laravel 主体必须位于非公开目录。
+
+禁止直接暴露：
+
+- `.env`
+- `vendor/`
+- `storage/`
+- `database/`
+- 日志
+- 备份
+- 私有资源包文件
+
+如果主机支持独立 Document Root，优先将网站根目录指向 Laravel `public/`。
+
+### B. VPS
+
+支持：
+
+- Debian
+- Ubuntu
+- Azure Linux
+- Nginx
+- Apache
+- PHP-FPM
+- MySQL
+- Composer
+- Cron
+- Laravel Scheduler
+- 可选 Redis
+- 可选 Supervisor
+- 可选 Docker
+
+VPS 可以启用额外优化，但不能让这些组件成为基础功能的必要条件。
+
+---
+
+# 二、首次访问安装向导
+
+必须提供完整的浏览器安装向导。
+
+首次访问时自动检测安装状态：
+
+- 未安装：跳转 `/install`。
+- 已安装：正常进入网站。
+- 正在安装：恢复受保护的安装流程。
+- 安装完成：安装入口永久锁定。
+
+## 2.1 安装步骤
+
+### Step 0：欢迎页面
+
+显示：
+
+- Next Respack Logo。
+- 产品名称。
+- 产品版本。
+- 简体中文 / English。
+- 安装说明。
+- 开始安装按钮。
+
+### Step 1：环境检测
+
+检测：
+
+- PHP 版本是否不低于 8.3。
+- MySQL PDO 驱动。
+- 必需 PHP 扩展。
+- ZIP 扩展。
+- 文件上传限制。
+- PHP 内存限制。
+- 执行时间。
+- `storage/` 写入权限。
+- `bootstrap/cache/` 写入权限。
+- 磁盘可用空间。
+- HTTPS。
+- 前端资源是否存在。
+
+显示通过、警告、失败状态及修复方法。
+
+缺少必需环境时禁止继续。
+
+### Step 2：数据库配置
+
+支持选择：
+
+- MySQL。
+- MariaDB（通过兼容性测试后开放）。
+- SQLite（可选）。
+
+MySQL 配置：
+
+- Host
+- Port
+- Database
+- Username
+- Password
+- Charset
+- Collation
+
+默认：
+
+```text
+Port: 3306
+Charset: utf8mb4
+Collation: utf8mb4_unicode_ci
+```
+
+必须提供数据库连接测试。
+
+检测：
+
+- 数据库版本。
+- 数据库是否可连接。
+- 数据库是否存在。
+- 数据库账号权限。
+- 是否存在同名应用数据表。
+
+虚拟主机通常不允许普通数据库账号创建数据库，因此必须允许直接使用服务商预先创建的数据库。
+
+安装器只在选定数据库中创建应用表，不得删除或覆盖无关数据表。
+
+**最低兼容版本必须是 MySQL 5.7。**
+
+### Step 3：存储后端选择
+
+安装器必须提供三种正式存储选项：
+
+1. 本地存储。
+2. S3 兼容对象存储。
+3. WebDAV 存储。
+
+默认选择本地存储。
+
+#### A. 本地存储
+
+默认目录：
+
+```text
+storage/app/private/resource-packs/
+```
+
+配置：
+
+- 存储路径。
+- 目录写入测试。
+- 可用空间检测。
+- 路径安全检测。
+
+不得直接公开资源包文件。
+
+#### B. S3 兼容存储
+
+支持：
+
+- Amazon S3
+- Cloudflare R2
+- 其他 S3-compatible 服务
+
+配置：
+
+- Endpoint
+- Region
+- Bucket
+- Access Key
+- Secret Key
+- Path Style
+- 自定义域名（可选）
+
+必须测试：
+
+- 连接。
+- 上传。
+- 读取。
+- 删除。
+- 对象是否存在。
+
+默认禁止公开 Bucket。
+
+#### C. WebDAV 存储
+
+WebDAV 必须作为正式的一级存储后端，直接加入首次安装向导。
+
+配置字段：
+
+- WebDAV Server URL
+- WebDAV Username
+- WebDAV Password
+- WebDAV Base Path
+- Connection Timeout
+- Request Timeout
+- TLS Certificate Verification
+- 自定义根目录（可选）
+
+例如：
+
+```text
+WebDAV URL:
+https://dav.example.com/remote.php/dav/files/username/
+
+Username:
+username
+
+Password:
+********
+
+Base Path:
+/NextRespack/
+```
+
+安装时必须执行连接测试：
+
+1. 测试 WebDAV 服务可连接。
+2. 测试身份认证。
+3. 检查目标目录。
+4. 必要时创建目标目录。
+5. 测试上传临时文件。
+6. 测试读取临时文件。
+7. 测试删除临时文件。
+8. 检查服务器是否支持必要的 HTTP 操作。
+
+必须正确处理：
+
+- HTTP Basic Authentication。
+- HTTPS。
+- PUT。
+- GET。
+- DELETE。
+- MKCOL。
+- MOVE（如果服务端支持）。
+- PROPFIND（如果服务端支持）。
+
+如果某个 WebDAV 服务不支持原子 MOVE，必须提供安全的替代上传策略。
+
+WebDAV 文件路径不得由用户输入直接拼接，必须进行路径规范化和目录边界检查。
+
+WebDAV 密码必须加密保存，不能明文暴露在普通管理界面、日志或 API 返回值中。
+
+修改存储后端时不能自动删除原存储数据。
+
+必须提供存储迁移功能，支持：
+
+- 本地迁移到 WebDAV。
+- WebDAV 迁移到本地。
+- 本地迁移到 S3。
+- S3 迁移到 WebDAV。
+- WebDAV 迁移到 S3。
+
+迁移时逐个校验文件大小和 SHA-1，全部验证成功后才更新数据库中的存储位置。
+
+不得在未完成迁移前删除源文件。
+
+#### 统一存储接口
+
+采用统一 Storage Adapter：
+
+```text
+StorageInterface
+├── LocalStorageAdapter
+├── S3StorageAdapter
+└── WebDAVStorageAdapter
+```
+
+上传、删除、读取、检查、迁移和下载业务不得直接绑定具体存储服务。
+
+对于 WebDAV 和 S3，不得假设可以使用 Nginx `X-Accel-Redirect` 直接读取远程对象。
+
+远程文件应通过受控流式下载或经过验证的短期签名访问方式提供。
+
+### Step 4：站点配置
+
+字段：
+
+- 网站名称。
+- 网站 URL。
+- 默认语言。
+- 时区。
+- 网站描述。
+- 最大上传大小。
+- 用户存储配额。
+- 是否允许注册。
+- 是否允许游客上传。
+- 是否启用邮箱验证。
+- 管理员通知邮箱。
+
+### Step 5：创建第一个管理员
+
+字段：
+
+- 用户名。
+- 邮箱。
+- 密码。
+- 确认密码。
+
+要求：
+
+- 用户名唯一。
+- 邮箱唯一。
+- 安全密码哈希。
+- 不允许默认管理员密码。
+- 第一个管理员自动获得 Super Admin 权限。
+
+### Step 6：配置确认
+
+显示：
+
+- 数据库类型。
+- 数据库版本。
+- 数据库连接状态。
+- 存储后端。
+- 存储连接状态。
+- 网站 URL。
+- 游客上传设置。
+- 管理员账户。
+
+敏感字段脱敏。
+
+### Step 7：执行安装
+
+自动：
+
+1. 生成 APP_KEY。
+2. 保存配置。
+3. 初始化数据库。
+4. 执行 Migration。
+5. 初始化默认系统设置。
+6. 创建管理员。
+7. 初始化存储目录。
+8. 初始化 Pack Format 数据。
+9. 初始化游客上传清理任务。
+10. 写入安装版本。
+11. 创建安装锁。
+12. 禁用安装路由。
+
+安装失败必须允许受保护的恢复操作。
+
+安装完成后，不允许普通用户重新初始化系统。
+
+删除安装锁文件不能绕过数据库安装状态。
+
+---
+
+# 三、用户系统与权限
+
+角色：
+
+- Guest
+- User
+- Admin
+- Super Admin
+
+普通用户只能管理自己的资源包。
+
+管理员可以管理所有用户和资源包。
+
+超级管理员可以管理管理员角色和系统核心配置。
+
+所有权限必须在后端验证。
+
+用户系统支持：
+
+- 注册。
+- 登录。
+- 退出。
+- 邮箱验证。
+- 忘记密码。
+- 密码重置。
+- 修改用户名。
+- 修改邮箱。
+- 修改密码。
+- 查看存储用量。
+- 查看上传历史。
+
+---
+
+# 四、游客上传功能
+
+必须允许未注册游客直接上传 Minecraft 资源包。
+
+游客上传是独立的上传身份体系，不要求游客创建账户。
+
+## 4.1 游客上传限制
+
+游客上传规则：
+
+- 单个文件最大 200 MB。
+- 每个游客上传文件最多保留 7 天。
+- 超过 7 天自动删除。
+- 不提供永久保存保证。
+- 上传后立即生成匿名 HTTPS 下载链接。
+- 游客不需要登录即可下载。
+- 游客上传后可以查看 SHA-1。
+- 游客可以生成 Minecraft 服务端配置。
+
+**页面必须明确显示：游客上传的文件将在 7 天后自动删除；注册账户上传的文件可以永久保存，直至用户主动删除或违反平台管理规则。**
+
+不得让用户误以为游客文件永久保存。
+
+## 4.2 游客上传管理
+
+游客没有用户仪表盘，因此必须设计安全的上传管理方式。
+
+上传完成后生成：
+
+- 下载 Token。
+- 管理 Token。
+- 上传记录 ID。
+
+管理 Token 必须是独立的高熵随机值，与下载 Token 分离。
+
+游客可以通过安全管理链接查看：
+
+- 文件名。
+- 文件大小。
+- SHA-1。
+- 上传时间。
+- 预计过期时间。
+- 下载链接。
+- 服务端配置。
+
+游客管理 Token 不得暴露在下载 URL 中。
+
+允许游客通过管理链接：
+
+- 修改显示名称。
+- 查看文件信息。
+- 提前删除文件。
+- 查看剩余保存时间。
+
+游客管理链接必须具备足够随机性，不得使用连续 ID。
+
+管理 Token 只保存摘要。
+
+## 4.3 游客过期清理
+
+游客文件必须保存：
+
+- `upload_type`。
+- `guest_token_hash`。
+- `expires_at`。
+- `created_at`。
+- `deleted_at`。
+
+注册用户文件与游客文件必须能够明确区分。
+
+游客上传默认：
+
+```text
+upload_type = guest
+retention_days = 7
+max_file_size = 200 MB
+```
+
+注册用户上传：
+
+```text
+upload_type = registered
+expires_at = NULL
+```
+
+游客文件过期后：
+
+1. 下载链接立即失效。
+2. 管理链接失效。
+3. 数据库记录进入待删除状态。
+4. 删除本地或远程存储中的文件。
+5. 清理下载统计关联数据。
+6. 记录清理日志。
+
+必须考虑 WebDAV、S3 和本地存储删除失败的情况。
+
+删除失败时进入重试队列或待清理列表，不得假装已经删除。
+
+## 4.4 无 Cron 环境
+
+虚拟主机可能没有 Cron。
+
+因此：
+
+- VPS 使用 Laravel Scheduler。
+- 虚拟主机优先提供 Cron 配置。
+- 无 Cron 时使用限频的请求触发清理。
+- 也提供管理员手动清理按钮。
+- 每次清理必须使用锁防止并发执行。
+- 每次请求不能重复扫描全表。
+- 清理必须分批执行，避免 PHP 超时。
+
+过期时间必须以数据库记录的 `expires_at` 为准，而不是只依赖定时任务是否执行。
+
+即使清理任务尚未运行，过期文件也必须禁止下载。
+
+## 4.5 防滥用
+
+游客上传必须提供：
+
+- IP 限流。
+- 上传频率限制。
+- 单 IP 并发限制。
+- 文件大小限制。
+- ZIP 安全校验。
+- 可配置验证码。
+- 管理员关闭游客上传的开关。
+- 游客文件总量限制。
+- 全站游客存储配额。
+
+如果记录 IP，必须考虑隐私保护和数据保留期限。
+
+---
+
+# 五、注册用户资源包管理
+
+注册用户上传文件后默认长期保存，直到用户主动删除或管理员处理。
+
+默认限制：
+
+- 单文件最大 512 MB。
+- 用户总存储空间 2 GB。
+
+管理员可以调整。
+
+资源包列表显示：
+
+- 名称。
+- 原始文件名。
+- 大小。
+- SHA-1。
+- Resource Pack Format。
+- 建议使用的 Minecraft 版本。
+- 上传时间。
+- 下载次数。
+- 状态。
+
+支持：
+
+- 搜索。
+- 分页。
+- 排序。
+- 格式筛选。
+- 修改名称。
+- 修改描述。
+- 删除。
+- 停用下载链接。
+- 重置 Token。
+- 查看下载记录。
+
+必须预留版本管理结构。
+
+更新资源包不能直接覆盖旧版本文件。
+
+---
+
+# 六、Minecraft 资源包校验
+
+只允许 Minecraft Java Edition 资源包 ZIP。
+
+必须检查：
+
+- 文件扩展名。
+- MIME。
+- ZIP 文件签名。
+- ZIP 完整性。
+- CRC。
+- 文件数量。
+- 解压后总大小。
+- 压缩比。
+- ZIP Bomb。
+- 路径穿越。
+- 符号链接。
+- 文件名安全。
+
+检查 ZIP 根目录：
+
+```text
+pack.mcmeta
+```
+
+可选：
+
+```text
+pack.png
+```
+
+解析：
+
+- `pack`。
+- `pack_format`。
+- `supported_formats`。
+- `min_format`。
+- `max_format`。
+- 描述信息。
+
+必须保留原始 `pack.mcmeta`。
+
+状态：
+
+- ZIP_INVALID
+- PACK_INVALID
+- METADATA_INVALID
+- FORMAT_UNKNOWN
+- VALID
+- VALID_WITH_WARNING
+
+不得把任意 ZIP 文件错误识别为合法 Minecraft 资源包。
+
+---
+
+# 七、Minecraft Resource Pack Format 数据模块
+
+数据源：
+
+https://minecraft.wiki/w/Pack_format
+
+必须完整采集 Minecraft Java Edition Resource Pack Format 历史映射。
+
+不允许混入 Data Pack Format 或 Bedrock Edition 格式。
+
+## 7.1 数据范围
+
+包括：
+
+- 正式版。
+- Snapshot。
+- Pre-release。
+- Release Candidate。
+- 页面明确列出的其他开发版本。
+
+通过 MediaWiki API 或可靠页面解析获取数据。
+
+不得只硬编码几个格式编号。
+
+不得推测未公布的未来版本。
+
+## 7.2 数据库
+
+至少建立：
+
+```text
+minecraft_pack_formats
+minecraft_pack_format_versions
+minecraft_pack_format_sync_logs
+minecraft_pack_format_history
+```
+
+支持：
+
+- 整数格式。
+- 小数格式。
+- Major / Minor。
+- 一对多版本映射。
+- 正式版和 Snapshot 区分。
+- 版本范围。
+- 新版 `min_format` / `max_format`。
+- `supported_formats`。
+
+保留原始数据和来源。
+
+## 7.3 自动同步
+
+支持：
+
+- 初次安装完整初始化。
+- 每日自动同步。
+- 管理员手动同步。
+- 差异对比。
+- 新增和更新。
+- 历史记录。
+- JSON 导入。
+- CSV 导入。
+- 手动修正。
+- 数据回滚。
+
+同步失败必须保留上一份有效数据。
+
+虚拟主机无 Cron 时仍然支持手动同步。
+
+不得在每次访问页面时请求 Wiki。
+
+## 7.4 检测到的游戏版本展示方式
+
+原先的“检测到的游戏版本”展示方式必须修改。
+
+统一改成：
+
+**建议使用的版本：xxx**
+
+其中 `xxx` 必须是具体的 Minecraft Java Edition 版本号。
+
+例如：
+
+```text
+建议使用的版本：1.21.10
+```
+
+不要只显示：
+
+```text
+检测到的游戏版本：1.21.x
+```
+
+也不要只显示一个无法执行判断的版本范围。
+
+### 推荐版本选择逻辑
+
+1. 根据资源包的格式数据查询所有对应 Minecraft Java Edition 版本。
+2. 优先选择正式发布版本。
+3. 在符合条件的正式版中，优先推荐最新的稳定正式版本。
+4. 如果没有对应正式版，才选择 Pre-release 或 Release Candidate。
+5. 如果仍没有，再选择 Snapshot。
+6. 如果没有可靠映射，显示“暂无法确定建议版本”，不得猜测。
+7. 显示版本类型，Snapshot 等非正式版必须明确标识。
+8. 如果资源包使用了 `min_format`、`max_format` 或 `supported_formats`，根据其范围执行兼容性判断，不能只检查单个整数。
+9. 当存在多个候选版本时，可以显示一个主推荐版本及其他兼容版本列表。
+
+展示示例：
+
+```text
+建议使用的版本：1.21.10
+
+版本类型：正式版
+Resource Pack Format：69.0
+```
+
+若只有 Snapshot 可匹配：
+
+```text
+建议使用的版本：25wXXa
+
+版本类型：Snapshot（非正式版）
+```
+
+实际版本号必须来自同步数据，以上仅是展示示例。
+
+必须明确提示：格式匹配不代表资源包内全部纹理、模型、声音等内容完全兼容。
+
+## 7.5 Pack Format 查询页面与 Sitemap
+
+提供：
+
+```text
+/minecraft/pack-formats
+```
+
+支持搜索和筛选。
+
+必须遵循以下 Sitemap 规则：
+
+- Pack Format 详情页不得被收录到 sitemap.xml。
+- 不得将每一个 Minecraft 版本的详情 URL 批量写入 Sitemap。
+- 动态生成 Sitemap 时必须显式排除 Pack Format 详情路由。
+- Sitemap 生成器必须有自动化测试。
+- 不能仅通过前端隐藏链接实现排除。
+- 如果未来增加详情页路由，默认也不进入 Sitemap，除非管理员明确配置。
+
+普通查询入口是否进入 Sitemap 可以单独配置。
+
+---
+
+# 八、数据库索引命名规范与 MySQL 5.7 兼容性
+
+这是强制要求，不能遗漏。
+
+MySQL 标识符最大长度为 64 个字符。
+
+Laravel 自动生成的索引名可能超过 MySQL 上限。
+
+已知问题：
+
+```text
+minecraft_pack_format_versions_minecraft_pack_format_id_version_type_index
+```
+
+长度达到 74 个字符，会超过 MySQL 64 字符限制。
+
+因此必须对 Migration 中的索引显式指定短名称。
+
+## 8.1 必须使用的索引名称
+
+针对：
+
+`minecraft_pack_format_versions`
+
+指定：
+
+```php
+$table->index(
+    ['minecraft_pack_format_id', 'version_type'],
+    'mcpf_versions_format_type_index'
+);
+```
+
+索引名：
+
+```text
+mcpf_versions_format_type_index
+```
+
+不得再由 Laravel 自动生成长名称。
+
+## 8.2 全项目索引审查
+
+必须检查所有：
+
+- 普通索引。
+- 唯一索引。
+- 复合索引。
+- 外键约束名称。
+- 其他数据库约束名称。
+
+所有索引名称和显式约束名称必须小于或等于 64 个字符。
+
+建议统一使用短前缀：
+
+```text
+users_email_unique
+rp_user_status_index
+rp_token_unique
+mcpf_format_index
+mcpf_versions_format_type_index
+dl_logs_pack_date_index
+```
+
+以上名称仅为建议命名，实际命名必须保证唯一且不超过限制。
+
+对外键也应显式命名，避免 Laravel 自动生成超长名称。
+
+删除索引时也必须使用显式短名称。
+
+## 8.3 自动化检查
+
+在 CI 和 Migration 测试中加入索引命名检查：
+
+- 统计每个索引名称长度。
+- 统计外键名称长度。
+- 超过 64 字符直接使测试失败。
+- 检查索引重名。
+- 检查迁移能否在 MySQL 5.7 上正常执行。
+
+不得只修复一个已知索引，而忽略其他潜在长名称。
+
+---
+
+# 九、SHA-1 与匿名下载
+
+上传完成后对最终存储文件计算：
+
+```php
+$sha1 = hash_file('sha1', $path);
+```
+
+要求：
+
+- 40 位小写十六进制。
+- 计算最终保存文件的原始字节。
+- 下载字节必须与 SHA-1 对应。
+- 存储迁移后重新校验。
+
+下载链接：
+
+```text
+https://respack.example.com/dl/{random_token}
+```
+
+要求：
+
+- 匿名访问。
+- 无需登录。
+- 无需 Cookie。
+- 无需 Authorization Header。
+- 高熵 Token。
+- 数据库只保存 Token 摘要。
+- 用户可停用和重置 Token。
+- 删除资源包后立即失效。
+
+下载支持：
+
+- GET
+- HEAD
+- Range
+- 断点续传
+- Content-Length
+- Content-Type
+- Content-Disposition
+- ETag
+- Last-Modified
+- 206
+- 416
+
+HEAD 不计完整下载次数。
+
+Range 不应重复增加完整下载次数。
+
+本地存储优先使用 Nginx X-Accel-Redirect；Apache 和虚拟主机使用 PHP 流式下载。
+
+S3 和 WebDAV 使用经过安全处理的远程读取或流式下载。
+
+所有下载都必须验证资源包状态及过期时间。
+
+游客资源包过期后必须立即禁止下载，即使物理文件尚未被清理。
+
+---
+
+# 十、Minecraft 服务端配置生成器
+
+自动生成：
+
+```properties
+resource-pack=https://respack.example.com/dl/{token}
+resource-pack-sha1={40-char-sha1}
+require-resource-pack=false
+```
+
+用户可以选择：
+
+- 是否强制玩家接受资源包。
+- 自动下载。
+- 复制下载链接。
+- 复制 SHA-1。
+- 复制完整配置。
+- 下载配置文件。
+
+确保 Minecraft 服务端能够直接访问 HTTPS 地址，不依赖登录态、Cookie 或特殊请求头。
+
+---
+
+# 十一、管理后台
+
+至少包括：
+
+## 仪表盘
+
+- 用户数。
+- 游客上传数。
+- 注册用户资源包数。
+- 下载总数。
+- 存储总量。
+- 游客文件占用。
+- 最近上传。
+- 最近清理任务。
+
+## 用户管理
+
+- 查看用户。
+- 修改角色。
+- 禁用和恢复。
+- 修改配额。
+- 查看资源包。
+
+## 游客上传管理
+
+- 查看所有游客上传。
+- 查看过期时间。
+- 查看存储占用。
+- 提前删除。
+- 停用下载链接。
+- 手动清理过期文件。
+- 查看清理失败记录。
+
+## 资源包管理
+
+- 搜索全部资源包。
+- 删除违规资源包。
+- 停用下载链接。
+- 查看上传和下载记录。
+
+## 存储管理
+
+- 查看当前存储后端。
+- 查看本地存储空间。
+- 测试 S3 连接。
+- 测试 WebDAV 连接。
+- 查看远程存储状态。
+- 存储迁移。
+- 孤儿文件清理。
+- 迁移失败恢复。
+
+## 系统设置
+
+- 网站名称。
+- 注册开关。
+- 游客上传开关。
+- 游客上传最大大小。
+- 游客保留时间。
+- 注册用户上传大小。
+- 用户配额。
+- 默认存储后端。
+- SMTP。
+- HTTPS。
+- 时区。
+- 默认语言。
+
+## Pack Format 管理
+
+- 手动同步。
+- 同步日志。
+- 数据差异。
+- 手动修正。
+- JSON/CSV 导入。
+- 历史版本恢复。
+
+---
+
+# 十二、数据库设计
+
+至少建立：
+
+```text
+users
+resource_packs
+resource_pack_versions
+download_logs
+user_quotas
+system_settings
+audit_logs
+installations
+storage_migrations
+minecraft_pack_formats
+minecraft_pack_format_versions
+minecraft_pack_format_sync_logs
+minecraft_pack_format_history
+```
+
+资源包表必须支持：
+
+```text
+id
+user_id
+upload_type
+original_name
+display_name
+stored_name
+storage_disk
+storage_path
+download_token_hash
+guest_token_hash
+file_size
+sha1
+pack_description
+pack_format
+supported_formats
+min_format
+max_format
+recommended_game_version
+validation_status
+status
+download_count
+last_download_at
+expires_at
+deleted_at
+created_at
+updated_at
+```
+
+根据需要拆分版本信息和游客管理 Token。
+
+要求：
+
+- 合理外键。
+- 合理索引。
+- 唯一约束。
+- 并发配额控制。
+- 事务。
+- 软删除。
+- 存储清理。
+- 防止重复 Token。
+- 防止重复同步。
+
+必须保证 MySQL 5.7 兼容性。
+
+不得依赖 MySQL 8.0 专属 JSON 查询能力。
+
+JSON 数据应通过兼容 MySQL 5.7 的字段设计与应用层解析处理。
+
+文件系统和数据库之间采用临时文件、原子移动、事务和补偿清理，不能假设二者可以共享事务。
+
+---
+
+# 十三、前端设计
+
+采用现代化、简洁、响应式设计。
+
+支持：
+
+- 桌面。
+- 手机。
+- 浅色。
+- 深色。
+- 跟随系统。
+- 简体中文。
+- English。
+
+页面：
+
+```text
+/
+├── 首页
+├── 安装向导
+├── 登录
+├── 注册
+├── 忘记密码
+├── 游客上传
+├── 游客上传结果
+├── 游客管理页面
+├── 用户仪表盘
+├── 资源包列表
+├── 上传资源包
+├── 资源包详情
+├── Minecraft Pack Format 查询
+├── 账号设置
+└── 管理员后台
+```
+
+游客上传页面必须明确显示：
+
+- 最大 200 MB。
+- 7 天保存期限。
+- 过期后自动删除。
+- 注册用户文件长期保存的说明。
+
+游客上传完成页面应突出：
+
+- 下载链接。
+- SHA-1。
+- 建议使用的 Minecraft 版本。
+- 过期日期。
+- 管理链接。
+- 服务端配置生成器。
+
+不得只实现装饰性按钮，所有交互必须接入真实后端。
+
+---
+
+# 十四、安全要求
+
+必须防护：
+
+- CSRF。
+- XSS。
+- SQL Injection。
+- SSRF。
+- ZIP Bomb。
+- 路径穿越。
+- 非法文件上传。
+- Token 猜测。
+- 暴力破解。
+- Session 劫持。
+- 越权访问。
+- 配额并发绕过。
+- 安装器重复执行。
+- 配置文件泄露。
+- WebDAV 凭据泄露。
+- 远程存储路径穿越。
+
+WebDAV Endpoint 是管理员配置的外部地址，应严格校验协议和目标地址，并采用管理员授权、请求超时和连接限制。
+
+如果部署环境使用内网 WebDAV，不能简单禁止所有私网地址；应当通过管理员明确授权的存储配置来控制访问，而不是开放用户任意 URL 请求功能。
+
+必须启用：
+
+- HTTPS。
+- 安全 Cookie。
+- 安全密码哈希。
+- 上传限流。
+- 下载 Token 随机化。
+- 后端权限检查。
+- 文件隔离。
+- 安全日志。
+- 敏感凭据加密。
+
+---
+
+# 十五、定时任务与维护
+
+必须实现：
+
+- 游客文件过期清理。
+- 孤儿文件清理。
+- 失败删除重试。
+- Pack Format 每日同步。
+- 过期 Token 清理。
+- 日志轮转或归档。
+
+VPS 使用 Laravel Scheduler。
+
+虚拟主机无 Cron 时：
+
+- 提供手动执行。
+- 提供受保护的 Web 触发。
+- 采用请求限频。
+- 采用任务锁。
+- 分批执行。
+- 不允许每次请求都全表扫描。
+
+所有清理操作必须幂等。
+
+---
+
+# 十六、测试要求
+
+## 安装器
+
+- 首次访问。
+- 环境检测。
+- MySQL 5.7 连接。
+- MySQL 8.0 连接。
+- 数据库权限不足。
+- 本地存储。
+- S3 存储。
+- WebDAV 存储。
+- WebDAV 认证失败。
+- WebDAV 上传和删除。
+- 第一个管理员创建。
+- 重复安装拦截。
+- 安装失败恢复。
+
+## 游客上传
+
+- 无需登录上传。
+- 200 MB 上限。
+- 超过 200 MB 拒绝。
+- ZIP 校验。
+- SHA-1。
+- 下载链接。
+- 管理 Token。
+- 7 天过期。
+- 过期后禁止下载。
+- 定时清理。
+- 无 Cron 手动清理。
+- WebDAV 删除失败重试。
+
+## 注册用户上传
+
+- 长期保存。
+- 配额。
+- 超限拒绝。
+- 用户隔离。
+- 删除。
+- 版本管理。
+
+## Pack Format
+
+- 整数格式。
+- 小数格式。
+- `pack_format`。
+- `min_format`。
+- `max_format`。
+- `supported_formats`。
+- 正式版优先推荐。
+- Snapshot 回退。
+- 无法识别时不猜测。
+- Sitemap 排除详情页。
+- 同步失败保护。
+- 数据回滚。
+
+## 数据库
+
+必须分别运行：
+
+- MySQL 5.7。
+- MySQL 8.0。
+
+测试：
+
+- Migration。
+- 外键。
+- 唯一索引。
+- 复合索引。
+- 索引长度。
+- 事务。
+- 并发配额。
+- 数据库迁移回滚。
+
+必须专门验证：
+
+```text
+mcpf_versions_format_type_index
+```
+
+不能再出现 74 字符的自动索引名。
+
+## 下载
+
+- GET。
+- HEAD。
+- Range。
+- 断点续传。
+- Token 失效。
+- 游客过期。
+- 注册用户长期保存。
+- 本地存储。
+- S3。
+- WebDAV。
+- 下载统计。
+
+---
+
+# 十七、部署发行包
+
+必须生成：
+
+```text
+release/
+├── next-respack-shared-hosting.zip
+├── next-respack-vps.zip
+├── next-respack-checksums.txt
+└── deployment/
+    ├── nginx.conf
+    ├── apache.conf
+    ├── cron.example
+    ├── backup.sh
+    └── restore.sh
+```
+
+虚拟主机发行包必须包含：
+
+- 完整 `vendor/`。
+- 已构建的前端静态资源。
+- 安装向导。
+- 本地存储驱动。
+- WebDAV 驱动。
+- S3 驱动。
+- 数据库迁移。
+- 完整安装说明。
+
+不得要求虚拟主机用户执行 Composer 或 Node.js 命令。
+
+VPS 发行包应提供：
+
+- CLI 安装。
+- CLI 更新。
+- Scheduler。
+- Cron。
+- Nginx 配置。
+- Apache 配置。
+- 备份和恢复。
+
+文档：
+
+- README.md
+- INSTALL.md
+- 虚拟主机安装指南
+- VPS 安装指南
+- MySQL 5.7 兼容说明
+- WebDAV 配置指南
+- S3 配置指南
+- 本地存储指南
+- 存储迁移指南
+- 游客上传说明
+- Pack Format 同步说明
+- 备份恢复指南
+- 升级指南
+- 安全配置指南
+- 故障排查指南
+
+---
+
+# 十八、开发阶段
+
+## Phase 1：基础架构
+
+- Laravel 13。
+- PHP 8.3。
+- MySQL 5.7 兼容设计。
+- 数据库结构。
+- 显式索引命名。
+- Storage Interface。
+
+## Phase 2：首次安装向导
+
+- 环境检测。
+- 数据库选择。
+- 本地存储配置。
+- S3 配置。
+- WebDAV 配置。
+- 站点设置。
+- 管理员创建。
+- 安装锁定。
+
+## Phase 3：用户系统
+
+- 注册。
+- 登录。
+- 权限。
+- 管理员。
+
+## Phase 4：游客上传
+
+- 游客上传。
+- 200 MB 限制。
+- 管理 Token。
+- 7 天过期。
+- 清理任务。
+- 过期下载拦截。
+
+## Phase 5：注册用户上传
+
+- ZIP 校验。
+- SHA-1。
+- 配额。
+- 资源包管理。
+- 版本预留。
+
+## Phase 6：Pack Format
+
+- Wiki 数据采集。
+- 完整历史数据。
+- 自动同步。
+- 推荐版本算法。
+- 查询页面。
+- Sitemap 排除。
+
+## Phase 7：下载系统
+
+- Token。
+- 匿名下载。
+- GET / HEAD / Range。
+- 本地 / S3 / WebDAV 下载。
+- 下载统计。
+
+## Phase 8：用户前端
+
+- 仪表盘。
+- 上传。
+- 资源包列表。
+- 详情。
+- 配置生成器。
+
+## Phase 9：管理员后台
+
+- 用户。
+- 资源包。
+- 游客文件。
+- 存储。
+- Pack Format。
+- 系统配置。
+- 审计日志。
+
+## Phase 10：测试与部署
+
+- MySQL 5.7。
+- MySQL 8.0。
+- 虚拟主机。
+- VPS。
+- 本地存储。
+- S3。
+- WebDAV。
+- 完整发行包。
+
+---
+
+# 十九、最终验收清单
+
+- [ ] PHP 8.3 运行正常。
+- [ ] MySQL 5.7 运行正常。
+- [ ] MySQL 8.0 运行正常。
+- [ ] 首次访问自动进入安装器。
+- [ ] 安装器可以选择数据库。
+- [ ] 安装器可以选择本地存储。
+- [ ] 安装器可以选择 S3。
+- [ ] 安装器可以选择 WebDAV。
+- [ ] WebDAV 连接、上传、读取、删除测试通过。
+- [ ] 第一个管理员可以创建。
+- [ ] 安装后安装器锁定。
+- [ ] 普通用户可以注册登录。
+- [ ] 游客可以直接上传。
+- [ ] 游客单文件限制 200 MB。
+- [ ] 游客文件 7 天后失效并清理。
+- [ ] 注册用户文件默认长期保存。
+- [ ] 游客可以安全管理自己的上传。
+- [ ] 上传 ZIP 自动校验。
+- [ ] SHA-1 正确。
+- [ ] 匿名 HTTPS 下载正常。
+- [ ] GET、HEAD、Range 正常。
+- [ ] Minecraft 服务端配置生成正常。
+- [ ] Pack Format 完整同步。
+- [ ] 推荐版本正式版优先。
+- [ ] 显示具体建议版本号。
+- [ ] Pack Format 详情页不进入 Sitemap。
+- [ ] 所有索引名称不超过 64 字符。
+- [ ] 指定索引 `mcpf_versions_format_type_index` 正常创建。
+- [ ] 虚拟主机无 SSH 部署成功。
+- [ ] VPS 部署成功。
+- [ ] 存储迁移校验正常。
+- [ ] 备份和恢复测试通过。
+
+---
+
+# 二十、执行规则
+
+1. 必须实际开发项目，不能只输出代码片段。
+2. 不得将功能留为 TODO。
+3. 不得使用假上传、假下载和模拟 SHA-1。
+4. 不得虚构 Pack Format 数据。
+5. 不得混淆 Resource Pack Format 与 Data Pack Format。
+6. 不得自动生成超过 64 字符的索引名称。
+7. 所有 Migration 必须兼容 MySQL 5.7。
+8. 游客上传必须严格限制 200 MB 和 7 天。
+9. 游客上传和注册用户上传必须使用不同的生命周期策略。
+10. WebDAV 必须在安装向导中可以选择和配置。
+11. 不得假设虚拟主机有 SSH、Composer、Cron 或 Root 权限。
+12. 不得将私有 ZIP 直接暴露在网站公开目录。
+13. 存储迁移必须校验文件内容。
+14. 同步失败不得覆盖有效数据。
+15. Sitemap 必须排除 Pack Format 详情页面。
+16. 不得在没有测试的情况下宣称兼容。
+17. 每个 Phase 完成后运行相关测试并提供结果。
+18. 遇到环境限制必须提供可用的降级方案。
+
+# 最终任务
+
+现在开始从 Phase 1 开发 Next Respack。
+
+优先完成：
+
+1. 数据库结构和 MySQL 5.7 兼容性。
+2. 全项目索引名称审计。
+3. Storage Interface 和 Local / S3 / WebDAV 三种驱动。
+4. 首次访问安装向导。
+5. 游客上传生命周期和权限体系。
+
+先确保项目可以在 PHP 8.3 + MySQL 5.7 的普通虚拟主机中完成首次安装，再逐步实现其他功能。
+
+最终交付一个可以通过 FTP/SFTP 上传、浏览器初始化安装、直接运行的虚拟主机发行包，以及功能完整的 VPS 发行包。
+
+**最终用户操作流程：上传发行包 → 访问域名 → 选择数据库 → 选择存储后端（本地 / S3 / WebDAV）→ 填写站点配置 → 创建第一个管理员 → 完成安装。**
+
+游客无需注册即可上传不超过 200 MB 的资源包，文件保留 7 天；注册用户上传的资源包默认长期保存。

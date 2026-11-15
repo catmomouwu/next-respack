@@ -19,6 +19,10 @@ class DownloadController extends Controller
 
         $pack = $version->pack;
 
+        if ($pack && $pack->isExpired()) {
+            abort(410, __('This guest upload has expired and was deleted.'));
+        }
+
         if (! $pack || ! $version->download_enabled || $pack->status !== \App\Models\ResourcePack::STATUS_ACTIVE) {
             abort(403, __('This download link is disabled.'));
         }

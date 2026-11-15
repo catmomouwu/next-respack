@@ -103,6 +103,22 @@ class DownloadTest extends TestCase
             'status_code' => 206,
             'is_range' => true,
         ]);
+
+        // A partial response must not be counted as a complete download.
+        $this->assertSame(0, $this->version->fresh()->downloads_count);
+    }
+
+    public function test_range_requests_do_not_inflate_the_complete_download_counter(): void
+    {
+        $this->get('/dl/'.$this->token, ['Range' => 'bytes=0-3'])->assertStatus(206);
+        $this->get('/dl/'.$this->token, ['Range' => 'bytes=4-7'])->assertStatus(206);
+
+        $this->assertSame(0, $this->version->fresh()->downloads_count);
+        $this->assertSame(2, $this->version->downloads()->where('is_range', true)->count());
+
+        $this->get('/dl/'.$this->token)->assertOk();
+
+        $this->assertSame(1, $this->version->fresh()->downloads_count);
     }
 
     public function test_unsatisfiable_range_returns_416(): void

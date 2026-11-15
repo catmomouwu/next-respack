@@ -42,6 +42,9 @@ return [
     */
     'max_upload_mb' => 512,
     'default_quota_mb' => 2048,
+    'guest_upload_mb' => 200,
+    'guest_retention_days' => 7,
+    'guest_global_quota_mb' => 10240,
     'max_zip_entries' => 10000,
     'max_uncompressed_bytes' => 2 * 1024 * 1024 * 1024,
     'max_compression_ratio' => 1000,

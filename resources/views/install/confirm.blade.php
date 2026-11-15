@@ -57,6 +57,9 @@
                 <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Language') }}</dt><dd>{{ ($si['locale'] ?? 'zh_CN') === 'zh_CN' ? '简体中文' : 'English' }}</dd></div>
                 <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Max upload') }}</dt><dd>{{ $si['max_upload_mb'] ?? '' }} MB</dd></div>
                 <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Registration') }}</dt><dd>{{ ! empty($si['allow_registration']) ? __('Open') : __('Closed') }}</dd></div>
+                <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Guest uploads') }}</dt><dd>{{ ($si['guest_uploads_enabled'] ?? true) ? __('Enabled') : __('Disabled') }}</dd></div>
+                <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Guest limits') }}</dt><dd>{{ $si['guest_upload_mb'] ?? 200 }} MB · {{ $si['guest_retention_days'] ?? 7 }} {{ __('days') }}</dd></div>
+                <div class="flex justify-between gap-3"><dt class="text-slate-500 dark:text-slate-400">{{ __('Notification email') }}</dt><dd class="break-all text-right font-mono text-xs">{{ $si['admin_notification_email'] ?: ($admin['email'] ?? '') }}</dd></div>
             </dl>
         </div>
 

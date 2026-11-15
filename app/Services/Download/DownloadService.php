@@ -82,7 +82,7 @@ class DownloadService
             $headers['Content-Length'] = (string) $length;
         }
 
-        $this->record($request, $version, $status, $rangeHeader, $length, $range !== null);
+        $this->record($request, $version, $status, $rangeHeader, $length, $range !== null, $status === 200 && $range === null);
 
         if ($status === 206 && $isHead) {
             return response('', 206, $headers);
@@ -239,14 +239,19 @@ class DownloadService
         return false;
     }
 
-    private function record(Request $request, ResourcePackVersion $version, int $status, string $rangeHeader, int $bytes, bool $isRange): void
+    private function record(Request $request, ResourcePackVersion $version, int $status, string $rangeHeader, int $bytes, bool $isRange, bool $countAsCompleteDownload): void
     {
         if ($request->isMethod('HEAD')) {
             return;
         }
 
-        DB::transaction(function () use ($request, $version, $status, $rangeHeader, $bytes, $isRange) {
-            $version->increment('downloads_count');
+        DB::transaction(function () use ($request, $version, $status, $rangeHeader, $bytes, $isRange, $countAsCompleteDownload) {
+            // Only a complete GET 200 is a full download. Range/partial
+            // responses are still logged for statistics but must not inflate
+            // the public download counter.
+            if ($countAsCompleteDownload) {
+                $version->increment('downloads_count');
+            }
 
             DownloadLog::create([
                 'resource_pack_id' => $version->resource_pack_id,

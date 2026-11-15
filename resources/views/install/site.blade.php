@@ -51,6 +51,26 @@
                 <label class="nr-label" for="registration_quota_mb">{{ __('Quota for new registrations (MB)') }}</label>
                 <input class="nr-input" id="registration_quota_mb" name="registration_quota_mb" type="number" min="64" max="10240" value="{{ old('registration_quota_mb', $data['registration_quota_mb'] ?? 1024) }}" required>
             </div>
+            <div>
+                <label class="nr-label" for="guest_upload_mb">{{ __('Guest max upload (MB)') }}</label>
+                <input class="nr-input" id="guest_upload_mb" name="guest_upload_mb" type="number" min="1" max="200" value="{{ old('guest_upload_mb', $data['guest_upload_mb'] ?? 200) }}">
+                <p class="nr-help">{{ __('Guests can never upload more than 200 MB per file.') }}</p>
+            </div>
+            <div>
+                <label class="nr-label" for="guest_retention_days">{{ __('Guest retention (days)') }}</label>
+                <input class="nr-input" id="guest_retention_days" name="guest_retention_days" type="number" min="1" max="30" value="{{ old('guest_retention_days', $data['guest_retention_days'] ?? 7) }}">
+                <p class="nr-help">{{ __('Guest files are deleted automatically after this period. The default is 7 days.') }}</p>
+            </div>
+            <div>
+                <label class="nr-label" for="guest_global_quota_mb">{{ __('Site-wide guest quota (MB)') }}</label>
+                <input class="nr-input" id="guest_global_quota_mb" name="guest_global_quota_mb" type="number" min="0" value="{{ old('guest_global_quota_mb', $data['guest_global_quota_mb'] ?? 10240) }}">
+                <p class="nr-help">{{ __('0 means unlimited.') }}</p>
+            </div>
+            <div>
+                <label class="nr-label" for="admin_notification_email">{{ __('Administrator notification email') }}</label>
+                <input class="nr-input" id="admin_notification_email" name="admin_notification_email" type="email" value="{{ old('admin_notification_email', $data['admin_notification_email'] ?? '') }}" placeholder="admin@example.com">
+                <p class="nr-help">{{ __('Receives platform notifications such as cleanup failures. Defaults to the administrator email.') }}</p>
+            </div>
         </div>
 
         <div class="mt-6 grid gap-3 sm:grid-cols-2">
@@ -59,6 +79,14 @@
                 <span>
                     <span class="block text-sm font-semibold text-slate-800 dark:text-slate-200">{{ __('Allow public registration') }}</span>
                     <span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{{ __('Disable to make the site invitation-only.') }}</span>
+                </span>
+            </label>
+            <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 p-4 dark:border-slate-700">
+                <input type="hidden" name="guest_uploads_enabled" value="0">
+                <input type="checkbox" name="guest_uploads_enabled" value="1" class="mt-0.5 rounded text-emerald-600" @checked(old('guest_uploads_enabled', $data['guest_uploads_enabled'] ?? true))>
+                <span>
+                    <span class="block text-sm font-semibold text-slate-800 dark:text-slate-200">{{ __('Allow guest uploads') }}</span>
+                    <span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">{{ __('Temporary: max 200 MB per file, deleted after the retention period. Registered accounts keep files permanently.') }}</span>
                 </span>
             </label>
             <label class="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 p-4 dark:border-slate-700">

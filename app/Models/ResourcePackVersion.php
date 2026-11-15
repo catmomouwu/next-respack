@@ -51,6 +51,40 @@ class ResourcePackVersion extends Model
         return $this->original_filename;
     }
 
+    /**
+     * Pick a single recommended Minecraft version from the detected candidates.
+     * Official releases win; pre-releases and snapshots are only a fallback.
+     *
+     * @return array{version_name:string, version_type:string}|null
+     */
+    public function suggestedVersion(): ?array
+    {
+        $candidates = is_array($this->detected_versions) ? $this->detected_versions : [];
+
+        $candidates = array_values(array_filter($candidates, fn ($entry) => is_array($entry)
+            && ! empty($entry['version_name'])));
+
+        foreach (['release', 'prerelease', 'release_candidate', 'snapshot'] as $type) {
+            foreach ($candidates as $entry) {
+                if ((string) ($entry['version_type'] ?? '') === $type) {
+                    return [
+                        'version_name' => (string) $entry['version_name'],
+                        'version_type' => $type,
+                    ];
+                }
+            }
+        }
+
+        if ($candidates !== []) {
+            return [
+                'version_name' => (string) $candidates[0]['version_name'],
+                'version_type' => (string) ($candidates[0]['version_type'] ?? 'unknown'),
+            ];
+        }
+
+        return null;
+    }
+
     public function formatLabel(): string
     {
         if ($this->format_value) {

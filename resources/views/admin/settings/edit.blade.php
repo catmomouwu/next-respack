@@ -66,6 +66,39 @@
         </div>
 
         <div class="nr-card mt-4 p-5">
+            <p class="nr-section-title">{{ __('Guest uploads') }}</p>
+            <div class="mt-4 grid gap-4 sm:grid-cols-3">
+                <div>
+                    <label class="nr-label" for="guest_upload_mb">{{ __('Guest max upload (MB)') }}</label>
+                    <input class="nr-input" id="guest_upload_mb" name="guest_upload_mb" type="number" min="1" max="200" value="{{ old('guest_upload_mb', $settings['guest_upload_mb']) }}">
+                    <p class="nr-help">{{ __('The platform never accepts guest uploads larger than 200 MB.') }}</p>
+                </div>
+                <div>
+                    <label class="nr-label" for="guest_retention_days">{{ __('Guest retention (days)') }}</label>
+                    <input class="nr-input" id="guest_retention_days" name="guest_retention_days" type="number" min="1" max="30" value="{{ old('guest_retention_days', $settings['guest_retention_days']) }}">
+                    <p class="nr-help">{{ __('Default: 7 days. Expired guest uploads can no longer be downloaded, even before cleanup runs.') }}</p>
+                </div>
+                <div>
+                    <label class="nr-label" for="guest_global_quota_mb">{{ __('Site-wide guest quota (MB)') }}</label>
+                    <input class="nr-input" id="guest_global_quota_mb" name="guest_global_quota_mb" type="number" min="0" value="{{ old('guest_global_quota_mb', $settings['guest_global_quota_mb']) }}">
+                    <p class="nr-help">{{ __('0 means unlimited. New guest uploads are rejected once this quota is reached.') }}</p>
+                </div>
+            </div>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+                <label class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+                    <input type="hidden" name="guest_uploads_enabled" value="0">
+                    <input type="checkbox" name="guest_uploads_enabled" value="1" class="mt-0.5 rounded text-emerald-600" @checked(old('guest_uploads_enabled', $settings['guest_uploads_enabled']))>
+                    <span>{{ __('Allow guest uploads without an account') }}</span>
+                </label>
+                <label class="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-300">
+                    <input type="hidden" name="guest_captcha_enabled" value="0">
+                    <input type="checkbox" name="guest_captcha_enabled" value="1" class="mt-0.5 rounded text-emerald-600" @checked(old('guest_captcha_enabled', $settings['guest_captcha_enabled']))>
+                    <span>{{ __('Require a captcha for guest uploads') }}</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="nr-card mt-4 p-5">
             <p class="nr-section-title">{{ __('Downloads') }}</p>
             <div class="mt-4 grid gap-4 sm:grid-cols-2">
                 <div>

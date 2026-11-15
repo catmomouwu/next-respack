@@ -199,6 +199,11 @@ class InstallerController extends Controller
             'max_upload_mb' => (int) config('nextrespack.max_upload_mb', 512),
             'default_quota_mb' => (int) config('nextrespack.default_quota_mb', 2048),
             'registration_quota_mb' => 1024,
+            'guest_uploads_enabled' => true,
+            'guest_upload_mb' => (int) config('nextrespack.guest_upload_mb', 200),
+            'guest_retention_days' => (int) config('nextrespack.guest_retention_days', 7),
+            'guest_global_quota_mb' => (int) config('nextrespack.guest_global_quota_mb', 10240),
+            'admin_notification_email' => '',
         ]);
 
         return view('install.site', ['data' => $data, 'locales' => SetLocale::SUPPORTED]);
@@ -219,6 +224,10 @@ class InstallerController extends Controller
             'max_upload_mb' => ['required', 'integer', 'min:1', 'max:1024'],
             'default_quota_mb' => ['required', 'integer', 'min:64', 'max:10240'],
             'registration_quota_mb' => ['required', 'integer', 'min:64', 'max:10240'],
+            'guest_upload_mb' => ['nullable', 'integer', 'min:1', 'max:200'],
+            'guest_retention_days' => ['nullable', 'integer', 'min:1', 'max:30'],
+            'guest_global_quota_mb' => ['nullable', 'integer', 'min:0', 'max:1048576'],
+            'admin_notification_email' => ['nullable', 'email', 'max:191'],
             'allow_registration' => ['nullable', 'boolean'],
             'email_verification' => ['nullable', 'boolean'],
         ]);
@@ -234,6 +243,13 @@ class InstallerController extends Controller
         $data['url'] = $url;
         $data['allow_registration'] = (bool) ($data['allow_registration'] ?? false);
         $data['email_verification'] = (bool) ($data['email_verification'] ?? false);
+        $data['guest_uploads_enabled'] = $request->has('guest_uploads_enabled')
+            ? $request->boolean('guest_uploads_enabled')
+            : true;
+        $data['guest_upload_mb'] = min(200, max(1, (int) ($data['guest_upload_mb'] ?? config('nextrespack.guest_upload_mb', 200))));
+        $data['guest_retention_days'] = max(1, (int) ($data['guest_retention_days'] ?? config('nextrespack.guest_retention_days', 7)));
+        $data['guest_global_quota_mb'] = max(0, (int) ($data['guest_global_quota_mb'] ?? config('nextrespack.guest_global_quota_mb', 10240)));
+        $data['admin_notification_email'] = (string) ($data['admin_notification_email'] ?? '');
         unset($data['_token']);
 
         $request->session()->put(self::SESSION_KEY.'.site', $data);

@@ -37,6 +37,7 @@
                         ['route' => 'admin.dashboard', 'label' => __('Overview'), 'pattern' => 'admin.dashboard'],
                         ['route' => 'admin.users.index', 'label' => __('Users'), 'pattern' => 'admin.users.*'],
                         ['route' => 'admin.packs.index', 'label' => __('Resource packs'), 'pattern' => 'admin.packs.*'],
+                        ['route' => 'admin.guests.index', 'label' => __('Guest uploads'), 'pattern' => 'admin.guests.*'],
                         ['route' => 'admin.pack-formats.index', 'label' => __('Pack format data'), 'pattern' => 'admin.pack-formats.*'],
                         ['route' => 'admin.settings.edit', 'label' => __('Settings'), 'pattern' => 'admin.settings.*'],
                         ['route' => 'admin.logs.index', 'label' => __('Audit & download logs'), 'pattern' => 'admin.logs.*'],

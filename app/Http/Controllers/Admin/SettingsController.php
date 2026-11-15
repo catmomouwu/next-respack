@@ -25,6 +25,11 @@ class SettingsController extends Controller
             'max_upload_mb' => nr_setting_int('max_upload_mb', (int) config('nextrespack.max_upload_mb', 512)),
             'default_quota_mb' => nr_setting_int('default_quota_mb', (int) config('nextrespack.default_quota_mb', 2048)),
             'registration_quota_mb' => nr_setting_int('registration_quota_mb', 1024),
+            'guest_uploads_enabled' => nr_setting_bool('guest_uploads_enabled', true),
+            'guest_captcha_enabled' => nr_setting_bool('guest_captcha_enabled', true),
+            'guest_upload_mb' => min(200, max(1, nr_setting_int('guest_upload_mb', (int) config('nextrespack.guest_upload_mb', 200)))),
+            'guest_retention_days' => max(1, nr_setting_int('guest_retention_days', (int) config('nextrespack.guest_retention_days', 7))),
+            'guest_global_quota_mb' => max(0, nr_setting_int('guest_global_quota_mb', (int) config('nextrespack.guest_global_quota_mb', 10240))),
             'download_mode' => nr_setting('download_mode', 'php'),
             'x_accel_prefix' => nr_setting('x_accel_prefix', '/_protected/respack'),
             'download_ip_logging' => nr_setting_bool('download_ip_logging', true),
@@ -55,6 +60,9 @@ class SettingsController extends Controller
             'max_upload_mb' => ['required', 'integer', 'min:1', 'max:1024'],
             'default_quota_mb' => ['required', 'integer', 'min:64', 'max:1048576'],
             'registration_quota_mb' => ['required', 'integer', 'min:64', 'max:1048576'],
+            'guest_upload_mb' => ['nullable', 'integer', 'min:1', 'max:200'],
+            'guest_retention_days' => ['nullable', 'integer', 'min:1', 'max:30'],
+            'guest_global_quota_mb' => ['nullable', 'integer', 'min:0', 'max:1048576'],
             'download_mode' => ['required', 'in:php,x-accel'],
             'x_accel_prefix' => ['nullable', 'string', 'max:191', 'regex:#^/#'],
             'mail_host' => ['nullable', 'string', 'max:191'],
@@ -100,6 +108,18 @@ class SettingsController extends Controller
         SystemSetting::set('email_verification', $request->boolean('email_verification'), 'registration', 'bool');
         SystemSetting::set('download_ip_logging', $request->boolean('download_ip_logging'), 'downloads', 'bool');
         SystemSetting::set('pack_format_auto_sync', $request->boolean('pack_format_auto_sync'), 'minecraft', 'bool');
+
+        SystemSetting::set('guest_upload_mb', min(200, max(1, (int) ($data['guest_upload_mb'] ?? nr_setting_int('guest_upload_mb', (int) config('nextrespack.guest_upload_mb', 200))))), 'guest', 'int');
+        SystemSetting::set('guest_retention_days', max(1, (int) ($data['guest_retention_days'] ?? nr_setting_int('guest_retention_days', (int) config('nextrespack.guest_retention_days', 7)))), 'guest', 'int');
+        SystemSetting::set('guest_global_quota_mb', max(0, (int) ($data['guest_global_quota_mb'] ?? nr_setting_int('guest_global_quota_mb', (int) config('nextrespack.guest_global_quota_mb', 10240)))), 'guest', 'int');
+
+        if ($request->has('guest_uploads_enabled')) {
+            SystemSetting::set('guest_uploads_enabled', $request->boolean('guest_uploads_enabled'), 'guest', 'bool');
+        }
+
+        if ($request->has('guest_captcha_enabled')) {
+            SystemSetting::set('guest_captcha_enabled', $request->boolean('guest_captcha_enabled'), 'guest', 'bool');
+        }
         SystemSetting::set('mail_port', (int) ($data['mail_port'] ?? 587), 'mail', 'int');
         SystemSetting::set('mail_encryption', ($data['mail_encryption'] ?? 'none') === 'none' ? '' : ($data['mail_encryption'] ?? ''), 'mail');
 

@@ -115,7 +115,9 @@ class UploadService
         try {
             $adapter->putStream($path, $stream);
         } finally {
-            fclose($stream);
+            if (is_resource($stream)) {
+                fclose($stream);
+            }
         }
 
         try {

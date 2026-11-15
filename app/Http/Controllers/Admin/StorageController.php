@@ -26,6 +26,7 @@ class StorageController extends Controller
             'bytes' => (int) ResourcePackVersion::query()->sum('file_size'),
             'local_bytes' => (int) ResourcePackVersion::query()->where('storage_driver', 'local')->sum('file_size'),
             's3_bytes' => (int) ResourcePackVersion::query()->where('storage_driver', 's3')->sum('file_size'),
+            'webdav_bytes' => (int) ResourcePackVersion::query()->where('storage_driver', 'webdav')->sum('file_size'),
         ];
 
         $localFree = null;
@@ -47,6 +48,14 @@ class StorageController extends Controller
             's3_path_style' => nr_setting_bool('s3_path_style', true),
             's3_prefix' => nr_setting('s3_prefix', ''),
             'secret_set' => nr_setting('s3_secret_key', '') !== '',
+            'webdav_url' => nr_setting('webdav_url', ''),
+            'webdav_username' => nr_setting('webdav_username', ''),
+            'webdav_prefix' => nr_setting('webdav_prefix', ''),
+            'webdav_root' => nr_setting('webdav_root', ''),
+            'webdav_verify_ssl' => nr_setting_bool('webdav_verify_ssl', true),
+            'webdav_connect_timeout' => nr_setting_int('webdav_connect_timeout', 15),
+            'webdav_timeout' => nr_setting_int('webdav_timeout', 120),
+            'webdav_password_set' => nr_setting('webdav_password', '') !== '',
         ];
 
         return view('admin.storage.index', compact('driver', 'usage', 'localFree', 'migrations', 'settings'));
@@ -71,6 +80,22 @@ class StorageController extends Controller
             if ($config['secret_key'] === '' && nr_setting('s3_secret_key', '') !== '') {
                 $config['secret_key'] = $storage->decryptSecret(nr_setting('s3_secret_key', ''));
             }
+        } elseif ($driver === 'webdav') {
+            $config = [
+                'driver' => 'webdav',
+                'url' => (string) $request->input('webdav_url', ''),
+                'username' => (string) $request->input('webdav_username', ''),
+                'password' => (string) $request->input('webdav_password', ''),
+                'prefix' => (string) $request->input('webdav_prefix', ''),
+                'root' => (string) $request->input('webdav_root', ''),
+                'verify_ssl' => (bool) $request->input('webdav_verify_ssl', true),
+                'connect_timeout' => (int) $request->input('webdav_connect_timeout', 15),
+                'timeout' => (int) $request->input('webdav_timeout', 120),
+            ];
+
+            if ($config['password'] === '' && nr_setting('webdav_password', '') !== '') {
+                $config['password'] = $storage->decryptSecret(nr_setting('webdav_password', ''));
+            }
         } else {
             $config = ['driver' => 'local', 'path' => (string) $request->input('local_path', $storage->localPath())];
         }
@@ -83,7 +108,7 @@ class StorageController extends Controller
     public function plan(Request $request, StorageManager $storage, AuditLogger $audit): RedirectResponse
     {
         $data = $request->validate([
-            'target_driver' => ['required', 'in:local,s3'],
+            'target_driver' => ['required', 'in:local,s3,webdav'],
             'local_path' => ['nullable', 'string', 'max:255'],
             's3_endpoint' => ['nullable', 'url', 'max:191'],
             's3_region' => ['nullable', 'string', 'max:64'],
@@ -91,6 +116,14 @@ class StorageController extends Controller
             's3_access_key' => ['nullable', 'string', 'max:191'],
             's3_secret_key' => ['nullable', 'string', 'max:191'],
             's3_prefix' => ['nullable', 'string', 'max:191'],
+            'webdav_url' => ['nullable', 'url', 'max:191'],
+            'webdav_username' => ['nullable', 'string', 'max:191'],
+            'webdav_password' => ['nullable', 'string', 'max:191'],
+            'webdav_prefix' => ['nullable', 'string', 'max:191'],
+            'webdav_root' => ['nullable', 'string', 'max:191'],
+            'webdav_verify_ssl' => ['nullable', 'boolean'],
+            'webdav_connect_timeout' => ['nullable', 'integer', 'min:1', 'max:120'],
+            'webdav_timeout' => ['nullable', 'integer', 'min:1', 'max:600'],
         ]);
 
         $target = $data['target_driver'];
@@ -98,6 +131,10 @@ class StorageController extends Controller
 
         if ($target === 's3' && empty($data['s3_bucket'])) {
             return back()->withErrors(['s3_bucket' => __('An S3 bucket is required.')]);
+        }
+
+        if ($target === 'webdav' && empty($data['webdav_url'])) {
+            return back()->withErrors(['webdav_url' => __('A WebDAV URL is required.')]);
         }
 
         if ($this->targetIsActive($target, $config, $storage)) {
@@ -108,6 +145,10 @@ class StorageController extends Controller
             $config['secret_key'] = $storage->decryptSecret(nr_setting('s3_secret_key', ''));
         }
 
+        if ($target === 'webdav' && empty($data['webdav_password']) && nr_setting('webdav_password', '') !== '') {
+            $config['password'] = $storage->decryptSecret(nr_setting('webdav_password', ''));
+        }
+
         $result = $storage->test($target, $config);
         if (! $result['ok']) {
             return back()->withInput()->withErrors(['storage' => implode(' ', $result['errors'])]);
@@ -116,6 +157,9 @@ class StorageController extends Controller
         $stats = $config;
         if (isset($stats['secret_key'])) {
             $stats['secret_key'] = $storage->encryptSecret((string) $stats['secret_key']);
+        }
+        if (isset($stats['password'])) {
+            $stats['password'] = $storage->encryptSecret((string) $stats['password']);
         }
         $stats['files'] = ResourcePackVersion::query()->count();
         $stats['bytes'] = (int) ResourcePackVersion::query()->sum('file_size');
@@ -142,6 +186,9 @@ class StorageController extends Controller
         $config = $stats;
         if (isset($config['secret_key'])) {
             $config['secret_key'] = $storage->decryptSecret((string) $config['secret_key']);
+        }
+        if (isset($config['password'])) {
+            $config['password'] = $storage->decryptSecret((string) $config['password']);
         }
 
         if ($this->targetIsActive($migration->to_driver, $config, $storage)) {
@@ -275,6 +322,20 @@ class StorageController extends Controller
             ];
         }
 
+        if ($data['target_driver'] === 'webdav') {
+            return [
+                'driver' => 'webdav',
+                'url' => $data['webdav_url'] ?? '',
+                'username' => $data['webdav_username'] ?? '',
+                'password' => $data['webdav_password'] ?? '',
+                'prefix' => $data['webdav_prefix'] ?? '',
+                'root' => $data['webdav_root'] ?? '',
+                'verify_ssl' => (bool) ($data['webdav_verify_ssl'] ?? true),
+                'connect_timeout' => (int) ($data['webdav_connect_timeout'] ?? 15),
+                'timeout' => (int) ($data['webdav_timeout'] ?? 120),
+            ];
+        }
+
         return ['driver' => 'local', 'path' => $data['local_path'] ?: config('nextrespack.storage_root')];
     }
 
@@ -294,6 +355,12 @@ class StorageController extends Controller
             return false;
         }
 
+        if ($driver === 'webdav') {
+            return rtrim((string) ($config['url'] ?? ''), '/') === rtrim((string) nr_setting('webdav_url', ''), '/')
+                && (string) ($config['prefix'] ?? '') === (string) nr_setting('webdav_prefix', '')
+                && (string) ($config['root'] ?? '') === (string) nr_setting('webdav_root', '');
+        }
+
         return (string) ($config['bucket'] ?? '') === (string) nr_setting('s3_bucket', '')
             && (string) ($config['prefix'] ?? '') === (string) nr_setting('s3_prefix', '')
             && (string) ($config['endpoint'] ?? '') === (string) nr_setting('s3_endpoint', '');
@@ -311,6 +378,15 @@ class StorageController extends Controller
             SystemSetting::set('s3_secret_key', $stats['secret_key'] ?? '', 'storage');
             SystemSetting::set('s3_path_style', ! empty($stats['path_style']), 'storage', 'bool');
             SystemSetting::set('s3_prefix', $stats['prefix'] ?? '', 'storage');
+        } elseif ($stats['driver'] === 'webdav') {
+            SystemSetting::set('webdav_url', $stats['url'] ?? '', 'storage');
+            SystemSetting::set('webdav_username', $stats['username'] ?? '', 'storage');
+            SystemSetting::set('webdav_password', $stats['password'] ?? '', 'storage');
+            SystemSetting::set('webdav_prefix', $stats['prefix'] ?? '', 'storage');
+            SystemSetting::set('webdav_root', $stats['root'] ?? '', 'storage');
+            SystemSetting::set('webdav_verify_ssl', ! empty($stats['verify_ssl']), 'storage', 'bool');
+            SystemSetting::set('webdav_connect_timeout', max(1, (int) ($stats['connect_timeout'] ?? 15)), 'storage', 'int');
+            SystemSetting::set('webdav_timeout', max(1, (int) ($stats['timeout'] ?? 120)), 'storage', 'int');
         } else {
             SystemSetting::set('storage_local_path', $stats['path'] ?? config('nextrespack.storage_root'), 'storage');
         }

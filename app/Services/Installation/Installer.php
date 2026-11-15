@@ -192,7 +192,7 @@ class Installer
             }
         }
 
-        if (! in_array($storage['driver'] ?? 'local', ['local', 's3'], true)) {
+        if (! in_array($storage['driver'] ?? 'local', ['local', 's3', 'webdav'], true)) {
             throw new RuntimeException(__('Choose a supported storage backend.'));
         }
 
@@ -201,6 +201,18 @@ class Installer
                 if (trim((string) ($storage[$field] ?? '')) === '') {
                     throw new RuntimeException(__('The object storage field ":field" is required.', ['field' => $field]));
                 }
+            }
+        }
+
+        if (($storage['driver'] ?? 'local') === 'webdav') {
+            foreach (['webdav_url', 'webdav_username'] as $field) {
+                if (trim((string) ($storage[$field] ?? '')) === '') {
+                    throw new RuntimeException(__('The WebDAV field ":field" is required.', ['field' => $field]));
+                }
+            }
+
+            if (! preg_match('#^https?://#i', (string) $storage['webdav_url'])) {
+                throw new RuntimeException(__('The WebDAV URL must start with http:// or https://.'));
             }
         }
 
@@ -377,6 +389,17 @@ class Installer
             SystemSetting::set('s3_prefix', $storage['prefix'] ?? '', 'storage');
         }
 
+        if ($storage['driver'] === 'webdav') {
+            SystemSetting::set('webdav_url', $storage['webdav_url'] ?? '', 'storage');
+            SystemSetting::set('webdav_username', $storage['webdav_username'] ?? '', 'storage');
+            SystemSetting::set('webdav_password', $this->storage->encryptSecret($storage['webdav_password'] ?? ''), 'storage');
+            SystemSetting::set('webdav_prefix', $storage['webdav_prefix'] ?? '', 'storage');
+            SystemSetting::set('webdav_root', $storage['webdav_root'] ?? '', 'storage');
+            SystemSetting::set('webdav_verify_ssl', ! isset($storage['webdav_verify_ssl']) || ! empty($storage['webdav_verify_ssl']), 'storage', 'bool');
+            SystemSetting::set('webdav_connect_timeout', max(1, (int) ($storage['webdav_connect_timeout'] ?? 15)), 'storage', 'int');
+            SystemSetting::set('webdav_timeout', max(1, (int) ($storage['webdav_timeout'] ?? 120)), 'storage', 'int');
+        }
+
         SystemSetting::forgetCache();
     }
 
@@ -396,7 +419,7 @@ class Installer
             return;
         }
 
-        $result = $this->storage->adapter('s3', $this->storageTestConfig($storage))->test();
+        $result = $this->storage->test($storage['driver'], $this->storageTestConfig($storage));
         if (! $result['ok']) {
             throw new RuntimeException(implode(' ', $result['errors']));
         }
@@ -424,6 +447,20 @@ class Installer
                 'secret_key' => $storage['secret_key'] ?? '',
                 'path_style' => ! empty($storage['path_style']),
                 'prefix' => $storage['prefix'] ?? '',
+            ];
+        }
+
+        if (($storage['driver'] ?? 'local') === 'webdav') {
+            return [
+                'driver' => 'webdav',
+                'url' => $storage['webdav_url'] ?? '',
+                'username' => $storage['webdav_username'] ?? '',
+                'password' => $storage['webdav_password'] ?? '',
+                'prefix' => $storage['webdav_prefix'] ?? '',
+                'root' => $storage['webdav_root'] ?? '',
+                'verify_ssl' => ! isset($storage['webdav_verify_ssl']) || ! empty($storage['webdav_verify_ssl']),
+                'connect_timeout' => max(1, (int) ($storage['webdav_connect_timeout'] ?? 15)),
+                'timeout' => max(1, (int) ($storage['webdav_timeout'] ?? 120)),
             ];
         }
 

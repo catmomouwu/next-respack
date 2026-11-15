@@ -12,7 +12,7 @@ class StorageManager
     {
         $driver = (string) nr_setting('storage_driver', env('STORAGE_DRIVER', 'local'));
 
-        return in_array($driver, ['local', 's3'], true) ? $driver : 'local';
+        return in_array($driver, ['local', 's3', 'webdav'], true) ? $driver : 'local';
     }
 
     public function localPath(): string
@@ -37,6 +37,20 @@ class StorageManager
             ];
         }
 
+        if ($driver === 'webdav') {
+            return [
+                'driver' => 'webdav',
+                'url' => nr_setting('webdav_url', ''),
+                'username' => nr_setting('webdav_username', ''),
+                'password' => $this->decryptSecret(nr_setting('webdav_password', '')),
+                'prefix' => nr_setting('webdav_prefix', ''),
+                'root' => nr_setting('webdav_root', ''),
+                'verify_ssl' => nr_setting_bool('webdav_verify_ssl', true),
+                'connect_timeout' => nr_setting_int('webdav_connect_timeout', 15),
+                'timeout' => nr_setting_int('webdav_timeout', 120),
+            ];
+        }
+
         return ['driver' => 'local', 'path' => $this->localPath()];
     }
 
@@ -49,6 +63,10 @@ class StorageManager
             return $this->makeS3($config);
         }
 
+        if ($driver === 'webdav') {
+            return $this->makeWebDav($config);
+        }
+
         return new LocalStorageAdapter($this->resolveLocalPath($config['path'] ?? $this->localPath()));
     }
 
@@ -59,6 +77,14 @@ class StorageManager
                 return $this->makeS3($config)->test();
             } catch (\Throwable $e) {
                 return ['ok' => false, 'errors' => [__('Object storage configuration is invalid: :message', ['message' => $e->getMessage()])], 'warnings' => []];
+            }
+        }
+
+        if ($driver === 'webdav') {
+            try {
+                return $this->makeWebDav($config)->test();
+            } catch (\Throwable $e) {
+                return ['ok' => false, 'errors' => [__('WebDAV configuration is invalid: :message', ['message' => $e->getMessage()])], 'warnings' => []];
             }
         }
 
@@ -89,6 +115,30 @@ class StorageManager
         $client = new S3Client($s3config);
 
         return new S3StorageAdapter($client, $bucket, (string) ($config['prefix'] ?? ''));
+    }
+
+    public function makeWebDav(array $config): WebDavStorageAdapter
+    {
+        $url = trim((string) ($config['url'] ?? ''));
+
+        if ($url === '') {
+            throw new RuntimeException('A WebDAV URL is required.');
+        }
+
+        if (! preg_match('#^https?://#i', $url)) {
+            throw new RuntimeException('The WebDAV URL must start with http:// or https://.');
+        }
+
+        return new WebDavStorageAdapter(
+            baseUrl: $url,
+            username: (string) ($config['username'] ?? ''),
+            password: (string) ($config['password'] ?? ''),
+            prefix: (string) ($config['prefix'] ?? ''),
+            verifySsl: (bool) ($config['verify_ssl'] ?? true),
+            timeout: max(1, (int) ($config['timeout'] ?? 120)),
+            connectTimeout: max(1, (int) ($config['connect_timeout'] ?? 15)),
+            root: (string) ($config['root'] ?? ''),
+        );
     }
 
     public function encryptSecret(string $value): string

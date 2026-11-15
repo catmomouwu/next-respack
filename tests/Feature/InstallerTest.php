@@ -5,7 +5,9 @@ namespace Tests\Feature;
 use App\Enums\UserRole;
 use App\Models\Installation;
 use App\Models\User;
+use App\Services\Storage\StorageManager;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
 /**
@@ -154,5 +156,127 @@ class InstallerTest extends TestCase
 
         $this->post('/install/site', array_merge($payload, ['url' => 'https://respack.example.com']))
             ->assertRedirect('/install/admin');
+    }
+
+    public function test_storage_step_supports_webdav_and_masks_the_password_on_confirmation(): void
+    {
+        $this->fakeWebDav();
+
+        $this->get('/install/requirements')->assertOk();
+        $this->post('/install/requirements')->assertRedirect('/install/database');
+        $this->post('/install/database', ['driver' => 'sqlite', 'sqlite_path' => $this->sqlitePath])
+            ->assertRedirect('/install/storage');
+
+        $this->get('/install/storage')
+            ->assertOk()
+            ->assertSee('WebDAV')
+            ->assertSee('webdav_url');
+
+        $webdav = [
+            'driver' => 'webdav',
+            'webdav_url' => 'https://dav.example.com/files/user',
+            'webdav_username' => 'alice',
+            'webdav_password' => 'top-secret',
+            'webdav_prefix' => 'next-respack',
+            'webdav_root' => '',
+            'webdav_verify_ssl' => '1',
+            'webdav_connect_timeout' => 10,
+            'webdav_timeout' => 60,
+        ];
+
+        $this->postJson('/install/storage/test', $webdav)
+            ->assertOk()
+            ->assertJsonPath('ok', true);
+
+        $this->post('/install/storage', $webdav)->assertRedirect('/install/site');
+
+        $this->post('/install/site', [
+            'name' => 'Test Respack',
+            'description' => 'Installer test site',
+            'url' => 'http://localhost',
+            'locale' => 'zh_CN',
+            'timezone' => 'Asia/Shanghai',
+            'max_upload_mb' => 128,
+            'default_quota_mb' => 1024,
+            'registration_quota_mb' => 512,
+        ])->assertRedirect('/install/admin');
+
+        $this->post('/install/admin', [
+            'username' => 'owner',
+            'email' => 'owner@example.com',
+            'password' => 'InstallerPassword123',
+            'password_confirmation' => 'InstallerPassword123',
+        ])->assertRedirect('/install/confirm');
+
+        $this->get('/install/confirm')
+            ->assertOk()
+            ->assertSee('WebDAV')
+            ->assertSee('https://dav.example.com/files/user')
+            ->assertDontSee('top-secret');
+    }
+
+    private function fakeWebDav(): void
+    {
+        Http::fake(function ($request) {
+            return match ($request->method()) {
+                'GET' => Http::response('next-respack', 200),
+                'HEAD' => Http::response('', 200, ['Content-Length' => '12']),
+                'DELETE' => Http::response('', 204),
+                default => Http::response('', 201),
+            };
+        });
+    }
+
+    public function test_wizard_completes_with_the_webdav_backend_and_stores_the_password_encrypted(): void
+    {
+        $this->fakeWebDav();
+
+        $this->get('/install/requirements');
+        $this->post('/install/requirements')->assertRedirect('/install/database');
+        $this->post('/install/database', ['driver' => 'sqlite', 'sqlite_path' => $this->sqlitePath])
+            ->assertRedirect('/install/storage');
+
+        $this->post('/install/storage', [
+            'driver' => 'webdav',
+            'webdav_url' => 'https://dav.example.com/files/user',
+            'webdav_username' => 'alice',
+            'webdav_password' => 'top-secret',
+            'webdav_prefix' => 'next-respack',
+            'webdav_verify_ssl' => '1',
+            'webdav_connect_timeout' => 10,
+            'webdav_timeout' => 60,
+        ])->assertRedirect('/install/site');
+
+        $this->post('/install/site', [
+            'name' => 'WebDAV Respack',
+            'url' => 'http://localhost',
+            'locale' => 'zh_CN',
+            'timezone' => 'Asia/Shanghai',
+            'max_upload_mb' => 128,
+            'default_quota_mb' => 1024,
+            'registration_quota_mb' => 512,
+        ])->assertRedirect('/install/admin');
+
+        $this->post('/install/admin', [
+            'username' => 'owner',
+            'email' => 'owner@example.com',
+            'password' => 'InstallerPassword123',
+            'password_confirmation' => 'InstallerPassword123',
+        ])->assertRedirect('/install/confirm');
+
+        $this->post('/install/run')->assertOk();
+
+        $pdo = new \PDO('sqlite:'.$this->sqlitePath, null, null, [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
+
+        $driver = $pdo->query("SELECT value FROM system_settings WHERE key = 'storage_driver'")->fetchColumn();
+        $this->assertSame('webdav', $driver);
+
+        $encrypted = $pdo->query("SELECT value FROM system_settings WHERE key = 'webdav_password'")->fetchColumn();
+        $this->assertNotSame('top-secret', $encrypted);
+        $this->assertSame('top-secret', app(StorageManager::class)->decryptSecret($encrypted));
+
+        $this->assertSame('https://dav.example.com/files/user', $pdo->query("SELECT value FROM system_settings WHERE key = 'webdav_url'")->fetchColumn());
+        $this->assertSame('10', $pdo->query("SELECT value FROM system_settings WHERE key = 'webdav_connect_timeout'")->fetchColumn());
+        $this->assertSame('60', $pdo->query("SELECT value FROM system_settings WHERE key = 'webdav_timeout'")->fetchColumn());
     }
 }

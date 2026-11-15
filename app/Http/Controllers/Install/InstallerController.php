@@ -132,6 +132,14 @@ class InstallerController extends Controller
             'secret_key' => '',
             'path_style' => true,
             'prefix' => '',
+            'webdav_url' => '',
+            'webdav_username' => '',
+            'webdav_password' => '',
+            'webdav_prefix' => '',
+            'webdav_root' => '',
+            'webdav_verify_ssl' => true,
+            'webdav_connect_timeout' => 15,
+            'webdav_timeout' => 120,
         ]);
 
         return view('install.storage', ['data' => $data]);
@@ -149,7 +157,8 @@ class InstallerController extends Controller
             return response()->json(['ok' => false, 'errors' => $validator->errors()->all()], 422);
         }
 
-        $result = $storage->test((string) $request->input('driver', 'local'), $this->storagePayload($request));
+        $payload = $this->storagePayload($request);
+        $result = $storage->test($payload['driver'], $this->storageAdapterConfig($payload));
 
         return response()->json($result, $result['ok'] ? 200 : 422);
     }
@@ -162,7 +171,7 @@ class InstallerController extends Controller
 
         $request->validate($this->storageRules($request));
         $payload = $this->storagePayload($request);
-        $result = $storage->test($payload['driver'], $payload);
+        $result = $storage->test($payload['driver'], $this->storageAdapterConfig($payload));
 
         if (! $result['ok']) {
             return back()->withInput()->withErrors(['storage' => implode(' ', $result['errors'])]);
@@ -381,6 +390,20 @@ class InstallerController extends Controller
             ];
         }
 
+        if ($request->input('driver') === 'webdav') {
+            return [
+                'driver' => ['required', 'in:webdav'],
+                'webdav_url' => ['required', 'url', 'max:191'],
+                'webdav_username' => ['required', 'string', 'max:191'],
+                'webdav_password' => ['nullable', 'string', 'max:191'],
+                'webdav_prefix' => ['nullable', 'string', 'max:191'],
+                'webdav_root' => ['nullable', 'string', 'max:191'],
+                'webdav_verify_ssl' => ['nullable', 'boolean'],
+                'webdav_connect_timeout' => ['nullable', 'integer', 'min:1', 'max:120'],
+                'webdav_timeout' => ['nullable', 'integer', 'min:1', 'max:600'],
+            ];
+        }
+
         return [
             'driver' => ['required', 'in:local'],
             'local_path' => ['required', 'string', 'max:255'],
@@ -391,9 +414,14 @@ class InstallerController extends Controller
     {
         $saved = (array) $request->session()->get(self::SESSION_KEY.'.storage', []);
         $secret = (string) $request->input('secret_key', '');
+        $webdavPassword = (string) $request->input('webdav_password', '');
 
         if ($secret === '' && ! empty($saved['secret_key'])) {
             $secret = (string) $saved['secret_key'];
+        }
+
+        if ($webdavPassword === '' && ! empty($saved['webdav_password'])) {
+            $webdavPassword = (string) $saved['webdav_password'];
         }
 
         return [
@@ -406,6 +434,33 @@ class InstallerController extends Controller
             'secret_key' => $secret,
             'path_style' => (bool) $request->input('path_style', true),
             'prefix' => (string) $request->input('prefix', ''),
+            'webdav_url' => (string) $request->input('webdav_url', ''),
+            'webdav_username' => (string) $request->input('webdav_username', ''),
+            'webdav_password' => $webdavPassword,
+            'webdav_prefix' => (string) $request->input('webdav_prefix', ''),
+            'webdav_root' => (string) $request->input('webdav_root', ''),
+            'webdav_verify_ssl' => (bool) $request->input('webdav_verify_ssl', true),
+            'webdav_connect_timeout' => (int) $request->input('webdav_connect_timeout', 15),
+            'webdav_timeout' => (int) $request->input('webdav_timeout', 120),
+        ];
+    }
+
+    private function storageAdapterConfig(array $payload): array
+    {
+        if (($payload['driver'] ?? 'local') !== 'webdav') {
+            return $payload;
+        }
+
+        return [
+            'driver' => 'webdav',
+            'url' => $payload['webdav_url'] ?? '',
+            'username' => $payload['webdav_username'] ?? '',
+            'password' => $payload['webdav_password'] ?? '',
+            'prefix' => $payload['webdav_prefix'] ?? '',
+            'root' => $payload['webdav_root'] ?? '',
+            'verify_ssl' => ! empty($payload['webdav_verify_ssl']),
+            'connect_timeout' => (int) ($payload['webdav_connect_timeout'] ?? 15),
+            'timeout' => (int) ($payload['webdav_timeout'] ?? 120),
         ];
     }
 }

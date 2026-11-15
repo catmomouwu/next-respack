@@ -34,10 +34,14 @@ class Installer
 
     /**
      * @return array{admin_email:string, admin_username:string, url:string, version:string}
+     *
+     * When $force is true an existing installation may be re-initialized. Data is
+     * preserved: the administrator is matched by e-mail, settings are updated in
+     * place and the installation record is reused instead of duplicated.
      */
-    public function install(array $input): array
+    public function install(array $input, bool $force = false): array
     {
-        if ($this->installed()) {
+        if (! $force && $this->installed()) {
             throw new RuntimeException(__('Next Respack is already installed. The installer has been disabled.'));
         }
 
@@ -52,7 +56,7 @@ class Installer
         }
 
         try {
-            if ($this->installed()) {
+            if (! $force && $this->installed()) {
                 throw new RuntimeException(__('Next Respack is already installed.'));
             }
 
@@ -122,16 +126,23 @@ class Installer
 
             $this->state->saveState(['status' => 'running', 'step' => 'finalize', 'message' => null]);
 
-            Installation::create([
+            $installation = $force ? Installation::query()->latest('id')->first() : null;
+
+            $attributes = [
                 'version' => (string) config('nextrespack.version'),
-                'installed_at' => now(),
                 'admin_user_id' => $adminUser->id,
                 'meta' => [
                     'database_driver' => $db['driver'],
                     'storage_driver' => $storage['driver'],
                     'locale' => $site['locale'] ?? 'zh_CN',
                 ],
-            ]);
+            ];
+
+            if ($installation) {
+                $installation->fill($attributes)->save();
+            } else {
+                Installation::create($attributes + ['installed_at' => now()]);
+            }
 
             $this->env->write($this->envValues($db, $site, $key, true));
             $this->state->writeLock([

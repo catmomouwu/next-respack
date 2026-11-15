@@ -50,6 +50,7 @@ php artisan test
 
 - 共享主机：[docs/INSTALL-SHARED-HOSTING.md](docs/INSTALL-SHARED-HOSTING.md)
 - VPS（Nginx / Apache）：[docs/DEPLOY-VPS.md](docs/DEPLOY-VPS.md)
+- VPS 支持 CLI 安装与更新：`php artisan nr:install` / `php artisan nr:update`（示例见 VPS 部署文档）
 - 配置说明：[docs/CONFIGURATION.md](docs/CONFIGURATION.md)
 - 升级：[docs/UPGRADE.md](docs/UPGRADE.md)
 - 备份与恢复：[docs/BACKUP-RESTORE.md](docs/BACKUP-RESTORE.md)

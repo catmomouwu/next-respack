@@ -128,17 +128,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-3 grid gap-2 text-xs sm:grid-cols-3">
-                        <div class="rounded-lg border border-slate-200 px-3 py-2 dark:border-slate-800">
-                            <span class="text-slate-400">{{ __('Pack format') }}</span>
-                            <p class="font-mono font-semibold text-slate-700 dark:text-slate-300">{{ $version->formatLabel() }}</p>
-                        </div>
-                        <div class="rounded-lg border border-slate-200 px-3 py-2 dark:border-slate-800 sm:col-span-2">
-                            <span class="text-slate-400">{{ __('Detected versions') }}</span>
-                            <p class="mt-0.5 text-slate-700 dark:text-slate-300">
-                                {{ is_array($version->detected_versions) && count($version->detected_versions) ? implode(', ', array_map(fn ($item) => is_array($item) ? ($item['version_name'] ?? '') : $item, $version->detected_versions)) : __('No matching Minecraft version in the current dataset') }}
-                            </p>
-                        </div>
+                    <div class="mt-3 rounded-lg border border-slate-200 px-3 py-2 dark:border-slate-800">
+                        @include('components.recommended-version', ['version' => $version])
                     </div>
 
                     @if (! empty($details['errors']) || ! empty($details['warnings']))

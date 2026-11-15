@@ -58,11 +58,9 @@
                 <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">{{ __('This guest upload has no downloadable version.') }}</p>
             @endif
 
-            @if ($suggestedVersion)
-                <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">{{ __('Suggested version: :version', ['version' => $suggestedVersion['version_name']]) }}</p>
-            @else
-                <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">{{ __('Unable to determine a suggested version.') }}</p>
-            @endif
+            <div class="mt-3 rounded-lg border border-slate-200 px-3 py-2 dark:border-slate-800">
+                @include('components.recommended-version', ['version' => $version])
+            </div>
         </div>
 
         <div class="nr-card mt-4 p-5">

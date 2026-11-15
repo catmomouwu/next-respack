@@ -4,7 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="{{ $description ?? nr_setting('site_description', __('Next Respack is a self-hosted Minecraft Java Edition resource pack hosting platform.')) }}">
+    @php
+        $metaTitle = trim($__env->yieldContent('title')) ?: config('app.name');
+        $metaDescription = trim($__env->yieldContent('description')) ?: ($description ?? nr_setting('site_description', __('Next Respack is a self-hosted Minecraft Java Edition resource pack hosting platform.')));
+        $metaCanonical = trim($__env->yieldContent('canonical')) ?: url()->current();
+    @endphp
+    <meta name="description" content="{{ $metaDescription }}">
+    <link rel="canonical" href="{{ $metaCanonical }}">
+    <meta property="og:site_name" content="{{ config('app.name') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $metaTitle }} — {{ config('app.name') }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:url" content="{{ $metaCanonical }}">
+    <meta name="twitter:card" content="summary">
     <title>@yield('title', config('app.name')) — {{ config('app.name') }}</title>
     <script>
         (function () {

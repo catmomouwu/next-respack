@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', __('Guest upload'))
+@section('description', __('Upload a resource pack without registering an account. Guest uploads are temporary and are deleted automatically after the retention period.'))
+@section('canonical', route('guest.upload'))
 @section('content')
     @php
         $phpMaxMb = min(

@@ -109,6 +109,7 @@ class PackFormatParser
         $pending = [];
         $records = [];
         $seen = [];
+        $headers = [];
 
         foreach ($table->getElementsByTagName('tr') as $tr) {
             $cells = [];
@@ -163,6 +164,9 @@ class PackFormatParser
             $formatValue = $cells[1] ?? '';
 
             if ($clientVersion === '' || strtolower($clientVersion) === 'client version') {
+                if (strtolower($clientVersion) === 'client version') {
+                    $headers = array_map(fn ($header) => strtolower($header), $cells);
+                }
                 continue;
             }
 
@@ -190,6 +194,9 @@ class PackFormatParser
                 'format_major' => $major,
                 'format_minor' => $minor,
                 'format_value' => $minor === null ? (string) $major : $major.'.'.$minor,
+                'min_format' => $headers === [] ? null : $this->normalizeFormatValue($this->cellByHeader($cells, $headers, ['min format', 'minimum format', 'min_format'])),
+                'max_format' => $headers === [] ? null : $this->normalizeFormatValue($this->cellByHeader($cells, $headers, ['max format', 'maximum format', 'max_format'])),
+                'supported_formats' => $headers === [] ? null : $this->normalizeSupportedFormats($this->cellByHeader($cells, $headers, ['supported formats', 'supported_formats'])),
             ];
         }
 
@@ -285,6 +292,9 @@ class PackFormatParser
                 'format_major' => $major,
                 'format_minor' => $minor,
                 'format_value' => $minor === null ? (string) $major : $major.'.'.$minor,
+                'min_format' => $this->normalizeFormatValue($record['min_format'] ?? null),
+                'max_format' => $this->normalizeFormatValue($record['max_format'] ?? null),
+                'supported_formats' => $this->normalizeSupportedFormats($record['supported_formats'] ?? null),
                 'release_date' => $record['release_date'] ?? null,
             ];
         }
@@ -301,5 +311,52 @@ class PackFormatParser
         $text = str_replace(["\xc2\xa0", "\u{00A0}"], ' ', html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
 
         return trim(preg_replace('/\s+/u', ' ', $text) ?? $text);
+    }
+
+    private function normalizeFormatValue(mixed $value): ?string
+    {
+        if (is_int($value) || is_float($value)) {
+            return (string) $value;
+        }
+
+        if (is_string($value) && preg_match('/^\d+(?:\.\d+)?$/', trim($value))) {
+            return trim($value);
+        }
+
+        return null;
+    }
+
+    /** @return array<int, mixed>|null */
+    private function normalizeSupportedFormats(mixed $value): ?array
+    {
+        if (is_array($value)) {
+            return $value;
+        }
+
+        if (is_string($value) && trim($value) !== '') {
+            $decoded = json_decode($value, true);
+
+            return is_array($decoded) ? $decoded : null;
+        }
+
+        return null;
+    }
+
+    /**
+     * @param  array<int, string>  $cells
+     * @param  array<int, string>  $headers
+     * @param  array<int, string>  $aliases
+     */
+    private function cellByHeader(array $cells, array $headers, array $aliases): ?string
+    {
+        foreach ($headers as $index => $header) {
+            if (in_array($header, $aliases, true)) {
+                $value = trim((string) ($cells[$index] ?? ''));
+
+                return $value === '' || $value === '—' || $value === '-' ? null : $value;
+            }
+        }
+
+        return null;
     }
 }

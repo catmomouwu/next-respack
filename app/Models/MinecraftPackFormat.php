@@ -9,6 +9,7 @@ class MinecraftPackFormat extends Model
 {
     protected $fillable = [
         'edition', 'format_key', 'format_major', 'format_minor', 'format_value',
+        'min_format', 'max_format', 'supported_formats',
         'source_url', 'source_updated_at', 'dataset_version', 'is_manual',
     ];
 
@@ -17,6 +18,7 @@ class MinecraftPackFormat extends Model
         return [
             'format_major' => 'integer',
             'format_minor' => 'integer',
+            'supported_formats' => 'array',
             'source_updated_at' => 'datetime',
             'is_manual' => 'boolean',
         ];

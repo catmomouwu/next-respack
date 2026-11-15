@@ -23,6 +23,7 @@
                         <th class="nr-th">{{ __('Pack') }}</th>
                         <th class="nr-th">{{ __('Owner') }}</th>
                         <th class="nr-th">{{ __('Format') }}</th>
+                        <th class="nr-th">{{ __('Recommended version') }}</th>
                         <th class="nr-th">{{ __('Versions') }}</th>
                         <th class="nr-th">{{ __('Size') }}</th>
                         <th class="nr-th">{{ __('Status') }}</th>
@@ -44,6 +45,7 @@
                                 @endif
                             </td>
                             <td class="nr-td font-mono text-xs">{{ $pack->displayFormat() }}</td>
+                            <td class="nr-td text-xs">@include('components.recommended-version', ['version' => $pack->currentVersion, 'compact' => true])</td>
                             <td class="nr-td text-xs">{{ $pack->versions_count }}</td>
                             <td class="nr-td text-xs">{{ nr_bytes((int) $pack->totalSize()) }}</td>
                             <td class="nr-td">
@@ -64,7 +66,7 @@
                             </td>
                         </tr>
                     @empty
-                        <tr><td colspan="7" class="nr-td py-8 text-center text-sm text-slate-500">{{ __('No resource packs found.') }}</td></tr>
+                        <tr><td colspan="8" class="nr-td py-8 text-center text-sm text-slate-500">{{ __('No resource packs found.') }}</td></tr>
                     @endforelse
                 </tbody>
             </table>

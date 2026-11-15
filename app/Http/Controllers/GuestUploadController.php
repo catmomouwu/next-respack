@@ -135,7 +135,6 @@ class GuestUploadController extends Controller
             'managementUrl' => route('guest.manage', ['token' => $managementToken]),
             'serverProperties' => $this->serverProperties($properties, $model),
             'serverPropertiesWarning' => $properties->warning($model),
-            'suggestedVersion' => $version?->suggestedVersion(),
             'retentionDays' => $this->retentionDays(),
         ]);
     }
@@ -153,7 +152,6 @@ class GuestUploadController extends Controller
             'downloadUrl' => $version ? $tokens->url($version) : null,
             'serverProperties' => $this->serverProperties($properties, $pack),
             'serverPropertiesWarning' => $properties->warning($pack),
-            'suggestedVersion' => $version?->suggestedVersion(),
             'remainingSeconds' => $pack->remainingSeconds(),
             'retentionDays' => $this->retentionDays(),
         ]);

@@ -61,15 +61,7 @@
                         <p class="mt-0.5 break-all font-mono text-xs text-slate-600 dark:text-slate-300">{{ $version->sha1 }}</p>
                     </div>
                     <div>
-                        <p class="text-xs text-slate-500 dark:text-slate-400">{{ __('Suggested version') }}</p>
-                        @if ($suggestedVersion)
-                            <p class="mt-0.5 text-sm font-semibold text-slate-700 dark:text-slate-300">
-                                {{ __('Suggested version: :version', ['version' => $suggestedVersion['version_name']]) }}
-                                <span class="ml-1 text-xs font-normal text-slate-400">{{ $suggestedVersion['version_type'] === 'release' ? __('Release') : $suggestedVersion['version_type'] }}</span>
-                            </p>
-                        @else
-                            <p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">{{ __('Unable to determine a suggested version.') }}</p>
-                        @endif
+                        @include('components.recommended-version', ['version' => $version])
                     </div>
                 </div>
             @endif

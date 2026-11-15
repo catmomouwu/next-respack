@@ -7,6 +7,7 @@ use App\Models\ResourcePackVersion;
 use App\Models\User;
 use App\Models\UserQuota;
 use App\Services\Download\DownloadTokenService;
+use App\Services\Minecraft\PackVersionRecommender;
 use App\Services\Storage\StorageManager;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,7 @@ class UploadService
         private readonly QuotaService $quota,
         private readonly GuestQuotaService $guestQuota,
         private readonly DownloadTokenService $tokens,
+        private readonly PackVersionRecommender $recommender,
     ) {
     }
 
@@ -184,6 +186,8 @@ class UploadService
                     $pack->description = $descriptionValue;
                 }
 
+                $recommendation = $this->recommender->recommendForResult($result);
+
                 $version = ResourcePackVersion::create([
                     'public_id' => (string) Str::uuid7(),
                     'resource_pack_id' => $pack->id,
@@ -203,6 +207,8 @@ class UploadService
                     'format_minor' => $result->formatMinor,
                     'format_unknown' => $result->formatUnknown,
                     'detected_versions' => $result->detectedVersions,
+                    'recommended_game_version' => $recommendation['version_name'] ?? null,
+                    'recommended_version_type' => $recommendation['version_type'] ?? null,
                     'pack_mcmeta_raw' => $result->rawMcmeta,
                 ]);
 

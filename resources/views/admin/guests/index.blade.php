@@ -88,6 +88,7 @@
                             <td class="nr-td">
                                 <p class="font-medium text-slate-800 dark:text-slate-200">{{ $pack->name }}</p>
                                 <p class="text-[11px] text-slate-500">{{ $pack->currentVersion?->original_filename }} · {{ $pack->created_at?->format('Y-m-d H:i') }}</p>
+                                <div class="mt-1">@include('components.recommended-version', ['version' => $pack->currentVersion, 'compact' => true])</div>
                             </td>
                             <td class="nr-td text-xs">{{ nr_bytes((int) $pack->totalSize()) }}</td>
                             <td class="nr-td text-xs">

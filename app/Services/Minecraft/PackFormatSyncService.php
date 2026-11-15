@@ -17,8 +17,10 @@ class PackFormatSyncService
 {
     public const EDITION = 'java_resource_pack';
 
-    public function __construct(private readonly PackFormatParser $parser)
-    {
+    public function __construct(
+        private readonly PackFormatParser $parser,
+        private readonly PackVersionRecommender $recommender,
+    ) {
     }
 
     public function syncFromWiki(string $trigger = 'manual'): MinecraftPackFormatSyncLog
@@ -98,16 +100,22 @@ class PackFormatSyncService
                             'format_major' => (int) $record['format_major'],
                             'format_minor' => $record['format_minor'] === null ? null : (int) $record['format_minor'],
                             'format_value' => $record['format_value'],
+                            'min_format' => $record['min_format'] ?? null,
+                            'max_format' => $record['max_format'] ?? null,
+                            'supported_formats' => $record['supported_formats'] ?? null,
                             'source_url' => $sourceUrl,
                             'source_updated_at' => now(),
                             'dataset_version' => $datasetVersion,
                             'is_manual' => false,
                         ])->save();
-                    } elseif (! $format->is_manual && ($format->format_value !== $record['format_value'] || $format->dataset_version !== $datasetVersion)) {
+                    } elseif (! $format->is_manual && $this->formatChanged($format, $record, $datasetVersion)) {
                         $format->fill([
                             'format_major' => (int) $record['format_major'],
                             'format_minor' => $record['format_minor'] === null ? null : (int) $record['format_minor'],
                             'format_value' => $record['format_value'],
+                            'min_format' => $record['min_format'] ?? null,
+                            'max_format' => $record['max_format'] ?? null,
+                            'supported_formats' => $record['supported_formats'] ?? null,
                             'source_url' => $sourceUrl,
                             'source_updated_at' => now(),
                             'dataset_version' => $datasetVersion,
@@ -215,6 +223,7 @@ class PackFormatSyncService
             SystemSetting::set('pack_formats_last_synced_at', now()->toIso8601String(), 'minecraft');
             SystemSetting::set('pack_formats_dataset_version', $datasetVersion, 'minecraft');
 
+            $this->recommender->refreshStoredVersions();
             $this->pruneHistory();
         } catch (Throwable $e) {
             $log->update([
@@ -362,6 +371,9 @@ class PackFormatSyncService
                         'format_major' => (int) $formatData['format_major'],
                         'format_minor' => $formatData['format_minor'] === null ? null : (int) $formatData['format_minor'],
                         'format_value' => $formatData['format_value'],
+                        'min_format' => $formatData['min_format'] ?? null,
+                        'max_format' => $formatData['max_format'] ?? null,
+                        'supported_formats' => $formatData['supported_formats'] ?? null,
                         'source_url' => $formatData['source_url'] ?? null,
                         'source_updated_at' => $formatData['source_updated_at'] ?? null,
                         'dataset_version' => $formatData['dataset_version'] ?? null,
@@ -423,6 +435,9 @@ class PackFormatSyncService
                 'format_major' => $format->format_major,
                 'format_minor' => $format->format_minor,
                 'format_value' => $format->format_value,
+                'min_format' => $format->min_format,
+                'max_format' => $format->max_format,
+                'supported_formats' => $format->supported_formats,
                 'source_url' => $format->source_url,
                 'source_updated_at' => $format->source_updated_at?->toIso8601String(),
                 'dataset_version' => $format->dataset_version,
@@ -492,6 +507,15 @@ class PackFormatSyncService
             'started_at' => now(),
             'finished_at' => now(),
         ]);
+    }
+
+    private function formatChanged(MinecraftPackFormat $format, array $record, ?string $datasetVersion): bool
+    {
+        return $format->format_value !== $record['format_value']
+            || $format->dataset_version !== $datasetVersion
+            || (string) $format->min_format !== (string) ($record['min_format'] ?? null)
+            || (string) $format->max_format !== (string) ($record['max_format'] ?? null)
+            || $format->supported_formats !== ($record['supported_formats'] ?? null);
     }
 
     private function pruneHistory(): void

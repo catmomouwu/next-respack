@@ -15,6 +15,7 @@ class ResourcePackVersion extends Model
         'storage_driver', 'storage_path', 'file_size', 'sha1', 'token_hash', 'token_generation',
         'download_enabled', 'downloads_count', 'validation_status', 'validation_details',
         'format_value', 'format_major', 'format_minor', 'format_unknown', 'detected_versions',
+        'recommended_game_version', 'recommended_version_type',
         'pack_mcmeta_raw',
     ];
 
@@ -52,37 +53,53 @@ class ResourcePackVersion extends Model
     }
 
     /**
-     * Pick a single recommended Minecraft version from the detected candidates.
-     * Official releases win; pre-releases and snapshots are only a fallback.
+     * Pick a single recommended Minecraft version from the persisted
+     * recommendation, falling back to detected candidates for records that
+     * predate the recommender. Official releases win; pre-releases and
+     * snapshots are only a fallback.
      *
-     * @return array{version_name:string, version_type:string}|null
+     * @return array{version_name:string, version_type:string, format_value:?string}|null
      */
     public function suggestedVersion(): ?array
     {
+        if ($this->recommended_game_version !== null && $this->recommended_game_version !== '') {
+            return [
+                'version_name' => (string) $this->recommended_game_version,
+                'version_type' => (string) ($this->recommended_version_type ?: 'unknown'),
+                'format_value' => $this->format_value,
+            ];
+        }
+
         $candidates = is_array($this->detected_versions) ? $this->detected_versions : [];
 
         $candidates = array_values(array_filter($candidates, fn ($entry) => is_array($entry)
             && ! empty($entry['version_name'])));
 
-        foreach (['release', 'prerelease', 'release_candidate', 'snapshot'] as $type) {
+        foreach (['release', 'release_candidate', 'prerelease', 'snapshot', 'experimental'] as $type) {
             foreach ($candidates as $entry) {
                 if ((string) ($entry['version_type'] ?? '') === $type) {
                     return [
                         'version_name' => (string) $entry['version_name'],
                         'version_type' => $type,
+                        'format_value' => $entry['format'] ?? $this->format_value,
                     ];
                 }
             }
         }
 
-        if ($candidates !== []) {
-            return [
-                'version_name' => (string) $candidates[0]['version_name'],
-                'version_type' => (string) ($candidates[0]['version_type'] ?? 'unknown'),
-            ];
-        }
-
         return null;
+    }
+
+    public static function versionTypeLabel(?string $type): string
+    {
+        return match ($type) {
+            'release' => __('Release'),
+            'release_candidate' => __('Release candidate'),
+            'prerelease' => __('Pre-release'),
+            'snapshot' => __('Snapshot'),
+            'experimental' => __('Experimental'),
+            default => __('Unknown'),
+        };
     }
 
     public function formatLabel(): string

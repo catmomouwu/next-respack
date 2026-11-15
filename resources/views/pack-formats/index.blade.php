@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('title', __('Minecraft pack formats'))
+@section('description', __('Search resource pack formats and their Minecraft Java Edition versions. Data is collected from the Minecraft Wiki pack format page and includes releases, snapshots, pre-releases and release candidates.'))
+@section('canonical', route('pack-formats.index'))
 @section('content')
     <div>
         <span class="nr-badge-green">{{ __('Minecraft Java Edition · Resource Pack Format') }}</span>

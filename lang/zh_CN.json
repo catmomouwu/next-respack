@@ -924,5 +924,9 @@
   "temporary uploads without an account": "无需账户的临时上传",
   "unlimited": "不限制",
   "versions": "个版本",
-  "waiting for cleanup": "等待清理"
+  "waiting for cleanup": "等待清理",
+  "Recommended version": "建议使用的版本",
+  "Other compatible versions": "其他兼容版本",
+  "Format compatibility does not guarantee that all textures, models, sounds and other content in the pack are fully compatible.": "格式兼容不代表资源包内全部纹理、模型、声音及其他内容完全兼容。",
+  "Upload a resource pack without registering an account. Guest uploads are temporary and are deleted automatically after the retention period.": "无需注册账户即可上传资源包。游客上传是临时的，将在保留期结束后自动删除。"
 }
